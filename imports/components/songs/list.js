@@ -36,5 +36,5 @@ export default angular.module('songList', [
 ])
   .component('songList', {
     templateUrl: 'imports/components/songs/list.html',
-    controller: [ '$scope', SongListCtrl ]
+    controller: SongListCtrl
   });
