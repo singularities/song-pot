@@ -5,12 +5,16 @@ import { Songs } from '../../api/songs.js';
 import template from './show.html';
 
 class SongShowCtrl {
-  constructor ($scope, $stateParams) {
-    $scope.viewModel(this);
+  constructor ($scope, $stateParams, $reactive) {
+    'ngInject';
+    
+    $reactive(this).attach($scope);
 
     this.helpers({
-      songId () {
-        return $stateParams.id;
+      song () {
+        return Songs.findOne({
+          _id: $stateParams.id
+        });
       }
     });
   }

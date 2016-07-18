@@ -5,11 +5,15 @@ import { Songs } from '../../api/songs.js';
 import template from './list.html';
 
 class SongListCtrl {
-  constructor ($scope) {
+  constructor ($scope, $location) {
+    'ngInject';
+
+    this.$location = $location;
+
     $scope.viewModel(this);
 
     this.helpers({
-      songs() {
+      songs () {
         return Songs.find({}, {
           sort: {
             createdAt: -1
@@ -19,15 +23,12 @@ class SongListCtrl {
     });
   }
 
-  addSong(newSong) {
-    // Insert a task into the collection
-    Songs.insert({
-      title: newSong,
+  create () {
+    var id = Songs.insert({
       createdAt: new Date()
     });
 
-    // Clear form
-    this.newSong = '';
+    this.$location.path('/songs/' + id);
   }
 }
 
