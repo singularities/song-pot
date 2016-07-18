@@ -1,10 +1,3 @@
-<header>
-  <h1>Songs</h1>
-  <form class="new-song" ng-submit="$ctrl.addSong($ctrl.newSong)">
-    <input ng-model="$ctrl.newSong" type="text" name="text" placeholder="Type to add new tasks"/>
-  </form>
-</header>
-
 <ul class="list-group">
   <li class="list-group-item" ng-repeat="song in $ctrl.songs">
     <a ui-sref="songShow({ id: song._id })">
@@ -16,7 +9,7 @@
   </li>
 </ul>
 
-<div class="pull-right">
+<div class="btn-create-song">
   <a ng-click="$ctrl.create()" class="btn btn-primary btn-fab">
     <i class="material-icons mdi mdi-plus"></i>
   </a>

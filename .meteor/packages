@@ -11,7 +11,6 @@ reactive-var            # Reactive variable for tracker
 jquery                  # Helpful client-side library
 tracker                 # Meteor's client-side reactive programming library
 
-standard-minifier-css   # CSS minifier run for production mode
 standard-minifier-js    # JS minifier run for production mode
 es5-shim                # ECMAScript 5 compatibility for older browsers.
 ecmascript              # Enable ECMAScript2015+ syntax in app code
@@ -21,3 +20,5 @@ insecure                # Allow all DB writes from clients (for prototyping)
 fezvrasta:bootstrap-material-design
 urigo:static-templates
 dapearce:material-icons
+seba:minifiers-autoprefixer
+fourseven:scss@=3.8.0_1
