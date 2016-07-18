@@ -37,4 +37,12 @@ export default angular.module('songList', [
   .component('songList', {
     template,
     controller: SongListCtrl
+  })
+  .config(function($stateProvider) {
+    'ngInject';
+    $stateProvider
+      .state('songs', {
+        url: '/songs',
+        template: '<song-list></song-list>'
+      });
   });
