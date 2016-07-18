@@ -1,19 +1,34 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
+import { Songs } from '../../api/songs.js';
+
 import template from './songList.html';
+songs = Songs;
 
 class SongListCtrl {
-  constructor () {
-    this.songs = [
-      {
-        title: 'Muestras de cariño',
-        text: 'Bla bla bla'
-      },
-      {
-        title: 'Olvido',
-        text: 'Te escurres...'
+  constructor ($scope) {
+    $scope.viewModel(this);
+
+    this.helpers({
+      songs() {
+        return Songs.find({}, {
+          sort: {
+            createdAt: -1
+          }
+        });
       }
-    ];
+    });
+  }
+
+  addSong(newSong) {
+    // Insert a task into the collection
+    Songs.insert({
+      title: newSong,
+      createdAt: new Date()
+    });
+
+    // Clear form
+    this.newSong = '';
   }
 }
 
@@ -22,5 +37,5 @@ export default angular.module('songList', [
 ])
   .component('songList', {
     templateUrl: 'imports/components/songs/songList.html',
-    controller: SongListCtrl
+    controller: [ '$scope', SongListCtrl ]
   });

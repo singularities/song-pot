@@ -1,9 +1,16 @@
 <header>
   <h1>Songs</h1>
+  <form class="new-song" ng-submit="$ctrl.addSong($ctrl.newSong)">
+    <input ng-model="$ctrl.newSong" type="text" name="text" placeholder="Type to add new tasks"/>
+  </form>
 </header>
 
-<ul>
-  <li ng-repeat="song in $ctrl.songs">
-    {{ song.title }}
-  </li>
-</ul>
+<div class="list-group">
+  <div class="list-group-item" ng-repeat="song in $ctrl.songs">
+    <h4 class="list-group-item-heading">{{ song.title }}</h4>
+    <div class="list-group-item-text">
+      {{ song.text }}
+    </div>
+
+  </div>
+</div>

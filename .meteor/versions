@@ -23,6 +23,7 @@ ecmascript-runtime@0.2.12
 ejson@1.0.12
 es5-shim@4.5.13
 fastclick@1.0.12
+fezvrasta:bootstrap-material-design@0.5.9
 geojson-utils@1.0.9
 hot-code-push@1.0.4
 html-tools@1.0.10
@@ -59,6 +60,7 @@ spacebars-compiler@1.0.12
 standard-minifier-css@1.0.8
 standard-minifier-js@1.0.8
 tracker@1.0.14
+twbs:bootstrap@3.3.6
 ui@1.0.11
 underscore@1.0.9
 urigo:static-html-compiler@0.1.4
