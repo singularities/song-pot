@@ -1,5 +1,4 @@
 allow-deny@1.0.5
-angular-templates@1.0.5
 autopublish@1.0.7
 autoupdate@1.2.11
 babel-compiler@6.8.4
@@ -64,6 +63,7 @@ twbs:bootstrap@3.3.6
 ui@1.0.11
 underscore@1.0.9
 urigo:static-html-compiler@0.1.4
+urigo:static-templates@0.1.0
 url@1.0.10
 webapp@1.2.10
 webapp-hashing@1.0.9
