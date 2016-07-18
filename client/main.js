@@ -1,6 +1,6 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
-import songList from '../imports/components/songs/songList';
+import songList from '../imports/components/songs/list';
 
 angular.module('songlog', [
   angularMeteor,

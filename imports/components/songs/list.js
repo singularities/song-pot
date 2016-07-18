@@ -2,7 +2,7 @@ import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import { Songs } from '../../api/songs.js';
 
-import template from './songList.html';
+import template from './list.html';
 songs = Songs;
 
 class SongListCtrl {
@@ -36,6 +36,6 @@ export default angular.module('songList', [
   angularMeteor
 ])
   .component('songList', {
-    templateUrl: 'imports/components/songs/songList.html',
+    templateUrl: 'imports/components/songs/list.html',
     controller: [ '$scope', SongListCtrl ]
   });
