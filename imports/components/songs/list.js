@@ -3,7 +3,6 @@ import angularMeteor from 'angular-meteor';
 import { Songs } from '../../api/songs.js';
 
 import template from './list.html';
-songs = Songs;
 
 class SongListCtrl {
   constructor ($scope) {
