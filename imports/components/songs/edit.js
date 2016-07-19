@@ -6,10 +6,12 @@ import template from './edit.html';
 import navTemplate from '../nav/songs-edit.html';
 
 class SongEditCtrl {
-  constructor ($scope, $stateParams, $reactive) {
+  constructor ($scope, $stateParams, $reactive, $state) {
     'ngInject';
 
     $reactive(this).attach($scope);
+
+    this.$state = $state;
 
     this.helpers({
       song () {
@@ -18,6 +20,19 @@ class SongEditCtrl {
         });
       }
     });
+  }
+
+  save () {
+    Songs.update({
+      _id: this.song._id
+    }, {
+      $set: {
+        title: this.song.title,
+        text: this.song.text
+      }
+    });
+
+    this.$state.go('songShow', { id: this.song._id });
   }
 }
 
@@ -36,6 +51,8 @@ export default angular.module('songEdit', [
           template: '<song-edit></song-edit>'
         },
         "nav": {
+          controller: SongEditCtrl,
+          controllerAs: '$ctrl',
           template: navTemplate
         }
       }
