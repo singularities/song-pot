@@ -2,10 +2,10 @@ import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import { Songs } from '../../api/songs.js';
 
-import template from './show.html';
-import navTemplate from '../nav/songs-show.html';
+import template from './edit.html';
+import navTemplate from '../nav/songs-edit.html';
 
-class SongShowCtrl {
+class SongEditCtrl {
   constructor ($scope, $stateParams, $reactive) {
     'ngInject';
 
@@ -21,23 +21,21 @@ class SongShowCtrl {
   }
 }
 
-export default angular.module('songShow', [
+export default angular.module('songEdit', [
   angularMeteor
 ])
-  .component('songShow', {
+  .component('songEdit', {
     template,
-    controller: SongShowCtrl,
+    controller: SongEditCtrl
   })
   .config(function($stateProvider) {
-    $stateProvider.state('songShow', {
-      url: '/songs/:id',
+    $stateProvider.state('songEdit', {
+      url: '/songs/:id/edit',
       views: {
         "": {
-          template: '<song-show></song-show>'
+          template: '<song-edit></song-edit>'
         },
         "nav": {
-          controller: SongShowCtrl,
-          controllerAs: '$ctrl',
           template: navTemplate
         }
       }

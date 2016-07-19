@@ -1,7 +1,7 @@
 <ul class="list-group">
   <li class="list-group-item" ng-repeat="song in $ctrl.songs">
     <a ui-sref="songShow({ id: song._id })">
-      <h4 class="list-group-item-heading">{{ song.title }}</h4>
+      <h4 class="list-group-item-heading">{{ song.title || 'song.title.empty' | translate }}</h4>
       <div class="list-group-item-text">
         {{ song.text }}
       </div>

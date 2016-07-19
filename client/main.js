@@ -2,17 +2,21 @@ import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import angularTranslate from 'angular-translate';
 import angularTranslateStaticFiles from 'angular-translate/dist/angular-translate-loader-static-files/angular-translate-loader-static-files';
+import angularElastic from 'angular-elastic';
 import uiRouter from 'angular-ui-router';
 
 import songList from '../imports/components/songs/list';
 import songShow from '../imports/components/songs/show';
+import songEdit from '../imports/components/songs/edit';
 
 angular.module('songlog', [
   angularMeteor,
   uiRouter,
   angularTranslate,
+  angularElastic,
   songList.name,
-  songShow.name
+  songShow.name,
+  songEdit.name
 ])
   .config(function($locationProvider, $urlRouterProvider) {
     'ngInject';
@@ -31,6 +35,7 @@ angular.module('songlog', [
         'en_*': 'en',
         'es_*': 'es'
       })
+      .useSanitizeValueStrategy('escaped')
       // Do not change order of next two elements
       // https://github.com/angular-translate/angular-translate/issues/920#issuecomment-180550269
       .determinePreferredLanguage()

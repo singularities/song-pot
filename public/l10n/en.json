@@ -1,9 +1,13 @@
 {
   "song": {
+    "edit": {
+      "title": "Edit song"
+    },
     "text": {
       "placeholder": "Song lyrics"
     },
     "title": {
+      "empty": "No title",
       "placeholder": "Title"
     }
   }
