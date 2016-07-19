@@ -21,4 +21,4 @@ fezvrasta:bootstrap-material-design
 urigo:static-templates
 dapearce:material-icons
 seba:minifiers-autoprefixer
-fourseven:scss@=3.8.0_1
+fourseven:scss
