@@ -1,0 +1,10 @@
+{
+  "song": {
+    "text": {
+      "placeholder": "Letra de la canción"
+    },
+    "title": {
+      "placeholder": "Título"
+    }
+  }
+}
