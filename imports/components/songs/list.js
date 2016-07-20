@@ -3,7 +3,6 @@ import angularMeteor from 'angular-meteor';
 import { Songs } from '../../api/songs.js';
 
 import template from './list.html';
-import navTemplate from '../nav/songs-list.html';
 
 class SongListCtrl {
   constructor ($scope, $location) {
@@ -45,13 +44,6 @@ export default angular.module('songList', [
     $stateProvider
       .state('songs', {
         url: '/songs',
-        views: {
-          "": {
-            template: '<song-list></song-list>',
-          },
-          nav: {
-            template: navTemplate
-          }
-        }
+        template: '<song-list></song-list>',
       });
   });

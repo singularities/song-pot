@@ -1,15 +1,28 @@
-<form ng-submit="$ctl.save()">
-  <div class="form-group">
-    <input type="text" class="form-control" ng-model="$ctrl.song.title" placeholder="{{'song.title.placeholder' | translate}}">
-  </div>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-btn">
+      <button ng-click="$ctrl.save()">
+        <i class="mdi mdi-check"></i>
+      </a>
+    </div>
 
-  <div class="form-group">
-    <textarea class="form-control"
-              msd-elastic
-              ng-model="$ctrl.song.text"
-              placeholder="{{'song.text.placeholder' | translate}}">
+    <div class="navbar-el">
+      <span translate>song.edit.title</span>
+    </div>
+  </diV>
+</nav>
+
+<div class="container">
+  <form ng-submit="$ctl.save()">
+    <div class="form-group">
+      <input type="text" class="form-control" ng-model="$ctrl.song.title" placeholder="{{'song.title.placeholder' | translate}}">
+    </div>
+
+    <div class="form-group">
+      <textarea class="form-control"
+                msd-elastic
+                ng-model="$ctrl.song.text"
+                placeholder="{{'song.text.placeholder' | translate}}">
     </textarea>
   </div>
-  <button ng-click="$ctrl.save()"></button>
-
 </form>

@@ -1,13 +1,25 @@
-<ul class="list-group">
-  <li class="list-group-item" ng-repeat="song in $ctrl.songs">
-    <a ui-sref="songShow({ id: song._id })">
-      <h4 class="list-group-item-heading">{{ song.title || 'song.title.empty' | translate }}</h4>
-      <div class="list-group-item-text">
-        {{ song.text }}
-      </div>
-    </a>
-  </li>
-</ul>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand">
+        Quebrantahuesos
+      </a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <ul class="list-group">
+    <li class="list-group-item" ng-repeat="song in $ctrl.songs">
+      <a ui-sref="songShow({ id: song._id })">
+        <h4 class="list-group-item-heading">{{ song.title || 'song.title.empty' | translate }}</h4>
+        <div class="list-group-item-text">
+          {{ song.text }}
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>
 
 <div class="btn-create-song">
   <a ng-click="$ctrl.create()" class="btn btn-primary btn-fab">

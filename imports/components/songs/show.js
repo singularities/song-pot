@@ -3,7 +3,6 @@ import angularMeteor from 'angular-meteor';
 import { Songs } from '../../api/songs.js';
 
 import template from './show.html';
-import navTemplate from '../nav/songs-show.html';
 
 class SongShowCtrl {
   constructor ($scope, $stateParams, $reactive) {
@@ -31,15 +30,6 @@ export default angular.module('songShow', [
   .config(function($stateProvider) {
     $stateProvider.state('songShow', {
       url: '/songs/:id',
-      views: {
-        "": {
-          template: '<song-show></song-show>'
-        },
-        "nav": {
-          controller: SongShowCtrl,
-          controllerAs: '$ctrl',
-          template: navTemplate
-        }
-      }
+      template: '<song-show></song-show>'
     });
   });
