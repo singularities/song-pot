@@ -15,10 +15,10 @@
   <div class="song-text">
     {{ $ctrl.song.text }}
   </div>
+</div>
 
-  <div class="btn-edit-song">
-    <a ui-sref="songEdit({ id: $ctrl.song._id })" class="btn btn-primary btn-fab">
-      <i class="material-icons mdi mdi-pencil"></i>
-    </a>
-  </div>
+<div class="fixed-btn">
+  <a ui-sref="songEdit({ id: $ctrl.song._id })" class="btn btn-primary btn-fab">
+    <i class="material-icons mdi mdi-pencil"></i>
+  </a>
 </div>
