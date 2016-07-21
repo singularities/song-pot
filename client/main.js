@@ -3,6 +3,7 @@ import angularMeteor from 'angular-meteor';
 import angularTranslate from 'angular-translate';
 import angularTranslateStaticFiles from 'angular-translate/dist/angular-translate-loader-static-files/angular-translate-loader-static-files';
 import angularElastic from 'angular-elastic';
+import angularHammer from 'angular-hammer';
 import uiRouter from 'angular-ui-router';
 
 import songList from '../imports/components/songs/list';
@@ -14,6 +15,7 @@ angular.module('songlog', [
   uiRouter,
   angularTranslate,
   angularElastic,
+  angularHammer,
   songList.name,
   songShow.name,
   songEdit.name

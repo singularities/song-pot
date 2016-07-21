@@ -5,10 +5,12 @@ import { Songs } from '../../api/songs.js';
 import template from './show.html';
 
 class SongShowCtrl {
-  constructor ($scope, $stateParams, $reactive) {
+  constructor ($scope, $stateParams, $reactive, $state) {
     'ngInject';
 
     $reactive(this).attach($scope);
+
+    this.$state = $state;
 
     this.helpers({
       song () {
@@ -17,6 +19,36 @@ class SongShowCtrl {
         });
       }
     });
+  }
+
+  prevSong () {
+    var song = Songs.find({
+        createdAt: { $lt: this.song.createdAt }
+      }, {
+        sort: {
+          createdAt: -1
+        },
+        limit: 1
+      }).fetch();
+
+    if (song.length) {
+      this.$state.go('songShow', { id: song[0]._id });
+    }
+  }
+
+  nextSong () {
+    var song = Songs.find({
+        createdAt: { $gt: this.song.createdAt }
+      }, {
+        sort: {
+          createdAt: 1
+        },
+        limit: 1
+      }).fetch();
+
+    if (song.length) {
+      this.$state.go('songShow', { id: song[0]._id });
+    }
   }
 }
 
