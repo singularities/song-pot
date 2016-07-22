@@ -11,7 +11,10 @@
   </div>
 </nav>
 
-<div class="container" hm-swipeleft="$ctrl.nextSong()" hm-swiperight="$ctrl.prevSong()">
+<div class="container"
+     hm-manager-options='{ "touchAction": "pan-y" }'
+     hm-swipeleft="$ctrl.nextSong()"
+     hm-swiperight="$ctrl.prevSong()">
   <div class="song-text">{{ $ctrl.song.text }}</div>
 </div>
 
