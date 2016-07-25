@@ -4,8 +4,8 @@
       "title": "Editar canción"
     },
     "menu": {
-      "delete": "Borrar",
-      "edit": "Editar"
+      "edit": "Editar",
+      "remove": "Borrar"
     },
     "remove": {
       "modal": {
