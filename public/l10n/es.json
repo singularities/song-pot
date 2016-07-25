@@ -3,6 +3,17 @@
     "edit": {
       "title": "Editar canción"
     },
+    "menu": {
+      "delete": "Borrar",
+      "edit": "Editar"
+    },
+    "remove": {
+      "modal": {
+        "cancel": "Cancelar",
+        "do": "Borrar canción",
+        "message": "¿Borrar canción \"{{title}}\"?"
+      }
+    },
     "text": {
       "placeholder": "Letra de la canción"
     },

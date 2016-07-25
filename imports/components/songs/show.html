@@ -1,12 +1,25 @@
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
-    <div class="navbar-btn">
+    <div class="navbar-btn navbar-left">
       <a ui-sref="songs" class="navbar-link">
         <i class="mdi mdi-arrow-left"></i>
       </a>
     </div>
-    <div class="navbar-el">
+    <div class="navbar-el navbar-left">
       {{ $ctrl.song.title }}
+    </div>
+
+    <div class="navbar-btn navbar-right">
+      <div class="dropdown">
+        <a class="dropdown-toggle navbar-link"
+           data-toggle="dropdown">
+           <i class="mdi mdi-dots-vertical"></i>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a ui-sref="songEdit({ id: $ctrl.song._id })" translate>song.menu.edit</a></li>
+          <li><a data-toggle="modal" data-target="#remove-song" translate>song.menu.remove</a></li>
+        </ul>
+      </div>
     </div>
   </div>
 </nav>
@@ -18,8 +31,16 @@
   <div class="song-text">{{ $ctrl.song.text }}</div>
 </div>
 
-<div class="fixed-btn">
-  <a ui-sref="songEdit({ id: $ctrl.song._id })" class="btn btn-primary btn-fab">
-    <i class="material-icons mdi mdi-pencil"></i>
-  </a>
+<div class="modal" id="remove-song">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <p translate translate-value-title="{{ $ctrl.song.title }}">song.remove.modal.message</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" translate>song.remove.modal.cancel</button>
+        <button type="button" class="btn btn-primary" ng-click="$ctrl.remove()" translate>song.remove.modal.do</button>
+      </div>
+    </div>
+  </div>
 </div>

@@ -50,6 +50,14 @@ class SongShowCtrl {
       this.$state.go('songShow', { id: song[0]._id });
     }
   }
+
+  remove () {
+    $('#remove-song').modal('hide');
+
+    Songs.remove(this.song._id);
+
+    this.$state.go('songs');
+  }
 }
 
 export default angular.module('songShow', [
