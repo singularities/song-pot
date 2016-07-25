@@ -9,6 +9,18 @@
     <div class="navbar-el navbar-left">
       <span translate>song.edit.title</span>
     </div>
+
+    <div class="navbar-btn navbar-right">
+      <div class="dropdown">
+        <a class="dropdown-toggle navbar-link"
+           data-toggle="dropdown">
+           <i class="mdi mdi-dots-vertical"></i>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a data-toggle="modal" data-target="#remove-song" translate>song.menu.remove</a></li>
+        </ul>
+      </div>
+    </div>
   </diV>
 </nav>
 
@@ -26,3 +38,17 @@
     </textarea>
   </div>
 </form>
+
+<div class="modal" id="remove-song">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <p translate translate-value-title="{{ $ctrl.song.title }}">song.remove.modal.message</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" translate>song.remove.modal.cancel</button>
+        <button type="button" class="btn btn-primary" ng-click="$ctrl.remove()" translate>song.remove.modal.do</button>
+      </div>
+    </div>
+  </div>
+</div>
