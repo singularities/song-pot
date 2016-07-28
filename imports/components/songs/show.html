@@ -16,6 +16,8 @@
            <i class="mdi mdi-dots-vertical"></i>
         </a>
         <ul class="dropdown-menu">
+          <li><a ng-click="$ctrl.addAudio()"
+                 translate>song.menu.add_audio</a></li>
           <li><a ui-sref="songEdit({ id: $ctrl.song._id })" translate>song.menu.edit</a></li>
         </ul>
       </div>

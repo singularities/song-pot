@@ -1,6 +1,10 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
+import ngFileUpload from 'ng-file-upload';
+import { UploadFS } from 'meteor/jalik:ufs';
+
 import { Songs } from '../../api/songs.js';
+import { Audios, AudiosStore } from '../../api/audios.js';
 
 import template from './show.html';
 
@@ -58,10 +62,36 @@ class SongShowCtrl {
 
     this.$state.go('songs');
   }
+
+  addAudio (files) {
+
+    UploadFS.selectFile((file) => {
+      
+      var audio = {
+        name: file.name,
+        size: file.size,
+        type: file.type,
+        songId: this.song._id
+      };
+
+      var uploader = new UploadFS.Uploader({
+        store: AudiosStore,
+        data: file,
+        file: audio,
+        onError: (error) => { console.log(error); },
+        onComplete: (file) => {
+          console.log('completed');
+        }
+      });
+
+      uploader.start();
+    });
+  }
 }
 
 export default angular.module('songShow', [
-  angularMeteor
+  angularMeteor,
+  ngFileUpload
 ])
   .component('songShow', {
     template,

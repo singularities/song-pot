@@ -4,6 +4,7 @@
       "title": "Edit song"
     },
     "menu": {
+      "add_audio": "Add audio",
       "edit": "Edit",
       "remove": "Remove"
     },

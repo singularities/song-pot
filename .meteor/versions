@@ -9,6 +9,7 @@ blaze@2.1.8
 blaze-tools@1.0.9
 boilerplate-generator@1.0.9
 caching-compiler@1.0.6
+caching-html-compiler@1.0.6
 callback-hook@1.0.9
 check@1.2.3
 dapearce:material-icons@0.1.5
@@ -32,10 +33,13 @@ htmljs@1.0.10
 http@1.1.8
 id-map@1.0.8
 insecure@1.0.7
+jalik:ufs@0.6.2
+jalik:ufs-gridfs@0.1.1
 jquery@1.11.9
 launch-screen@1.0.12
 livedata@1.0.18
 logging@1.1.14
+matb33:collection-hooks@0.7.15
 meteor@1.2.16
 meteor-base@1.0.4
 minifier-css@1.1.13
@@ -60,6 +64,8 @@ seba:minifiers-autoprefixer@1.0.1
 spacebars@1.0.12
 spacebars-compiler@1.0.12
 standard-minifier-js@1.1.8
+templating@1.1.14
+templating-tools@1.0.4
 tracker@1.1.0
 twbs:bootstrap@3.3.6
 ui@1.0.11
