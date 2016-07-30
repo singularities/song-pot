@@ -4,7 +4,7 @@ import ngFileUpload from 'ng-file-upload';
 import { UploadFS } from 'meteor/jalik:ufs';
 
 import { Songs } from '../../api/songs.js';
-import { Audios, AudiosStore } from '../../api/audios.js';
+import { Audios, AudiosStore } from '../../api/audios';
 
 import template from './show.html';
 
@@ -66,7 +66,7 @@ class SongShowCtrl {
   addAudio (files) {
 
     UploadFS.selectFile((file) => {
-      
+
       var audio = {
         name: file.name,
         size: file.size,
@@ -89,16 +89,19 @@ class SongShowCtrl {
   }
 }
 
-export default angular.module('songShow', [
+const name = 'songShow';
+
+export default angular.module(name, [
   angularMeteor,
   ngFileUpload
 ])
-  .component('songShow', {
+  .component(name, {
     template,
     controller: SongShowCtrl,
+    controllerAs: name
   })
   .config(function($stateProvider) {
-    $stateProvider.state('songShow', {
+    $stateProvider.state(name, {
       url: '/songs/:id',
       template: '<song-show></song-show>'
     });

@@ -6,7 +6,7 @@
       </a>
     </div>
     <div class="navbar-el navbar-left">
-      {{ $ctrl.song.title }}
+      {{ songShow.song.title }}
     </div>
 
     <div class="navbar-btn navbar-right">
@@ -16,18 +16,20 @@
            <i class="mdi mdi-dots-vertical"></i>
         </a>
         <ul class="dropdown-menu">
-          <li><a ng-click="$ctrl.addAudio()"
+          <li><a ng-click="songShow.addAudio()"
                  translate>song.menu.add_audio</a></li>
-          <li><a ui-sref="songEdit({ id: $ctrl.song._id })" translate>song.menu.edit</a></li>
+          <li><a ui-sref="songEdit({ id: songShow.song._id })" translate>song.menu.edit</a></li>
         </ul>
       </div>
     </div>
   </div>
 </nav>
 
-<div class="container"
-     hm-manager-options='{ "touchAction": "pan-y" }'
-     hm-swipeleft="$ctrl.nextSong()"
-     hm-swiperight="$ctrl.prevSong()">
-  <div class="song-text">{{ $ctrl.song.text }}</div>
+<div class="container">
+  <div class="song-text"
+       hm-manager-options='{ "touchAction": "pan-y" }'
+       hm-swipeleft="songShow.nextSong()"
+       hm-swiperight="sonwShow.prevSong()">{{ songShow.song.text }}</div>
+
+  <audio-player song="songShow.song"></audio-player>
 </div>

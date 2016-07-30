@@ -9,6 +9,7 @@ import uiRouter from 'angular-ui-router';
 import songList from '../imports/components/songs/list';
 import songShow from '../imports/components/songs/show';
 import songEdit from '../imports/components/songs/edit';
+import audioPlayer from '../imports/components/audios/player';
 
 angular.module('songlog', [
   angularMeteor,
@@ -18,7 +19,8 @@ angular.module('songlog', [
   angularHammer,
   songList.name,
   songShow.name,
-  songEdit.name
+  songEdit.name,
+  audioPlayer.name
 ])
   .config(function($locationProvider, $urlRouterProvider) {
     'ngInject';
