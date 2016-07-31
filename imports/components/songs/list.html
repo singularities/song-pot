@@ -1,25 +1,21 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <a class="navbar-brand">
-        Quebrantahuesos
-      </a>
-    </div>
+<md-toolbar md-scroll-shrink ng-if="true">
+  <div class="md-toolbar-tools">
+    <span>Quebrantahuesos</span>
   </div>
-</nav>
+</md-toolbar>
 
-<div class="container">
-  <ul class="list-group">
-    <li class="list-group-item" ng-repeat="song in $ctrl.songs">
-      <a ui-sref="songShow({ id: song._id })">
-        <h4 class="list-group-item-heading">{{ song.title || 'song.title.empty' | translate }}</h4>
-      </a>
-    </li>
-  </ul>
-</div>
+<md-content flex layout-padding>
+  <md-list flex>
+    <md-list-item ng-repeat="song in songList.songs">
+      <div class="md-list-item-text" ui-sref="songShow({ id: song._id })">
+        <h4>{{ song.title || 'song.title.empty' | translate }}</h4>
+      </div>
+    </md-list-item>
+  </md-list>
+</md-content>
 
-<div class="fixed-btn">
-  <a ng-click="$ctrl.create()" class="btn btn-primary btn-fab">
-    <i class="material-icons mdi mdi-plus"></i>
-  </a>
-</div>
+<md-button class="md-fab md-fab-bottom-right md-fab-fixed"
+           ng-click="songList.create()"
+           aria-label="{{ 'song.list.add' | translate }}">
+  <md-icon md-svg-icon="content:ic_add_24px"></md-icon>
+</md-button>

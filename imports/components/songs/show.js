@@ -55,14 +55,6 @@ class SongShowCtrl {
     }
   }
 
-  remove () {
-    $('#remove-song').modal('hide');
-
-    Songs.remove(this.song._id);
-
-    this.$state.go('songs');
-  }
-
   addAudio (files) {
 
     UploadFS.selectFile((file) => {
@@ -103,6 +95,6 @@ export default angular.module(name, [
   .config(function($stateProvider) {
     $stateProvider.state(name, {
       url: '/songs/:id',
-      template: '<song-show></song-show>'
+      template: '<song-show layout="column"></song-show>'
     });
   });

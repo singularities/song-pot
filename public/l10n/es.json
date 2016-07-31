@@ -1,18 +1,29 @@
 {
   "song": {
     "edit": {
-      "title": "Editar canción"
+      "toolbar": {
+        "menu": "Abrir el menú de editar canción",
+        "remove": "Borrar canción",
+        "save": "Save"
+      },
+      "title": "Editando letra"
     },
-    "menu": {
-      "add_audio": "Añadir audio",
-      "edit": "Editar",
-      "remove": "Borrar"
+    "list": {
+      "add": "Añadir canción"
     },
     "remove": {
-      "modal": {
+      "dialog": {
         "cancel": "Cancelar",
-        "do": "Borrar canción",
+        "confirm": "Borrar canción",
         "message": "¿Borrar canción \"{{title}}\"?"
+      }
+    },
+    "show": {
+      "toolbar": {
+        "add_audio": "Añadir audio",
+        "back": "Volver a la lista de canciones",
+        "edit": "Editar letra",
+        "menu": "Abrir el menú de la canción"
       }
     },
     "text": {

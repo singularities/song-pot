@@ -5,12 +5,14 @@ import { Songs } from '../../api/songs.js';
 import template from './edit.html';
 
 class SongEditCtrl {
-  constructor ($scope, $stateParams, $reactive, $state) {
+  constructor ($scope, $stateParams, $reactive, $state, $mdDialog, $translate) {
     'ngInject';
 
     $reactive(this).attach($scope);
 
     this.$state = $state;
+    this.$mdDialog = $mdDialog;
+    this.$translate = $translate;
 
     this.helpers({
       song () {
@@ -33,18 +35,43 @@ class SongEditCtrl {
 
     this.$state.go('songShow', { id: this.song._id });
   }
+
+  confirmRemove (ev) {
+    var namespace = 'song.remove.dialog.';
+    var translateKeys = [ 'cancel', 'confirm', 'message' ].map((t) => {
+      return namespace + t;
+    });
+
+    this.$translate(translateKeys, { 'title': this.song.title }).then((translations) => {
+
+      var confirm = this.$mdDialog.confirm()
+        .targetEvent(ev)
+        .title(translations[namespace + 'message'])
+        .ok(translations[namespace + 'confirm'])
+        .cancel(translations[namespace + 'cancel']);
+
+      this.$mdDialog.show(confirm).then(() => {
+        Songs.remove(this.song._id);
+
+        this.$state.go('songs');
+      });
+    });
+  }
 }
 
-export default angular.module('songEdit', [
+const name = 'songEdit';
+
+export default angular.module(name, [
   angularMeteor
 ])
-  .component('songEdit', {
+  .component(name, {
     template,
-    controller: SongEditCtrl
+    controller: SongEditCtrl,
+    controllerAs: name
   })
   .config(function($stateProvider) {
-    $stateProvider.state('songEdit', {
+    $stateProvider.state(name, {
       url: '/songs/:id/edit',
-      template: '<song-edit></song-edit>'
+      template: '<song-edit layout="column"></song-edit>'
     });
   });

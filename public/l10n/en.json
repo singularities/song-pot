@@ -1,18 +1,29 @@
 {
   "song": {
     "edit": {
-      "title": "Edit song"
+      "toolbar": {
+        "menu": "Open edit song menu",
+        "remove": "Remove song",
+        "save": "Save"
+      },
+      "title": "Editing lyric"
     },
-    "menu": {
-      "add_audio": "Add audio",
-      "edit": "Edit",
-      "remove": "Remove"
+    "list": {
+      "add": "Add song"
     },
     "remove": {
-      "modal": {
+      "dialog": {
         "cancel": "Cancel",
-        "do": "Remove song",
+        "confirm": "Remove song",
         "message": "Remove song \"{{title}}\"?"
+      }
+    },
+    "show": {
+      "toolbar": {
+        "add_audio": "Add audio",
+        "back": "Back to song list",
+        "edit": "Edit lyric",
+        "menu": "Open show song menu"
       }
     },
     "text": {

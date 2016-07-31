@@ -28,22 +28,25 @@ class SongListCtrl {
       createdAt: new Date()
     });
 
-    this.$location.path('/songs/' + id);
+    this.$location.path('/songs/' + id + '/edit');
   }
 }
 
-export default angular.module('songList', [
+const name = 'songList';
+
+export default angular.module(name, [
   angularMeteor
 ])
-  .component('songList', {
+  .component(name, {
     template,
-    controller: SongListCtrl
+    controller: SongListCtrl,
+    controllerAs: name
   })
   .config(function($stateProvider) {
     'ngInject';
     $stateProvider
       .state('songs', {
         url: '/songs',
-        template: '<song-list></song-list>',
+        template: '<song-list layout="column"></song-list>',
       });
   });

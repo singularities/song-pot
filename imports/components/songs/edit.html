@@ -1,54 +1,38 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-btn navbar-left">
-      <button ng-click="$ctrl.save()">
-        <i class="mdi mdi-check"></i>
-      </a>
-    </div>
-
-    <div class="navbar-el navbar-left">
-      <span translate>song.edit.title</span>
-    </div>
-
-    <div class="navbar-btn navbar-right">
-      <div class="dropdown">
-        <a class="dropdown-toggle navbar-link"
-           data-toggle="dropdown">
-           <i class="mdi mdi-dots-vertical"></i>
-        </a>
-        <ul class="dropdown-menu">
-          <li><a data-toggle="modal" data-target="#remove-song" translate>song.menu.remove</a></li>
-        </ul>
-      </div>
-    </div>
-  </diV>
-</nav>
-
-<div class="container">
-  <form ng-submit="$ctl.save()">
-    <div class="form-group">
-      <input type="text" class="form-control" ng-model="$ctrl.song.title" placeholder="{{'song.title.placeholder' | translate}}">
-    </div>
-
-    <div class="form-group">
-      <textarea class="form-control"
-                msd-elastic
-                ng-model="$ctrl.song.text"
-                placeholder="{{'song.text.placeholder' | translate}}">
-    </textarea>
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <md-button aria-label="{{ 'song.edit.toolbar.save' | translate }}"
+               class="md-icon-button"
+               ng-click="songEdit.save()">
+      <md-icon md-svg-icon="action:ic_done_24px"></md-icon>
+    </md-button>
+    <span translate>song.edit.title</span>
+    <!-- fill up the space between left and right area -->
+    <span flex></span>
+    <md-menu>
+        <md-button aria-label="{{ 'song.edit.toolbar.menu' | translate }}" class="md-icon-button" ng-click="$mdOpenMenu($event)">
+          <md-icon md-menu-origin md-svg-icon="navigation:ic_more_vert_24px"></md-icon>
+        </md-button>
+        <md-menu-content>
+          <md-menu-item>
+            <md-button ng-click="songEdit.confirmRemove($event)">
+              <span translate>song.edit.toolbar.remove</span>
+            </md-button>
+          </md-menu-item>
+        </md-menu-content>
+      </md-menu>
   </div>
-</form>
+</md-toolbar>
+<md-content flex layout-padding>
+  <form ng-submit="songEdit.save()">
+    <md-input-container class="md-block">
+      <label><span translate>song.title.placeholder</span></label>
+      <input ng-model="songEdit.song.title">
+    </md-input-container>
 
-<div class="modal" id="remove-song">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-body">
-        <p translate translate-value-title="{{ $ctrl.song.title }}">song.remove.modal.message</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" translate>song.remove.modal.cancel</button>
-        <button type="button" class="btn btn-primary" ng-click="$ctrl.remove()" translate>song.remove.modal.do</button>
-      </div>
-    </div>
-  </div>
-</div>
+    <md-input-container class="md-block">
+      <label><span translate>song.text.placeholder</span></label>
+      <textarea ng-model="songEdit.song.text"
+                msd-elastic></textarea>
+    </md-input-container>
+  </form>
+</md-content>

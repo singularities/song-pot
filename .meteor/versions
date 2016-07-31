@@ -12,7 +12,6 @@ caching-compiler@1.0.6
 caching-html-compiler@1.0.6
 callback-hook@1.0.9
 check@1.2.3
-dapearce:material-icons@0.1.5
 ddp@1.2.5
 ddp-client@1.2.9
 ddp-common@1.2.6
@@ -24,7 +23,6 @@ ecmascript-runtime@0.3.12
 ejson@1.0.12
 es5-shim@4.6.13
 fastclick@1.0.12
-fezvrasta:bootstrap-material-design@0.5.9
 fourseven:scss@3.8.0_1
 geojson-utils@1.0.9
 hot-code-push@1.0.4
@@ -54,6 +52,7 @@ mongo-id@1.0.5
 npm-mongo@1.5.45
 observe-sequence@1.0.12
 ordered-dict@1.0.8
+planettraining:material-design-icons@2.2.3
 promise@0.8.3
 random@1.0.10
 reactive-var@1.0.10
@@ -67,7 +66,6 @@ standard-minifier-js@1.1.8
 templating@1.1.14
 templating-tools@1.0.4
 tracker@1.1.0
-twbs:bootstrap@3.3.6
 ui@1.0.11
 underscore@1.0.9
 urigo:static-html-compiler@0.1.7
