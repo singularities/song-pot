@@ -1,5 +1,10 @@
-<button ng-click="audioPlayer.play()">Play</button>
+<md-slider-container ng-if="audioPlayer.isDisplayed">
+  <md-button aria-label="{{ audio.paused ? 'audio.player.play' : 'audio.player.pause' | translate }}"
+             ng-click="audio.paused ? audio.play() : audio.pause()"
+             class="md-icon-button">
+    <md-icon ng-attr-md-svg-icon="{{ audio.paused ? 'av:ic_play_arrow_24px' : 'av:ic_pause_24px' }}"></md-icon>
+  </md-button>
 
-<input class='form-control' type=text ng-model='audio.currentTime'>
+  <md-slider md-discrete ng-model="audio.progress" min="0" max="1" step="0.01"></md-slider>
 
-<input class='form-control' type=range min=0 max=1 step=0.01 ng-model='audio.volume'>
+</md-slider-container>

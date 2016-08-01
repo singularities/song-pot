@@ -11,6 +11,9 @@ import songShow from '../imports/components/songs/show';
 import songEdit from '../imports/components/songs/edit';
 import audioPlayer from '../imports/components/audios/player';
 
+import audioAdd from '../imports/directives/audio/add';
+import audioPlay from '../imports/directives/audio/play';
+
 angular.module('songlog', [
   angularMeteor,
   angularMaterial,
@@ -20,6 +23,8 @@ angular.module('songlog', [
   songList.name,
   songShow.name,
   songEdit.name,
+  audioAdd.name,
+  audioPlay.name,
   audioPlayer.name
 ])
   .config(function($mdIconProvider) {
@@ -28,20 +33,14 @@ angular.module('songlog', [
     const iconPath =  '/packages/planettraining_material-design-icons/bower_components/material-design-icons/sprites/svg-sprite/';
 
     $mdIconProvider
-      .iconSet('social',
-        iconPath + 'svg-sprite-social.svg')
       .iconSet('action',
         iconPath + 'svg-sprite-action.svg')
-      .iconSet('communication',
-        iconPath + 'svg-sprite-communication.svg')
       .iconSet('content',
         iconPath + 'svg-sprite-content.svg')
-      .iconSet('toggle',
-        iconPath + 'svg-sprite-toggle.svg')
       .iconSet('navigation',
         iconPath + 'svg-sprite-navigation.svg')
-      .iconSet('image',
-        iconPath + 'svg-sprite-image.svg');
+      .iconSet('av',
+        iconPath + 'svg-sprite-av.svg');
   })
   .config(function($locationProvider, $urlRouterProvider) {
     'ngInject';

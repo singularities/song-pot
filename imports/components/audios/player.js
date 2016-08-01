@@ -15,12 +15,12 @@ class AudioPlayerCtrl {
     this.ngAudio = ngAudio;
 
     this.helpers({
-      first () {
-        const song = this.getReactively('song');
+      audios () {
+        const ids = this.getReactively('audioIds');
 
-        if (song) {
-          return Audios.findOne({
-            songId: song._id
+        if (ids) {
+          return Audios.find({
+            _id: { '$in': ids }
           });
         }
       }
@@ -28,10 +28,14 @@ class AudioPlayerCtrl {
   }
 
   play () {
-    this.$scope.audio = this.ngAudio.load(this.first.url);
-    this.$scope.audio.play();
-  }
 
+    this.$scope.audio =
+      this.ngAudio.load(this.audios[0].url);
+
+    this.$scope.audio.play();
+
+    this.isDisplayed = true;
+  }
 }
 
 const name = "audioPlayer";
@@ -45,6 +49,6 @@ export default angular.module(name, [
     controller: AudioPlayerCtrl,
     controllerAs: name,
     bindings: {
-      song: '<'
+      audioIds: '<'
     }
   });

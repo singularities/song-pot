@@ -1,4 +1,14 @@
 {
+  "audio": {
+    "add": {
+      "error": "Error uploading audio: ",
+      "success": "Audio uploaded"
+    },
+    "player": {
+      "pause": "Pause",
+      "play": "Play"
+    }
+  },
   "song": {
     "edit": {
       "toolbar": {
@@ -20,7 +30,8 @@
     },
     "show": {
       "toolbar": {
-        "add_audio": "Add audio",
+        "audio_add": "Add audio",
+        "audio_play": "Play audio",
         "back": "Back to song list",
         "edit": "Edit lyric",
         "menu": "Open show song menu"

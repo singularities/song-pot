@@ -1,4 +1,4 @@
-<md-toolbar md-scroll-shrink ng-if="true">
+<md-toolbar>
   <div class="md-toolbar-tools">
     <md-button aria-label="{{ 'song.show.toolbar.back' | translate }}" class="md-icon-button" ui-sref="songs">
       <md-icon md-svg-icon="navigation:ic_arrow_back_24px"></md-icon>
@@ -11,9 +11,14 @@
           <md-icon md-menu-origin md-svg-icon="navigation:ic_more_vert_24px"></md-icon>
         </md-button>
         <md-menu-content>
+          <md-menu-item ng-if="songShow.song.audioIds.length">
+            <md-button audio-play>
+              <span translate>song.show.toolbar.audio_play</span>
+            </md-button>
+          </md-menu-item>
           <md-menu-item>
-            <md-button ng-click="songShow.addAudio()">
-              <span translate>song.show.toolbar.add_audio</span>
+            <md-button audio-add="songShow.song">
+              <span translate>song.show.toolbar.audio_add</span>
             </md-button>
           </md-menu-item>
           <md-menu-item>
@@ -25,10 +30,12 @@
       </md-menu>
   </div>
 </md-toolbar>
+
 <md-content flex layout-padding>
   <div class="song-text"
        md-swipe-left="songShow.nextSong()"
        md-swipe-right="songShow.prevSong()">{{ songShow.song.text }}</div>
 
-  <audio-player song="songShow.song"></audio-player>
 </md-content>
+
+<audio-player flex="none" audio-ids="songShow.song.audioIds"></audio-player>

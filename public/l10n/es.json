@@ -1,4 +1,14 @@
 {
+  "audio": {
+    "add": {
+      "error": "Error subiendo el audio: ",
+      "success": "Audio guardado"
+    },
+    "player": {
+      "pause": "Pause",
+      "play": "Play"
+    }
+  },
   "song": {
     "edit": {
       "toolbar": {
@@ -20,7 +30,8 @@
     },
     "show": {
       "toolbar": {
-        "add_audio": "Añadir audio",
+        "audio_add": "Añadir audio",
+        "audio_play": "Reproducir audio",
         "back": "Volver a la lista de canciones",
         "edit": "Editar letra",
         "menu": "Abrir el menú de la canción"
