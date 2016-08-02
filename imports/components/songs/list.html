@@ -6,8 +6,8 @@
 
 <md-content flex layout-padding>
   <md-list flex>
-    <md-list-item ng-repeat="song in songList.songs">
-      <div class="md-list-item-text" ui-sref="songShow({ id: song._id })">
+    <md-list-item ng-repeat="song in songList.songs" ng-click="null" ui-sref="songShow({ id: song._id })">
+      <div class="md-list-item-text">
         <h4>{{ song.title || 'song.title.empty' | translate }}</h4>
       </div>
     </md-list-item>
