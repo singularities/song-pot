@@ -14,7 +14,7 @@ import audioPlayer from '../imports/components/audios/player';
 import audioAdd from '../imports/directives/audio/add';
 import audioPlay from '../imports/directives/audio/play';
 
-angular.module('songlog', [
+angular.module('SongsPot', [
   angularMeteor,
   angularMaterial,
   uiRouter,
@@ -67,7 +67,7 @@ angular.module('songlog', [
   });
 
 function onReady () {
-  angular.bootstrap(document, [ 'songlog' ]);
+  angular.bootstrap(document, [ 'SongsPot' ]);
 }
 
 if (Meteor.isCordova) {
