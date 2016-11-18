@@ -65,6 +65,8 @@ export default angular.module(name, [
     controllerAs: name
   })
   .config(function($stateProvider) {
+    'ngInject';
+    
     $stateProvider.state(name, {
       url: '/songs/:id',
       template: '<song-show layout="column"></song-show>'

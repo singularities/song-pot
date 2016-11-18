@@ -50,6 +50,8 @@ angular.module('SongsPot', [
     $urlRouterProvider.otherwise('/songs');
   })
   .config(function($translateProvider) {
+    'ngInject';
+    
     $translateProvider
       .useStaticFilesLoader({
         prefix: 'l10n/',
@@ -67,7 +69,9 @@ angular.module('SongsPot', [
   });
 
 function onReady () {
-  angular.bootstrap(document, [ 'SongsPot' ]);
+  angular.bootstrap(document, [ 'SongsPot' ], {
+    strictDi: true
+  });
 }
 
 if (Meteor.isCordova) {

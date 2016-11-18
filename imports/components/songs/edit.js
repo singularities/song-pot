@@ -70,6 +70,8 @@ export default angular.module(name, [
     controllerAs: name
   })
   .config(function($stateProvider) {
+    'ngInject';
+    
     $stateProvider.state(name, {
       url: '/songs/:id/edit',
       template: '<song-edit layout="column"></song-edit>'

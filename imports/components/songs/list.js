@@ -44,6 +44,7 @@ export default angular.module(name, [
   })
   .config(function($stateProvider) {
     'ngInject';
+    
     $stateProvider
       .state('songs', {
         url: '/songs',
