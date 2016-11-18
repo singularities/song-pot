@@ -3,7 +3,8 @@
   "private": true,
   "scripts": {
     "start": "meteor run",
-    "build:css": "node-sass --include-path node_modules main.scss bundle.css"
+    "build:css": "node-sass --include-path node_modules main.scss bundle.css",
+    "dist": "meteor build --directory dist/ --server-only"
   },
   "dependencies": {
     "angular": "^1.5.7",
