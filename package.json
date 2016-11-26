@@ -7,7 +7,7 @@
     "dist": "meteor build --directory dist/ --server-only"
   },
   "dependencies": {
-    "angular": "^1.5.7",
+    "angular": "^1.5.9",
     "angular-animate": "^1.5.8",
     "angular-aria": "^1.5.8",
     "angular-audio": "^1.7.3",
@@ -16,6 +16,7 @@
     "angular-meteor": "^1.3.11",
     "angular-translate": "^2.11.1",
     "angular-ui-router": "^0.3.1",
+    "babel-runtime": "^6.18.0",
     "meteor-node-stubs": "~0.2.0",
     "ng-file-upload": "^12.0.4",
     "protractor": "^4.0.11"
