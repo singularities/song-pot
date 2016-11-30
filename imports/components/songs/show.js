@@ -2,7 +2,6 @@ import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 
 import { Songs } from '../../api/songs.js';
-import { Audios, AudiosStore } from '../../api/audios';
 
 import template from './show.html';
 
@@ -66,7 +65,7 @@ export default angular.module(name, [
   })
   .config(function($stateProvider) {
     'ngInject';
-    
+
     $stateProvider.state(name, {
       url: '/songs/:id',
       template: '<song-show layout="column"></song-show>'
