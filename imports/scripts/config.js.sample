@@ -1,0 +1,10 @@
+module.exports = function(config) {
+  // The server address to connect the app with
+  config.server = "https://my.server:443";
+
+  // The keystore for the keys
+  config.keystore = "/path/to/keystore.jks";
+
+  // The key alias
+  config.keyalias = "songspot";
+};

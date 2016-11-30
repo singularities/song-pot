@@ -4,7 +4,8 @@
   "scripts": {
     "start": "meteor run",
     "build:css": "node-sass --include-path node_modules main.scss bundle.css",
-    "dist": "meteor build --directory dist/ --server-only"
+    "dist": "meteor build --directory dist/ --server-only",
+    "build:android": "imports/scripts/build-android-app"
   },
   "dependencies": {
     "angular": "^1.5.9",

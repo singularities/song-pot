@@ -8,3 +8,5 @@ node_modules/
 # Meteor dist packages
 dist/*
 
+# Build Android config
+/imports/scripts/config.js

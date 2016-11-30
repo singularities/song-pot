@@ -1,0 +1,45 @@
+#!/usr/bin/env node
+
+// Placing this in imports/scripts as I cannot find a better place
+// Meteor loads the code in other dirs
+
+var config = {
+  dist: '/tmp/songspot-dist'
+};
+
+var exec = require('child_process').exec;
+
+if (require('fs').existsSync('./imports/scripts/config.js')) {
+  var configFn = require('./config.js');
+  configFn(config);
+}
+
+var buildCmd = 'meteor build --server=' + config.server + ' --directory ' + config.dist,
+    signCmd  = 'jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ' + config.keystore + ' ' + config.dist + '/android/release-unsigned.apk ' + config.keyalias,
+    cleanCmd = 'if [ -f ' + config.dist + '/android/release.apk ]; then rm ' + config.dist + '/android/release.apk; fi',
+    alignCmd = 'zipalign 4 ' + config.dist + '/android/release-unsigned.apk ' + config.dist + '/android/release.apk';
+
+
+function run(cmds) {
+  var cmd = cmds.shift();
+
+  if (! cmd) {
+    return;
+  }
+
+  console.log(cmd);
+
+  var execCmd = exec(cmd);
+
+  process.stdin.pipe(execCmd.stdin);
+  execCmd.stdout.pipe(process.stdout);
+  execCmd.stderr.pipe(process.stderr);
+
+  execCmd.on('exit', (code) => {
+    if (code === 0) {
+      run(cmds);
+    }
+  });
+}
+
+run([ buildCmd, signCmd, cleanCmd, alignCmd ]);
