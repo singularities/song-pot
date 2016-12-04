@@ -29,11 +29,13 @@ class AudioPlayerCtrl {
   }
 
   play () {
-    
+
     this.$scope.audio =
       this.audioObject.load(this.audios[0].url);
 
     this.$scope.audio.play();
+
+    this.$scope.$on('$destroy', () => { this.audioObject.pause(); });
 
     this.isDisplayed = true;
   }
