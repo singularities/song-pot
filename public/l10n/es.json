@@ -39,6 +39,7 @@
       }
     },
     "text": {
+      "empty": "Sin letra",
       "placeholder": "Letra de la canción"
     },
     "title": {

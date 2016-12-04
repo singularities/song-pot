@@ -3,7 +3,7 @@
     <md-button aria-label="{{ 'song.show.toolbar.back' | translate }}" class="md-icon-button" ui-sref="songs">
       <md-icon md-svg-icon="navigation:ic_arrow_back_24px"></md-icon>
     </md-button>
-    <span>{{ songShow.song.title }}</span>
+    <span>{{ songShow.song.title || 'song.title.empty' | translate }}</span>
     <!-- fill up the space between left and right area -->
     <span flex></span>
     <md-menu>
@@ -34,7 +34,7 @@
 <md-content flex layout-padding>
   <div class="song-text"
        md-swipe-left="songShow.nextSong()"
-       md-swipe-right="songShow.prevSong()">{{ songShow.song.text }}</div>
+       md-swipe-right="songShow.prevSong()">{{ songShow.song.text || 'song.text.empty' | translate }}</div>
 
 </md-content>
 

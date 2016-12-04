@@ -39,6 +39,7 @@
       }
     },
     "text": {
+      "empty": "No lyrics",
       "placeholder": "Song lyrics"
     },
     "title": {
