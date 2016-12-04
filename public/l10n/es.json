@@ -5,8 +5,8 @@
       "success": "Audio guardado"
     },
     "player": {
-      "pause": "Pause",
-      "play": "Play",
+      "pause": "Pausa",
+      "play": "Reproducir",
       "slider": "Tiempo actual"
     }
   },
@@ -15,7 +15,7 @@
       "toolbar": {
         "menu": "Abrir el menú de editar canción",
         "remove": "Borrar canción",
-        "save": "Save"
+        "save": "Guardar"
       },
       "title": "Editando letra"
     },
