@@ -6,7 +6,8 @@
     },
     "player": {
       "pause": "Pause",
-      "play": "Play"
+      "play": "Play",
+      "slider": "Tiempo actual"
     }
   },
   "song": {
