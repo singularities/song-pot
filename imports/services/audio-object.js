@@ -27,7 +27,9 @@ class AudioObject {
   }
 
   load (url) {
-    this.object = new Audio();
+    if (! this.object) {
+      this.object = new Audio();
+    }
 
     this.object.src = url;
 
