@@ -1,18 +1,19 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
-import angularAudio from 'angular-audio';
 import { Audios, AudiosStore } from '../../api/audios';
+
+import audioObject from '../../services/audio-object';
 
 import template from './player.html';
 
 class AudioPlayerCtrl {
-  constructor ($reactive, $scope, ngAudio) {
+  constructor ($reactive, $scope, $interval, audioObject) {
     'ngInject';
 
     $reactive(this).attach($scope);
 
     this.$scope  = $scope;
-    this.ngAudio = ngAudio;
+    this.audioObject = audioObject;
 
     this.helpers({
       audios () {
@@ -28,9 +29,9 @@ class AudioPlayerCtrl {
   }
 
   play () {
-
+    
     this.$scope.audio =
-      this.ngAudio.load(this.audios[0].url);
+      this.audioObject.load(this.audios[0].url);
 
     this.$scope.audio.play();
 
@@ -42,7 +43,7 @@ const name = "audioPlayer";
 
 export default angular.module(name, [
   angularMeteor,
-  angularAudio
+  audioObject.name
 ])
   .component(name, {
     template,

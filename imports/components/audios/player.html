@@ -5,6 +5,6 @@
     <md-icon ng-attr-md-svg-icon="{{ audio.paused ? 'av:ic_play_arrow_24px' : 'av:ic_pause_24px' }}"></md-icon>
   </md-button>
 
-  <md-slider md-discrete ng-model="audio.progress" min="0" max="1" step="0.01"></md-slider>
+  <md-slider ng-model="audio.currentTime" min="0" max="{{ audio.duration }}"></md-slider>
 
 </md-slider-container>
