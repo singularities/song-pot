@@ -14,6 +14,15 @@ angular.module('SongsPot', [
   angularTranslate,
   songList.name
 ])
+  .config(function($mdThemingProvider) {
+    'ngInject';
+
+    $mdThemingProvider.theme('default')
+      .primaryPalette('brown')
+      .accentPalette('orange');
+
+    $mdThemingProvider.enableBrowserColor();
+  })
   .config(function($mdIconProvider) {
     'ngInject';
 
