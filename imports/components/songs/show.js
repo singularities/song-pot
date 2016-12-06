@@ -1,5 +1,6 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
+import angularHammer from 'angular-hammer';
 
 import { Songs } from '../../api/songs.js';
 
@@ -56,7 +57,8 @@ class SongShowCtrl {
 const name = 'songShow';
 
 export default angular.module(name, [
-  angularMeteor
+  angularMeteor,
+  angularHammer
 ])
   .component(name, {
     template,
