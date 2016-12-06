@@ -2,6 +2,8 @@ import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import { Songs } from '../../api/songs.js';
 
+import songShow from './show';
+
 import template from './list.html';
 
 class SongListCtrl {
@@ -35,7 +37,8 @@ class SongListCtrl {
 const name = 'songList';
 
 export default angular.module(name, [
-  angularMeteor
+  angularMeteor,
+  songShow.name
 ])
   .component(name, {
     template,
@@ -44,7 +47,7 @@ export default angular.module(name, [
   })
   .config(function($stateProvider) {
     'ngInject';
-    
+
     $stateProvider
       .state('songs', {
         url: '/songs',

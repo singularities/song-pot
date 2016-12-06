@@ -4,6 +4,12 @@ import angularHammer from 'angular-hammer';
 
 import { Songs } from '../../api/songs.js';
 
+import songEdit from './edit';
+import audioPlayer from '../audios/player';
+
+import audioAdd from '../../directives/audio/add';
+import audioPlay from '../../directives/audio/play';
+
 import template from './show.html';
 
 class SongShowCtrl {
@@ -58,7 +64,11 @@ const name = 'songShow';
 
 export default angular.module(name, [
   angularMeteor,
-  angularHammer
+  angularHammer,
+  songEdit.name,
+  audioPlayer.name,
+  audioAdd.name,
+  audioPlay.name
 ])
   .component(name, {
     template,

@@ -6,24 +6,13 @@ import angularTranslateStaticFiles from 'angular-translate/dist/angular-translat
 import uiRouter from 'angular-ui-router';
 
 import songList from '../imports/components/songs/list';
-import songShow from '../imports/components/songs/show';
-import songEdit from '../imports/components/songs/edit';
-import audioPlayer from '../imports/components/audios/player';
-
-import audioAdd from '../imports/directives/audio/add';
-import audioPlay from '../imports/directives/audio/play';
 
 angular.module('SongsPot', [
   angularMeteor,
   angularMaterial,
   uiRouter,
   angularTranslate,
-  songList.name,
-  songShow.name,
-  songEdit.name,
-  audioAdd.name,
-  audioPlay.name,
-  audioPlayer.name
+  songList.name
 ])
   .config(function($mdIconProvider) {
     'ngInject';
