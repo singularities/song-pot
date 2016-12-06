@@ -3,7 +3,6 @@ import angularMeteor from 'angular-meteor';
 import angularMaterial from 'angular-material';
 import angularTranslate from 'angular-translate';
 import angularTranslateStaticFiles from 'angular-translate/dist/angular-translate-loader-static-files/angular-translate-loader-static-files';
-import angularElastic from 'angular-elastic';
 import uiRouter from 'angular-ui-router';
 
 import songList from '../imports/components/songs/list';
@@ -19,7 +18,6 @@ angular.module('SongsPot', [
   angularMaterial,
   uiRouter,
   angularTranslate,
-  angularElastic,
   songList.name,
   songShow.name,
   songEdit.name,
@@ -51,7 +49,7 @@ angular.module('SongsPot', [
   })
   .config(function($translateProvider) {
     'ngInject';
-    
+
     $translateProvider
       .useStaticFilesLoader({
         prefix: 'l10n/',
