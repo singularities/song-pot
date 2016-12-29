@@ -8,6 +8,21 @@
       "pause": "Pausa",
       "play": "Reproducir",
       "slider": "Tiempo actual"
+    },
+    "remove": {
+      "dialog": {
+        "cancel": "Cancelar",
+        "confirm": "Borrar audio",
+        "message": "¿Borrar audio \"{{name}}\"?"
+      }
+    },
+    "rename": {
+      "dialog": {
+        "cancel": "Cancelar",
+        "confirm": "Guardar",
+        "placeholder": "Nombre del audio",
+        "title": "Cambar nombre del audio"
+      }
     }
   },
   "song": {
@@ -20,7 +35,11 @@
       "title": "Editando letra"
     },
     "list": {
-      "add": "Añadir canción"
+      "add": "Añadir canción",
+      "menu": {
+        "remove": "Borrar audio",
+        "rename": "Cambar nombre"
+      }
     },
     "remove": {
       "dialog": {

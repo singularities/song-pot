@@ -8,6 +8,21 @@
       "pause": "Pause",
       "play": "Play",
       "slider": "Current time"
+    },
+    "remove": {
+      "dialog": {
+        "cancel": "Cancel",
+        "confirm": "Remove audio",
+        "message": "Remove audio \"{{name}}\"?"
+      }
+    },
+    "rename": {
+      "dialog": {
+        "cancel": "Cancel",
+        "confirm": "Save",
+        "placeholder": "Audio name",
+        "title": "Change audio name"
+      }
     }
   },
   "song": {
@@ -20,7 +35,11 @@
       "title": "Editing lyric"
     },
     "list": {
-      "add": "Add song"
+      "add": "Add song",
+      "menu": {
+        "remove": "Remove audio",
+        "rename": "Change name"
+      }
     },
     "remove": {
       "dialog": {
