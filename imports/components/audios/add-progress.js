@@ -19,7 +19,9 @@ class AudioAddProgressCtrl {
     this.$timeout();
   }
 
-  show () {
+  show (options = {}) {
+    this.audioName = options.name;
+    
     this.isDisplayed = true;
 
     this.$timeout();

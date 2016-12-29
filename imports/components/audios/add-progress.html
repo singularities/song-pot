@@ -1,1 +1,7 @@
-<md-progress-linear md-mode="determinate" value="{{audioAddProgress.progress}}" ng-if="audioAddProgress.isDisplayed"></md-progress-linear>
+<div layout="row" layout-align="start center" ng-if="audioAddProgress.isDisplayed">
+  <div flex>
+    {{ audioAddProgress.audioName }}
+  </div>
+
+  <md-progress-circular md-mode="determinate" value="{{audioAddProgress.progress}}" md-diameter="24"></md-progress-circular>
+</div>

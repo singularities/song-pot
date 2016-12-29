@@ -75,7 +75,7 @@ class AudioAddCtrl {
         }
       });
 
-      audioAddProgress.show();
+      audioAddProgress.show({ name: file.name });
 
       uploader.start();
     });

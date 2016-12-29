@@ -1,4 +1,6 @@
 audio-add-progress {
-  // Fix md-progress right padding
-  padding-right: 16px;
+  & > div {
+    padding-left: 15px;
+    padding-right: 10px;
+  }
 }
