@@ -6,6 +6,7 @@ import { Songs } from '../../api/songs.js';
 
 import songEdit from './edit';
 import audioPlayer from '../audios/player';
+import audioAddProgress from '../audios/add-progress';
 
 import audioAdd from '../../directives/audio/add';
 import audioPlay from '../../directives/audio/play';
@@ -67,6 +68,7 @@ export default angular.module(name, [
   angularHammer,
   songEdit.name,
   audioPlayer.name,
+  audioAddProgress.name,
   audioAdd.name,
   audioPlay.name
 ])
