@@ -4,6 +4,9 @@
       "error": "Error subiendo el audio: ",
       "success": "Audio guardado"
     },
+    "list": {
+      "header": "Audios de la canción"
+    },
     "player": {
       "pause": "Pausa",
       "play": "Reproducir",
@@ -51,6 +54,7 @@
     "show": {
       "toolbar": {
         "audio_add": "Añadir audio",
+        "audio_list": "Lista de audios",
         "audio_play": "Reproducir audio",
         "back": "Volver a la lista de canciones",
         "edit": "Editar letra",

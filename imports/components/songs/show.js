@@ -10,6 +10,7 @@ import audioList from '../audios/list';
 import audioPlayer from '../audios/player';
 
 import audioAdd from '../../directives/audio/add';
+import audioListShow from '../../directives/audio/list-show';
 import audioPlay from '../../directives/audio/play';
 
 import template from './show.html';
@@ -72,6 +73,7 @@ export default angular.module(name, [
   audioList.name,
   audioPlayer.name,
   audioAdd.name,
+  audioListShow.name,
   audioPlay.name
 ])
   .component(name, {

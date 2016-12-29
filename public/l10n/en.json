@@ -4,6 +4,9 @@
       "error": "Error uploading audio: ",
       "success": "Audio uploaded"
     },
+    "list": {
+      "header": "Song audios"
+    },
     "player": {
       "pause": "Pause",
       "play": "Play",
@@ -51,6 +54,7 @@
     "show": {
       "toolbar": {
         "audio_add": "Add audio",
+        "audio_list": "Audio list",
         "audio_play": "Play audio",
         "back": "Back to song list",
         "edit": "Edit lyric",

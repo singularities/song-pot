@@ -11,9 +11,14 @@
           <md-icon md-menu-origin md-svg-icon="navigation:ic_more_vert_24px"></md-icon>
         </md-button>
         <md-menu-content>
-          <md-menu-item ng-if="songShow.song.audioIds.length">
+          <md-menu-item ng-if="songShow.song.audioIds.length === 1">
             <md-button audio-play>
               <span translate>song.show.toolbar.audio_play</span>
+            </md-button>
+          </md-menu-item>
+          <md-menu-item ng-if="songShow.song.audioIds.length > 1">
+            <md-button audio-list-show>
+              <span translate>song.show.toolbar.audio_list</span>
             </md-button>
           </md-menu-item>
           <md-menu-item>
