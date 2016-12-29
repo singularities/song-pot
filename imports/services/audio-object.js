@@ -43,8 +43,11 @@ class AudioObject {
   }
 
   play () {
-    // Set periodic interval so md-slider checks the currentTime
+    if (this.interval) {
+      this.$interval.cancel(this.interval);
+    }
 
+    // Set periodic interval so md-slider checks the currentTime
     this.interval = this.$interval(function () {console.log('interval');}, 1000);
 
     this.object.play();

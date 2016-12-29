@@ -1,0 +1,7 @@
+<md-list ng-cloak>
+  <md-list-item ng-repeat="audio in audioList.audios">
+    <p ng-click="audioList.play(audio)">
+      {{ audio.name }}
+    </p>
+  </md-list-item>
+</md-list>
