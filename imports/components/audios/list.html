@@ -1,9 +1,12 @@
 <md-list ng-cloak ng-if="audioList.isDisplayed">
   <md-subheader>
-    <span flex translate>audio.list.header</span>
-    <md-button class="md-icon-button" ng-click="audioList.hide()">
-      <md-icon md-svg-icon="navigation:ic_close_24px"></md-icon>
-    </md-button>
+    <div layout layout-align="start center">
+      <span translate>audio.list.header</span>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="audioList.hide()">
+        <md-icon md-svg-icon="navigation:ic_cancel_24px"></md-icon>
+      </md-button>
+    </div>
   </md-subheader>
   <md-list-item ng-repeat="audio in audioList.audios">
     <!-- Support primary action and menu as secondary action in list item
