@@ -5,13 +5,10 @@ import angularHammer from 'angular-hammer';
 import { Songs } from '../../api/songs.js';
 
 import songEdit from './edit';
-import audioAddProgress from '../audios/add-progress';
-import audioList from '../audios/list';
-import audioPlayer from '../audios/player';
+import songAudios from './audios';
 
+import songAudiosToggle from '../../directives/song/audios-toggle';
 import audioAdd from '../../directives/audio/add';
-import audioListShow from '../../directives/audio/list-show';
-import audioPlay from '../../directives/audio/play';
 
 import template from './show.html';
 
@@ -69,12 +66,9 @@ export default angular.module(name, [
   angularMeteor,
   angularHammer,
   songEdit.name,
-  audioAddProgress.name,
-  audioList.name,
-  audioPlayer.name,
+  songAudios.name,
   audioAdd.name,
-  audioListShow.name,
-  audioPlay.name
+  songAudiosToggle.name
 ])
   .component(name, {
     template,

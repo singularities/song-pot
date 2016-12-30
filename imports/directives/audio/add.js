@@ -22,7 +22,7 @@ class AudioAddCtrl {
   }
 
   add () {
-    var audioAddProgress = angular.element('audio-add-progress').controller('audioAddProgress');
+    var songAudios = angular.element('song-audios').controller('songAudios');
 
     UploadFS.selectFile((file) => {
 
@@ -37,7 +37,7 @@ class AudioAddCtrl {
         data: file,
         file: audio,
         onProgress: (file, progress) => {
-          audioAddProgress.setProgress(progress * 100);
+          songAudios.setProgress(progress * 100);
         },
         onError: (error) => {
           this.$translate('audio.add.error').then((message) => {
@@ -64,7 +64,7 @@ class AudioAddCtrl {
             }
           });
 
-          audioAddProgress.hide();
+          songAudios.hideProgress();
 
           this.$translate('audio.add.success').then((message) => {
             this.$mdToast.show(
@@ -75,7 +75,7 @@ class AudioAddCtrl {
         }
       });
 
-      audioAddProgress.show({ name: file.name });
+      songAudios.showProgress({ name: file.name });
 
       uploader.start();
     });

@@ -1,29 +1,29 @@
 import angular from 'angular';
 
-class AudioListShowCtrl {
+class SongAudiosToggleCtrl {
 
   constructor ($element) {
     'ngInject';
 
     $element.on('click', () => {
-      this.show();
+      this.toggle();
     });
   }
 
-  show () {
-    var ctrl = angular.element('audio-list').controller('audioList');
+  toggle () {
+    var ctrl = angular.element('song-audios').controller('songAudios');
 
-    ctrl.show();
+    ctrl.toggle();
   }
 }
 
-const name = "audioListShow";
+const name = "songAudiosToggle";
 
 export default angular.module(name, [
 ])
   .directive(name, () => {
     return {
-      controller: AudioListShowCtrl,
+      controller: SongAudiosToggleCtrl,
       controllerAs: name,
     };
   });

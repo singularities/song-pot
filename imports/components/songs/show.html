@@ -11,13 +11,8 @@
           <md-icon md-menu-origin md-svg-icon="navigation:ic_more_vert_24px"></md-icon>
         </md-button>
         <md-menu-content>
-          <md-menu-item ng-if="songShow.song.audioIds.length === 1">
-            <md-button audio-play>
-              <span translate>song.show.toolbar.audio_play</span>
-            </md-button>
-          </md-menu-item>
-          <md-menu-item ng-if="songShow.song.audioIds.length > 1">
-            <md-button audio-list-show>
+          <md-menu-item ng-if="songShow.song.audioIds.length > 0">
+            <md-button song-audios-toggle>
               <span translate>song.show.toolbar.audio_list</span>
             </md-button>
           </md-menu-item>
@@ -42,10 +37,5 @@
        hm-swipeleft="songShow.nextSong()"
        hm-swiperight="songShow.prevSong()">{{ songShow.song.text || 'song.text.empty' | translate }}</div>
 
+  <song-audios audio-ids="songShow.song.audioIds"></song-audios>
 </md-content>
-
-<audio-list audio-ids="songShow.song.audioIds"></audio-list>
-
-<audio-add-progress layout-margin></audio-add-progress>
-
-<audio-player flex="none" audio-ids="songShow.song.audioIds"></audio-player>

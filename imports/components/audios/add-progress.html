@@ -1,7 +1,7 @@
-<div layout="row" layout-align="start center" ng-if="audioAddProgress.isDisplayed">
+<div layout="row" layout-align="start center" ng-if="audioAddProgress.status.name">
   <div flex>
-    {{ audioAddProgress.audioName }}
+    {{ audioAddProgress.status.name }}
   </div>
 
-  <md-progress-circular md-mode="determinate" value="{{audioAddProgress.progress}}" md-diameter="24"></md-progress-circular>
+  <md-progress-circular md-mode="determinate" value="{{audioAddProgress.status.percentage}}" md-diameter="24"></md-progress-circular>
 </div>

@@ -27,14 +27,6 @@ class AudioListCtrl {
     });
   }
 
-  show () {
-    this.isDisplayed = true;
-  }
-
-  hide () {
-    this.isDisplayed = false;
-  }
-
   play (audio) {
     var ctrl = angular.element('audio-player').controller('audioPlayer');
 
