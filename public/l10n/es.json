@@ -28,6 +28,12 @@
       }
     }
   },
+  "metronome": {
+    "bpm": {
+      "label": "Tempo"
+    },
+    "title": "Metrónomo"
+  },
   "song": {
     "edit": {
       "toolbar": {

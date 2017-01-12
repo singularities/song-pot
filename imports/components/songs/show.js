@@ -4,6 +4,7 @@ import angularHammer from 'angular-hammer';
 
 import { Songs } from '../../api/songs.js';
 
+import metronome from './metronome';
 import songEdit from './edit';
 import songAudios from './audios';
 
@@ -65,6 +66,7 @@ const name = 'songShow';
 export default angular.module(name, [
   angularMeteor,
   angularHammer,
+  metronome.name,
   songEdit.name,
   songAudios.name,
   audioAdd.name,
