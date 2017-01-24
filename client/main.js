@@ -5,14 +5,14 @@ import angularTranslate from 'angular-translate';
 import angularTranslateStaticFiles from 'angular-translate/dist/angular-translate-loader-static-files/angular-translate-loader-static-files';
 import uiRouter from 'angular-ui-router';
 
-import songList from '../imports/components/songs/list';
+import songIndex from '../imports/components/songs/index';
 
 angular.module('SongsPot', [
   angularMeteor,
   angularMaterial,
   uiRouter,
   angularTranslate,
-  songList.name
+  songIndex.name
 ])
   .config(function($mdThemingProvider) {
     'ngInject';

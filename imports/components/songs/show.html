@@ -1,44 +1,70 @@
-<md-toolbar>
-  <div class="md-toolbar-tools">
-    <md-button aria-label="{{ 'song.show.toolbar.back' | translate }}" class="md-icon-button" ui-sref="songs">
-      <md-icon md-svg-icon="navigation:ic_arrow_back_24px"></md-icon>
-    </md-button>
-    <span>{{ songShow.song.title || 'song.title.empty' | translate }}</span>
-    <!-- fill up the space between left and right area -->
-    <span flex></span>
-    <md-button ng-if="songShow.song.audioIds.length > 0" aria-label="{{ 'song.show.toolbar.audio_list' | translate }}" class="md-icon-button" song-audios-toggle>
-      <md-icon md-svg-icon="av:ic_queue_music_24px"></md-icon>
-    </md-button>
-    <md-menu>
-        <md-button aria-label="{{ 'song.show.toolbar.menu' | translate }}" class="md-icon-button" ng-click="$mdOpenMenu($event)">
-          <md-icon md-menu-origin md-svg-icon="navigation:ic_more_vert_24px"></md-icon>
-        </md-button>
-        <md-menu-content>
-          <md-menu-item ng-if="songShow.song.audioIds.length > 0">
-            <md-button song-audios-toggle>
-              <span translate>song.show.toolbar.audio_list</span>
-            </md-button>
-          </md-menu-item>
-          <md-menu-item>
-            <md-button audio-add="songShow.song">
-              <span translate>song.show.toolbar.audio_add</span>
-            </md-button>
-          </md-menu-item>
-          <md-menu-item>
-            <md-button ui-sref="songEdit({ id: songShow.song._id })">
-              <span translate>song.show.toolbar.edit</span>
-            </md-button>
-          </md-menu-item>
-        </md-menu-content>
-      </md-menu>
+<div hide-gt-md>
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <md-button aria-label="{{ 'song.show.toolbar.back' | translate }}" class="md-icon-button" ui-sref="songs">
+        <md-icon md-svg-icon="navigation:ic_arrow_back_24px"></md-icon>
+      </md-button>
+      <span>{{ songShow.song.title || 'song.title.empty' | translate }}</span>
+      <!-- fill up the space between left and right area -->
+      <span flex></span>
+      <md-button ng-if="songShow.song.audioIds.length > 0" aria-label="{{ 'song.show.toolbar.audio_list' | translate }}" class="md-icon-button" song-audios-toggle>
+        <md-icon md-svg-icon="av:ic_queue_music_24px"></md-icon>
+      </md-button>
+      <md-menu>
+          <md-button aria-label="{{ 'song.show.toolbar.menu' | translate }}" class="md-icon-button" ng-click="$mdOpenMenu($event)">
+            <md-icon md-menu-origin md-svg-icon="navigation:ic_more_vert_24px"></md-icon>
+          </md-button>
+          <md-menu-content>
+            <md-menu-item ng-if="songShow.song.audioIds.length > 0">
+              <md-button song-audios-toggle>
+                <span translate>song.show.toolbar.audio_list</span>
+              </md-button>
+            </md-menu-item>
+            <md-menu-item>
+              <md-button audio-add="songShow.song">
+                <span translate>song.show.toolbar.audio_add</span>
+              </md-button>
+            </md-menu-item>
+            <md-menu-item>
+              <md-button ui-sref="songEdit({ id: songShow.song._id })">
+                <span translate>song.show.toolbar.edit</span>
+              </md-button>
+            </md-menu-item>
+          </md-menu-content>
+        </md-menu>
+    </div>
+  </md-toolbar>
+
+  <md-content flex layout-padding>
+    <div class="song-text"
+         hm-manager-options='{ "touchAction": "pan-y" }'
+         hm-swipeleft="songShow.nextSong()"
+         hm-swiperight="songShow.prevSong()">{{ songShow.song.text || 'song.text.empty' | translate }}</div>
+
+    <song-audios audio-ids="songShow.song.audioIds"></song-audios>
+  </md-content>
+</div>
+<div hide show-gt-md>
+  <div layout="column" layout-fill>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+      <h3>
+        <span>Quebrantahuesos</span>
+      </h3>
+      </div>
+    </md-toolbar>
+    <div layout="row" layout-fill>
+      <div flex="30">
+        <song-list></song-list>
+      </div>
+      <div flex="40">
+        Letra
+      </div>
+      <div flex="30">
+        Audios
+
+      </div>
+
+    </div>
   </div>
-</md-toolbar>
-
-<md-content flex layout-padding>
-  <div class="song-text"
-       hm-manager-options='{ "touchAction": "pan-y" }'
-       hm-swipeleft="songShow.nextSong()"
-       hm-swiperight="songShow.prevSong()">{{ songShow.song.text || 'song.text.empty' | translate }}</div>
-
-  <song-audios audio-ids="songShow.song.audioIds"></song-audios>
-</md-content>
+</div>

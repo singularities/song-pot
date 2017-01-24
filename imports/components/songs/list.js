@@ -44,13 +44,4 @@ export default angular.module(name, [
     template,
     controller: SongListCtrl,
     controllerAs: name
-  })
-  .config(function($stateProvider) {
-    'ngInject';
-
-    $stateProvider
-      .state('songs', {
-        url: '/songs',
-        template: '<song-list layout="column"></song-list>',
-      });
   });
