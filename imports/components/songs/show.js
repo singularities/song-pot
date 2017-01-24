@@ -7,6 +7,7 @@ import { Songs } from '../../api/songs.js';
 import songEdit from './edit';
 import songAudios from './audios';
 
+import songAdd from '../../directives/song/add';
 import songAudiosToggle from '../../directives/song/audios-toggle';
 import audioAdd from '../../directives/audio/add';
 
@@ -67,8 +68,9 @@ export default angular.module(name, [
   angularHammer,
   songEdit.name,
   songAudios.name,
-  audioAdd.name,
-  songAudiosToggle.name
+  songAdd.name,
+  songAudiosToggle.name,
+  audioAdd.name
 ])
   .component(name, {
     template,

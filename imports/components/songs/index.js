@@ -4,6 +4,8 @@ import { Songs } from '../../api/songs.js';
 
 import songList from './list';
 
+import songAdd from '../../directives/song/add';
+
 import template from './index.html';
 
 class SongIndexCtrl {
@@ -16,7 +18,8 @@ const name = 'songIndex';
 
 export default angular.module(name, [
   angularMeteor,
-  songList.name
+  songList.name,
+  songAdd.name
 ])
   .component(name, {
     template,

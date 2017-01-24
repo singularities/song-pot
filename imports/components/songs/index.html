@@ -4,6 +4,12 @@
   </div>
 </md-toolbar>
 
-<md-content>
+<md-content >
   <song-list></song-list>
 </md-content>
+
+<md-button class="md-fab md-fab-bottom-right md-fab-fixed"
+           song-add
+           aria-label="{{ 'song.list.add' | translate }}">
+  <md-icon md-svg-icon="content:ic_add_24px"></md-icon>
+</md-button>

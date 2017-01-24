@@ -7,10 +7,8 @@ import songShow from './show';
 import template from './list.html';
 
 class SongListCtrl {
-  constructor ($scope, $location) {
+  constructor ($scope) {
     'ngInject';
-
-    this.$location = $location;
 
     $scope.viewModel(this);
 
@@ -23,14 +21,6 @@ class SongListCtrl {
         });
       }
     });
-  }
-
-  create () {
-    var id = Songs.insert({
-      createdAt: new Date()
-    });
-
-    this.$location.path('/songs/' + id + '/edit');
   }
 }
 
