@@ -44,31 +44,43 @@
     <song-audios audio-ids="songShow.song.audioIds"></song-audios>
   </md-content>
 </div>
-<div hide show-gt-md>
-  <div layout="column">
+
+<div hide show-gt-md layout="row" layout-fill>
+  <div flex layout="column">
     <md-toolbar>
       <div class="md-toolbar-tools">
-      <h3>
-        <span>Quebrantahuesos</span>
-      </h3>
+        <h3>
+          <span>Quebrantahuesos</span>
+        </h3>
       </div>
     </md-toolbar>
+
     <div layout="row">
-      <div flex="20">
-        <song-list></song-list>
-      </div>
-      <div flex="40">
-        <md-content layout-padding>
+
+      <md-content flex="20">
+        <div layout="column" layout-fill="">
+          <song-list></song-list>
+        </div>
+        <div flex=""></div>
+      </md-content>
+
+      <md-content flex="40">
+        <div layout="column" layout-fill="" layout-padding="">
           <div class="song-text">{{ songShow.song.text || 'song.text.empty' | translate }}</div>
-        </md-content>
-      </div>
-      <div flex="40">
-        <audio-list audio-ids="songShow.song.audioIds"></audio-list>
+        </div>
+        <div flex=""></div>
+      </md-content>
 
-        <audio-add-progress status="songShow.addProgress" layout-margin></audio-add-progress>
+      <md-content flex="40">
+        <div layout="column" layout-fill="" layout-padding="">
+          <audio-list audio-ids="songShow.song.audioIds"></audio-list>
 
-        <audio-player flex="none" audio-ids="songShow.song.audioIds"></audio-player>
-      </div>
+          <audio-add-progress status="songShow.addProgress" layout-margin></audio-add-progress>
+
+          <audio-player flex="none" audio-ids="songShow.song.audioIds"></audio-player>
+        </div>
+        <div flex=""></div>
+      </md-content>
     </div>
   </div>
 </div>
