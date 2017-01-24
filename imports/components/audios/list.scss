@@ -4,4 +4,9 @@ audio-list {
       margin: 0px;
     }
   }
+  .md-list-item-inner {
+    & > button {
+      padding: 0px;
+    }
+  }
 }
