@@ -37,7 +37,7 @@
 
   <md-content flex layout-padding>
     <div class="song-text"
-         hm-manager-options='{ "touchAction": "pan-y" }'
+         hm-manager-options='{ "touchAction": "pan-y", "cssProps": {"userSelect": true}}'
          hm-swipeleft="songShow.nextSong()"
          hm-swiperight="songShow.prevSong()">{{ songShow.song.text || 'song.text.empty' | translate }}</div>
 
