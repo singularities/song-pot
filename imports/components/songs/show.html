@@ -45,7 +45,7 @@
   </md-content>
 </div>
 <div hide show-gt-md>
-  <div layout="column" layout-fill>
+  <div layout="column">
     <md-toolbar>
       <div class="md-toolbar-tools">
       <h3>
@@ -53,18 +53,22 @@
       </h3>
       </div>
     </md-toolbar>
-    <div layout="row" layout-fill>
-      <div flex="30">
+    <div layout="row">
+      <div flex="20">
         <song-list></song-list>
       </div>
       <div flex="40">
-        Letra
+        <md-content layout-padding>
+          <div class="song-text">{{ songShow.song.text || 'song.text.empty' | translate }}</div>
+        </md-content>
       </div>
-      <div flex="30">
-        Audios
+      <div flex="40">
+        <audio-list audio-ids="songShow.song.audioIds"></audio-list>
 
+        <audio-add-progress status="songShow.addProgress" layout-margin></audio-add-progress>
+
+        <audio-player flex="none" audio-ids="songShow.song.audioIds"></audio-player>
       </div>
-
     </div>
   </div>
 </div>
