@@ -29,6 +29,9 @@
     }
   },
   "song": {
+    "audio": {
+      "title": "Audios"
+    },
     "edit": {
       "toolbar": {
         "menu": "Abrir el menú de editar canción",
@@ -42,7 +45,8 @@
       "menu": {
         "remove": "Borrar audio",
         "rename": "Cambar nombre"
-      }
+      },
+      "title": "Canciones"
     },
     "remove": {
       "dialog": {
@@ -63,7 +67,8 @@
     },
     "text": {
       "empty": "Sin letra",
-      "placeholder": "Letra de la canción"
+      "placeholder": "Letra de la canción",
+      "title": "Letra"
     },
     "title": {
       "empty": "Sin título",
