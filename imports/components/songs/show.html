@@ -63,6 +63,9 @@
             <div class="md-toolbar-tools">
               <h3><span translate>song.list.title</span></h3>
               <span flex></span>
+              <md-button class="md-icon-button" ng-click="songList.create()" aria-label="New song">
+                <md-icon md-svg-icon="content:ic_add_24px"></md-icon>
+              </md-button>
             </div>
           </md-toolbar>
           <song-list></song-list>
@@ -77,6 +80,10 @@
             <div class="md-toolbar-tools">
               <h3><span translate>song.text.title</span></h3>
               <span flex></span>
+
+              <md-button ui-sref="songEdit({ id: songShow.song._id })" class="md-icon-button" aria-label="{{ 'song.show.toolbar.edit' | translate }}">
+                <md-icon md-svg-icon="editor:ic_mode_edit_24px"></md-icon>
+              </md-button>
            </div>
          </md-toolbar>
 
@@ -91,7 +98,11 @@
             <div class="md-toolbar-tools">
               <h3><span translate>song.audio.title</span></h3>
               <span flex></span>
+              <md-button audio-add="songShow.song" class="md-icon-button" aria-label="{{ 'song.show.toolbar.audio_add' | translate }}">
+                <md-icon md-svg-icon="content:ic_add_24px"></md-icon>
+              </md-button>
             </div>
+
           </md-toolbar>
           <div layout-padding="">
 

@@ -36,7 +36,9 @@ angular.module('SongsPot', [
       .iconSet('navigation',
         iconPath + 'svg-sprite-navigation.svg')
       .iconSet('av',
-        iconPath + 'svg-sprite-av.svg');
+        iconPath + 'svg-sprite-av.svg')
+      .iconSet('editor',
+        iconPath + 'svg-sprite-editor.svg');
   })
   .config(function($locationProvider, $urlRouterProvider) {
     'ngInject';
