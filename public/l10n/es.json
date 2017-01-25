@@ -5,7 +5,10 @@
       "success": "Audio guardado"
     },
     "list": {
-      "header": "Audios de la canción"
+      "header": "Audios de la canción",
+      "empty": {
+        "message": "Esta canción aún no tiene audios"
+      }
     },
     "player": {
       "pause": "Pausa",

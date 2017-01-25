@@ -5,7 +5,10 @@
       "success": "Audio uploaded"
     },
     "list": {
-      "header": "Song audios"
+      "header": "Song audios",
+      "empty": {
+        "message": "This song hasn't any audio yet"
+      }
     },
     "player": {
       "pause": "Pause",
