@@ -31,6 +31,17 @@
       }
     }
   },
+  "metronome": {
+    "bpm": {
+      "label": "Pulsos por minuto"
+    },
+    "bpb": {
+      "label": "Pulsos por compás"
+    },
+    "play": "Encender",
+    "stop": "Apagar",
+    "title": "Metrónomo"
+  },
   "song": {
     "audio": {
       "title": "Audios"
