@@ -37,6 +37,7 @@
     </md-progress-circular>
 
     <md-button class="md-fab"
+               ng-class="metronome.playing ? '' : 'md-hue-1'"
                ng-click="metronome.toggle()"
                aria-label="{{ metronome.playing ? 'metronome.stop' : 'metronome.play' | translate }}">
       <md-icon ng-attr-md-svg-icon="{{ metronome.playing ? 'av:ic_stop_24px' : 'av:ic_play_arrow_24px' }}"></md-icon>
