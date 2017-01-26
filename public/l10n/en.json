@@ -76,7 +76,8 @@
         "audio_play": "Play audio",
         "back": "Back to song list",
         "edit": "Edit lyric",
-        "menu": "Open show song menu"
+        "menu": "Open show song menu",
+        "metronome": "Metronome"
       }
     },
     "text": {

@@ -76,7 +76,8 @@
         "audio_play": "Reproducir audio",
         "back": "Volver a la lista de canciones",
         "edit": "Editar letra",
-        "menu": "Abrir el menú de la canción"
+        "menu": "Abrir el menú de la canción",
+        "metronome": "Metrónomo"
       }
     },
     "text": {

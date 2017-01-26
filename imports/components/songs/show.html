@@ -26,6 +26,11 @@
               </md-button>
             </md-menu-item>
             <md-menu-item>
+              <md-button ng-click="songShow.bottomComponent = 'metronome'">
+                <span translate>song.show.toolbar.metronome</span>
+              </md-button>
+            </md-menu-item>
+            <md-menu-item>
               <md-button ui-sref="songEdit({ id: songShow.song._id })">
                 <span translate>song.show.toolbar.edit</span>
               </md-button>
@@ -44,11 +49,11 @@
     <song-audios audio-ids="songShow.song.audioIds"></song-audios>
   </md-content>
 
-  <div flex="initial" class="bottom-component">
+  <div flex="initial" class="bottom-component" ng-if="songShow.bottomComponent === 'metronome'">
     <div layout layout-align="start center" layout-padding="">
       <h4 translate>metronome.title</h4>
       <span flex></span>
-      <md-button class="md-icon-button" ng-click="metronome.hide()" aria-label="hide">
+      <md-button class="md-icon-button" ng-click="songShow.bottomComponent = null" aria-label="hide">
         <md-icon md-svg-icon="navigation:ic_close_24px"></md-icon>
       </md-button>
     </div>
