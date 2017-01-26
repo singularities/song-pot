@@ -5,9 +5,13 @@
       min-height: 0px;
     }
 
+    md-input-container {
+//      width: 150px;
+    }
+
   }
 
-  .bpm-buttons {
-    display: inline-block;
+  md-progress-circular {
+    margin: 8px;
   }
 }
