@@ -21,6 +21,8 @@ class MetronomeCtrl {
     this.barAudio.preload = 'auto';
 
     this.beatCount = 0;
+    // Go to 100% in the last beep in the beat
+    this.progressValueFinished = true;
 
     this.$scope.$on('$destroy', () => {
       this.stop();
@@ -111,7 +113,6 @@ class MetronomeCtrl {
   play () {
     this.timeoutId = this.$timeout(() => { this.play(); }, this.interval());
 
-
     if (this.beatCount === 0) {
       this.barAudio.play();
     } else {
@@ -125,6 +126,8 @@ class MetronomeCtrl {
     this.$timeout.cancel(this.timeoutId);
 
     this.beatCount = 0;
+
+    this.progressValueFinished = true;
   }
 
   beatCountFull () {
@@ -132,7 +135,25 @@ class MetronomeCtrl {
   }
 
   progressValue () {
-    return this.beatCountFull() * 100 / this.bpb;
+
+    if (! this.playing) {
+      return 100;
+    }
+
+    if (this.beatCountFull() === 1) {
+      if (this.progressValueFinished) {
+
+        return 0;
+      } else {
+        this.progressValueFinished = true;
+
+        return 100;
+      }
+    } else {
+      this.progressValueFinished = false;
+
+      return (this.beatCountFull() - 1) * 100 / this.bpb;
+    }
   }
 }
 
