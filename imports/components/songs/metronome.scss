@@ -13,5 +13,17 @@
 
   md-progress-circular {
     margin: 8px;
+    &::before {
+      content: attr(data-progress-count);
+      font-size: 30px;
+      font-weight: bold;
+      position: absolute;
+      left: 19px;
+      top: 11px;
+    }
+
+    &.stopped {
+      opacity: 0.5;
+    }
   }
 }

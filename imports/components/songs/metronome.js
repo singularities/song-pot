@@ -5,11 +5,12 @@ import { Songs } from '../../api/songs.js';
 import template from './metronome.html';
 
 class MetronomeCtrl {
-  constructor ($scope, $timeout) {
+  constructor ($scope, $timeout, $mdProgressCircular) {
     'ngInject';
 
     this.$scope  = $scope;
     this.$timeout = $timeout;
+    this.$mdProgressCircular = $mdProgressCircular;
 
     this.beepAudio = new Audio();
     this.beepAudio.src = '/ogg/beep.ogg';
@@ -19,7 +20,7 @@ class MetronomeCtrl {
     this.barAudio.src = '/ogg/bar.ogg';
     this.barAudio.preload = 'auto';
 
-    this.beatCount = 1;
+    this.beatCount = 0;
 
     this.$scope.$on('$destroy', () => {
       this.stop();
@@ -111,7 +112,7 @@ class MetronomeCtrl {
     this.timeoutId = this.$timeout(() => { this.play(); }, this.interval());
 
 
-    if (this.beatCount == 1) {
+    if (this.beatCount === 0) {
       this.barAudio.play();
     } else {
       this.beepAudio.play();
@@ -123,7 +124,15 @@ class MetronomeCtrl {
   stop () {
     this.$timeout.cancel(this.timeoutId);
 
-    this.beatCount = 1;
+    this.beatCount = 0;
+  }
+
+  beatCountFull () {
+    return this.beatCount === 0 ? this.bpb : this.beatCount;
+  }
+
+  progressValue () {
+    return this.beatCountFull() * 100 / this.bpb;
   }
 }
 

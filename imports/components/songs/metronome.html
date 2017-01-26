@@ -29,7 +29,12 @@
   </div>
   <section class="play" layout="column" layout-align="space-around end" flex="noshrink">
 
-    <md-progress-circular md-mode="determinate" md-diameter="56" value="0"></md-progress-circular>
+    <md-progress-circular md-mode="determinate"
+                          md-diameter="56"
+                          value="{{ metronome.progressValue() }}"
+                          ng-class="metronome.playing ? '' : 'stopped'"
+                          data-progress-count="{{ metronome.beatCountFull() }}">
+    </md-progress-circular>
 
     <md-button class="md-fab"
                ng-click="metronome.toggle()"
