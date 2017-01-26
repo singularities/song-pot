@@ -7,6 +7,29 @@
   .bottom-component {
     border-top: solid 1px $bottom-component-color;
     margin-top: 1px;
+
+    &.ng-enter {
+      transition: $swift-ease-out;
+      transition-property: max-height;
+
+      max-height: 0px;
+    }
+
+    &.ng-enter-active {
+      max-height: 250px;
+    }
+
+    &.ng-leave {
+      transition: $swift-ease-in;
+      transition-property: max-height;
+
+      max-height: 250px;
+    }
+
+    &.ng-leave-active {
+      max-height: 0px;
+    }
+
   }
 
   h4 {
