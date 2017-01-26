@@ -32,7 +32,7 @@
     <md-progress-circular md-mode="determinate"
                           md-diameter="56"
                           value="{{ metronome.progressValue() }}"
-                          ng-class="metronome.playing ? '' : 'stopped'"
+                          ng-class="metronome.playing ? 'md-accent' : 'stopped'"
                           data-progress-count="{{ metronome.beatCountFull() }}">
     </md-progress-circular>
 
