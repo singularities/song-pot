@@ -13,9 +13,11 @@ class MetronomeCtrl {
 
     this.beepAudio = new Audio();
     this.beepAudio.src = '/ogg/beep.ogg';
+    this.beepAudio.preload = 'auto';
 
     this.barAudio = new Audio();
     this.barAudio.src = '/ogg/bar.ogg';
+    this.barAudio.preload = 'auto';
 
     this.beatCount = 1;
 
