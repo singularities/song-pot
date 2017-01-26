@@ -1,4 +1,4 @@
-<div hide-gt-md>
+<div hide-gt-md layout="column" layout-fill class="song-show-mobile">
   <md-toolbar>
     <div class="md-toolbar-tools">
       <md-button aria-label="{{ 'song.show.toolbar.back' | translate }}" class="md-icon-button" ui-sref="songs">
@@ -44,17 +44,17 @@
     <song-audios audio-ids="songShow.song.audioIds"></song-audios>
   </md-content>
 
-  <md-content>
+  <div flex="initial" class="bottom-component">
     <div layout layout-align="start center" layout-padding="">
       <h4 translate>metronome.title</h4>
       <span flex></span>
       <md-button class="md-icon-button" ng-click="metronome.hide()" aria-label="hide">
-        <md-icon md-svg-icon="navigation:ic_cancel_24px"></md-icon>
+        <md-icon md-svg-icon="navigation:ic_close_24px"></md-icon>
       </md-button>
     </div>
 
     <metronome metronome-song="songShow.song"></metronome>
-  </md-content>
+  </div>
 </div>
 
 <div hide show-gt-md layout layout-fill>
