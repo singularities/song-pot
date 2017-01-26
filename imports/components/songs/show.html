@@ -7,9 +7,6 @@
       <span>{{ songShow.song.title || 'song.title.empty' | translate }}</span>
       <!-- fill up the space between left and right area -->
       <span flex></span>
-      <md-button ng-if="songShow.song.audioIds.length > 0" aria-label="{{ 'song.show.toolbar.audio_list' | translate }}" class="md-icon-button" song-audios-toggle>
-        <md-icon md-svg-icon="av:ic_queue_music_24px"></md-icon>
-      </md-button>
       <md-menu>
           <md-button aria-label="{{ 'song.show.toolbar.menu' | translate }}" class="md-icon-button" ng-click="$mdOpenMenu($event)">
             <md-icon md-menu-origin md-svg-icon="navigation:ic_more_vert_24px"></md-icon>
