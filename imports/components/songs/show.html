@@ -59,7 +59,7 @@
   </div>
 </div>
 
-<div hide show-gt-md layout layout-fill>
+<div hide show-gt-md layout layout-fill class="song-show-desktop">
   <div layout="column" flex>
     <md-toolbar>
       <div class="md-toolbar-tools">
@@ -92,67 +92,77 @@
         <div flex></div>
       </div>
 
-      <div flex="40" layout="column" layout-margin>
+      <div flex="80" layout="column">
 
-        <div layout="column" class="md-whiteframe-4dp">
+        <h2 class="md-headline song-title">
+          <span>{{ songShow.song.title || 'song.title.empty' | translate }}</span>
+        </h2>
 
-          <div layout layout-padding="" layout-align="start center">
-            <h2 class="md-title">
-              <span translate>metronome.title</span>
-            </h2>
-            <span flex></span>
+        <div layout>
+
+          <div flex="50" layout="column" layout-margin>
+
+            <div layout="column" class="md-whiteframe-4dp">
+
+              <div layout layout-padding="" layout-align="start center">
+                <h3 class="md-title">
+                  <span translate>metronome.title</span>
+                </h3>
+                <span flex></span>
+              </div>
+
+              <md-content>
+                <metronome metronome-song="songShow.song"></metronome>
+              </md-content>
+            </div>
+
+            <div layout="column" class="md-whiteframe-4dp">
+              <div layout layout-padding="" layout-align="start center">
+                <h3 class="md-title">
+                  <span translate>song.audio.title</span>
+                </h3>
+                <span flex></span>
+                <md-button audio-add="songShow.song" class="md-icon-button" aria-label="{{ 'song.show.toolbar.audio_add' | translate }}">
+                  <md-icon md-svg-icon="av:ic_playlist_add_24px"></md-icon>
+                </md-button>
+              </div>
+
+              <md-content>
+
+                <audio-list audio-ids="songShow.song.audioIds"></audio-list>
+
+                <audio-add-progress status="songShow.addProgress" layout-margin></audio-add-progress>
+
+                <audio-player flex="none" audio-ids="songShow.song.audioIds"></audio-player>
+
+              </md-content>
+            </div>
+
+            <div flex></div>
           </div>
 
-          <md-content>
-            <metronome metronome-song="songShow.song"></metronome>
-          </md-content>
-        </div>
+          <div flex="50" layout="column" layout-margin>
 
-        <div layout="column" class="md-whiteframe-4dp">
-          <div layout layout-padding="" layout-align="start center">
-            <h2 class="md-title">
-              <span translate>song.audio.title</span>
-            </h2>
-            <span flex></span>
-            <md-button audio-add="songShow.song" class="md-icon-button" aria-label="{{ 'song.show.toolbar.audio_add' | translate }}">
-              <md-icon md-svg-icon="av:ic_playlist_add_24px"></md-icon>
-            </md-button>
+            <div layout="column" class="md-whiteframe-4dp">
+
+              <div layout layout-padding="" layout-align="start center">
+                <h3 class="md-title">
+                  <span translate>song.text.title</span>
+                </h3>
+                <span flex></span>
+                <md-button ui-sref="songEdit({ id: songShow.song._id })" class="md-icon-button" aria-label="{{ 'song.show.toolbar.edit' | translate }}">
+                  <md-icon md-svg-icon="editor:ic_mode_edit_24px"></md-icon>
+                </md-button>
+              </div>
+
+             <md-content>
+              <div class="song-text">{{ songShow.song.text || 'song.text.empty' | translate }}</div>
+             </md-content>
+            </div>
+
+            <div flex></div>
           </div>
-
-          <md-content>
-
-            <audio-list audio-ids="songShow.song.audioIds"></audio-list>
-
-            <audio-add-progress status="songShow.addProgress" layout-margin></audio-add-progress>
-
-            <audio-player flex="none" audio-ids="songShow.song.audioIds"></audio-player>
-
-          </md-content>
         </div>
-
-        <div flex></div>
-      </div>
-
-      <div flex="40" layout="column" layout-margin>
-
-        <div layout="column" class="md-whiteframe-4dp">
-
-          <div layout layout-padding="" layout-align="start center">
-            <h2 class="md-title">
-              <span translate>song.text.title</span>
-            </h2>
-            <span flex></span>
-            <md-button ui-sref="songEdit({ id: songShow.song._id })" class="md-icon-button" aria-label="{{ 'song.show.toolbar.edit' | translate }}">
-              <md-icon md-svg-icon="editor:ic_mode_edit_24px"></md-icon>
-            </md-button>
-          </div>
-
-         <md-content>
-          <div class="song-text">{{ songShow.song.text || 'song.text.empty' | translate }}</div>
-         </md-content>
-        </div>
-
-        <div flex></div>
       </div>
     </div>
   </div>
