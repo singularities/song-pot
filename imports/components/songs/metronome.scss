@@ -23,7 +23,20 @@
     }
 
     &.stopped {
-      opacity: 0.5;
+      opacity: 0.4;
+
+      path {
+        stroke : rgba(0, 0, 0, 0.870588);
+      }
+
+    }
+  }
+
+  button.metronome-play-stop {
+    background-color: transparent !important;
+
+    md-icon {
+      color: rgba(0,0,0,0.54);
     }
   }
 }
