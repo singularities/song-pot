@@ -74,15 +74,15 @@
       <div flex="20" layout="column" layout-margin>
 
         <div layout="column" class="md-whiteframe-4dp">
-          <md-toolbar class="md-hue-1">
-            <div class="md-toolbar-tools">
-              <h3><span translate>song.list.title</span></h3>
-              <span flex></span>
-              <md-button class="md-icon-button" song-add aria-label="New song">
-                <md-icon md-svg-icon="content:ic_add_24px"></md-icon>
-              </md-button>
-            </div>
-          </md-toolbar>
+          <div layout layout-padding="" layout-align="start center">
+            <h2 class="md-title">
+              <span translate>song.list.title</span>
+            </h2>
+            <span flex></span>
+            <md-button class="md-icon-button" song-add aria-label="New song">
+              <md-icon md-svg-icon="content:ic_add_24px"></md-icon>
+            </md-button>
+          </div>
 
           <md-content>
             <song-list></song-list>
@@ -95,12 +95,13 @@
       <div flex="40" layout="column" layout-margin>
 
         <div layout="column" class="md-whiteframe-4dp">
-          <md-toolbar class="md-hue-1">
-            <div class="md-toolbar-tools">
-              <h3><span translate>metronome.title</span></h3>
-              <span flex></span>
-            </div>
-          </md-toolbar>
+
+          <div layout layout-padding="" layout-align="start center">
+            <h2 class="md-title">
+              <span translate>metronome.title</span>
+            </h2>
+            <span flex></span>
+          </div>
 
           <md-content>
             <metronome metronome-song="songShow.song"></metronome>
@@ -108,15 +109,15 @@
         </div>
 
         <div layout="column" class="md-whiteframe-4dp">
-          <md-toolbar class="md-hue-1">
-            <div class="md-toolbar-tools">
-              <h3><span translate>song.audio.title</span></h3>
-              <span flex></span>
-              <md-button audio-add="songShow.song" class="md-icon-button" aria-label="{{ 'song.show.toolbar.audio_add' | translate }}">
-                <md-icon md-svg-icon="av:ic_playlist_add_24px"></md-icon>
-              </md-button>
-            </div>
-          </md-toolbar>
+          <div layout layout-padding="" layout-align="start center">
+            <h2 class="md-title">
+              <span translate>song.audio.title</span>
+            </h2>
+            <span flex></span>
+            <md-button audio-add="songShow.song" class="md-icon-button" aria-label="{{ 'song.show.toolbar.audio_add' | translate }}">
+              <md-icon md-svg-icon="av:ic_playlist_add_24px"></md-icon>
+            </md-button>
+          </div>
 
           <md-content>
 
@@ -136,16 +137,15 @@
 
         <div layout="column" class="md-whiteframe-4dp">
 
-          <md-toolbar class="md-hue-1">
-            <div class="md-toolbar-tools">
-              <h3><span translate>song.text.title</span></h3>
-              <span flex></span>
-
-              <md-button ui-sref="songEdit({ id: songShow.song._id })" class="md-icon-button" aria-label="{{ 'song.show.toolbar.edit' | translate }}">
-                <md-icon md-svg-icon="editor:ic_mode_edit_24px"></md-icon>
-              </md-button>
-           </div>
-         </md-toolbar>
+          <div layout layout-padding="" layout-align="start center">
+            <h2 class="md-title">
+              <span translate>song.text.title</span>
+            </h2>
+            <span flex></span>
+            <md-button ui-sref="songEdit({ id: songShow.song._id })" class="md-icon-button" aria-label="{{ 'song.show.toolbar.edit' | translate }}">
+              <md-icon md-svg-icon="editor:ic_mode_edit_24px"></md-icon>
+            </md-button>
+          </div>
 
          <md-content>
           <div class="song-text">{{ songShow.song.text || 'song.text.empty' | translate }}</div>
