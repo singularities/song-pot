@@ -7,7 +7,6 @@ cache:
   directories:
     - "$HOME/.npm"
     - node_modules
-    - ".meteor"
 before_install:
   - curl https://install.meteor.com | /bin/sh
 before_script:
