@@ -7,5 +7,5 @@ import template from "./band.html";
   template
 })
 
-export class Band {
+export class BandComponent {
 }

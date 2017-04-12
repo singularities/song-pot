@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { Songs } from '../../../imports/collections';
 
 import template from "./songs.html";
 
@@ -7,5 +9,10 @@ import template from "./songs.html";
   template
 })
 
-export class Songs {
+export class SongsComponent implements OnInit {
+  songs;
+
+  ngOnInit(): void {
+    this.songs = Songs.find({});
+  }
 }

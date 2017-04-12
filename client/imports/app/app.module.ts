@@ -9,8 +9,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 import { SongsPot } from './app.component';
-import { Band } from '../band/band.component';
-import { Songs } from '../songs/songs.component';
+import { BandComponent } from '../band/band.component';
+import { SongsComponent } from '../songs/songs.component';
 
 @NgModule({
   imports: [
@@ -22,7 +22,7 @@ import { Songs } from '../songs/songs.component';
     RouterModule.forRoot([
       {
         path: 'band',
-        component: Band
+        component: BandComponent
       },
       {
         path: '',
@@ -33,8 +33,8 @@ import { Songs } from '../songs/songs.component';
   ],
   declarations: [
     SongsPot,
-    Band,
-    Songs
+    BandComponent,
+    SongsComponent
   ],
   entryComponents: [
     SongsPot
