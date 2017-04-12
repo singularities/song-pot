@@ -1,0 +1,93 @@
+@import '../../node_modules/@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the base styles for Angular Material core. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+@include mat-core();
+
+/*
+ * Generated with http://mcg.mbitson.com/
+ */
+ $mat-palette-primary: (
+    50 : #efebe9,
+    100 : #d7ccc8,
+    200 : #bcaaa4,
+    300 : #a1887f,
+    400 : #8d6f63,
+    500 : #795548,
+    600 : #714e41,
+    700 : #664438,
+    800 : #5c3b30,
+    900 : #492a21,
+    A100 : #ffa68e,
+    A200 : #ff7e5b,
+    A400 : #ff5628,
+    A700 : #ff420e,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #ffffff,
+    )
+);
+
+$mat-palette-accent: (
+    50 : #fff3e0,
+    100 : #ffe0b3,
+    200 : #ffcc80,
+    300 : #ffb74d,
+    400 : #ffa726,
+    500 : #ff9800,
+    600 : #ff9000,
+    700 : #ff8500,
+    800 : #ff7b00,
+    900 : #ff6a00,
+    A100 : #ffffff,
+    A200 : #fff7f2,
+    A400 : #ffd6bf,
+    A700 : #ffc5a6,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue.
+$palette-primary: mat-palette($mat-palette-primary);
+$palette-accent:  mat-palette($mat-palette-accent);
+
+// The warn palette is optional (defaults to red).
+$palette-warn:    mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$theme: mat-light-theme($palette-primary, $palette-accent, $palette-warn);
+
+$primary: map-get($theme, primary);
+$accent: map-get($theme, accent);
+$divider: #BDBDBD;
+
+@include angular-material-theme($theme);
