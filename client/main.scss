@@ -1,12 +1,10 @@
+@import "imports/vendor/material-icons";
+@import "imports/vendor/roboto-regular";
+
+
 /*
-@import "../imports/vendor/angular-material";
-@import "../imports/vendor/fonts";
+@import "imports/theme";
 
-$bottom-component-color: #e0e0e0;
-
-.md-fab-fixed {
-  position: fixed !important
-}
 
 @import '../imports/components/nav';
 @import '../imports/components/songs/list';
