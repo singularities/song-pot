@@ -1,3 +1,36 @@
+import 'hammerjs';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
+import { MaterialModule } from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
+import { SongsPot } from './app.component';
+
+const ROUTES = [
+];
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    FormsModule,
+    MaterialModule,
+    FlexLayoutModule,
+    RouterModule.forRoot(ROUTES),
+  ],
+  declarations: [
+    SongsPot,
+  ],
+  entryComponents: [
+    SongsPot
+  ],
+  bootstrap: [ SongsPot ]
+})
+
+export class AppModule {}
+
+/*
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import angularMaterial from 'angular-material';
@@ -77,3 +110,4 @@ if (Meteor.isCordova) {
 } else {
   angular.element(document).ready(onReady);
 }
+*/
