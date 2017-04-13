@@ -1,52 +1,39 @@
 <div fxShow fxHide.gt-md="true" fxLayout="column" fxFill class="song-mobile" *ngIf="song">
   <md-toolbar color="primary">
-    <md-icon [routerLink]="'/band'">arrow_back</md-icon>
+    <button md-icon-button [routerLink]="'/band'">
+      <md-icon >arrow_back</md-icon>
+    </button>
 
     <span class="title">{{ song.title || 'song.title.empty' | translate }}</span>
 
+    <span fxFlex></span>
+
+    <button md-icon-button [mdMenuTriggerFor]="menu">
+      <md-icon>more_vert</md-icon>
+    </button>
+    <md-menu #menu="mdMenu">
+      <button md-menu-item *ngIf="song.audioIds && song.audioIds.length > 0">
+        <!-- song-audios-toggle -->
+        <span translate>song.show.toolbar.audio_list</span>
+      </button>
+      <button md-menu-item >
+        <!-- audio-add="songShow.song" -->
+        <span translate>song.show.toolbar.audio_add</span>
+      </button>
+      <button md-menu-item>
+        <!-- ng-click="songShow.bottomComponent = 'metronome'" -->
+        <span translate>song.show.toolbar.metronome</span>
+      </button>
+      <button md-menu-item>
+        <span translate>song.show.toolbar.edit</span>
+      </button>
+    </md-menu>
   </md-toolbar>
 
-  <div class="text">
+  <div class="text" fxFlex>
     {{ song.text }}
   </div>
 <!--
-  <md-toolbar>
-    <div class="md-toolbar-tools">
-      <md-button aria-label="{{ 'song.show.toolbar.back' | translate }}" class="md-icon-button" ui-sref="songs">
-        <md-icon md-svg-icon="navigation:ic_arrow_back_24px"></md-icon>
-      </md-button>
-      <span>{{ songShow.song.title || 'song.title.empty' | translate }}</span>
-      <span flex></span>
-      <md-menu>
-          <md-button aria-label="{{ 'song.show.toolbar.menu' | translate }}" class="md-icon-button" ng-click="$mdOpenMenu($event)">
-            <md-icon md-menu-origin md-svg-icon="navigation:ic_more_vert_24px"></md-icon>
-          </md-button>
-          <md-menu-content>
-            <md-menu-item ng-if="songShow.song.audioIds.length > 0">
-              <md-button song-audios-toggle>
-                <span translate>song.show.toolbar.audio_list</span>
-              </md-button>
-            </md-menu-item>
-            <md-menu-item>
-              <md-button audio-add="songShow.song">
-                <span translate>song.show.toolbar.audio_add</span>
-              </md-button>
-            </md-menu-item>
-            <md-menu-item>
-              <md-button ng-click="songShow.bottomComponent = 'metronome'">
-                <span translate>song.show.toolbar.metronome</span>
-              </md-button>
-            </md-menu-item>
-            <md-menu-item>
-              <md-button ui-sref="songEdit({ id: songShow.song._id })">
-                <span translate>song.show.toolbar.edit</span>
-              </md-button>
-            </md-menu-item>
-          </md-menu-content>
-        </md-menu>
-    </div>
-  </md-toolbar>
-
   <md-content flex layout-padding>
     <div class="song-text"
          hm-manager-options='{ "touchAction": "pan-y", "cssProps": {"userSelect": true}}'
