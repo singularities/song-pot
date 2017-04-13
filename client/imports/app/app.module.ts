@@ -15,8 +15,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { SongsPot } from './app.component';
 import { BandComponent } from '../band/band.component';
-import { SongsComponent } from '../songs/songs.component';
-import { SongComponent } from '../songs/song.component';
+import { SongsComponent } from '../song/songs.component';
+import { SongComponent } from '../song/song.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: Http) {
