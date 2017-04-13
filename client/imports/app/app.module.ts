@@ -17,6 +17,7 @@ import { SongsPot } from './app.component';
 import { BandComponent } from '../band/band.component';
 import { SongsComponent } from '../song/songs.component';
 import { SongComponent } from '../song/song.component';
+import { SongAudiosComponent } from '../song/audios.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: Http) {
@@ -58,7 +59,8 @@ export function HttpLoaderFactory(http: Http) {
     SongsPot,
     BandComponent,
     SongsComponent,
-    SongComponent
+    SongComponent,
+    SongAudiosComponent
   ],
   entryComponents: [
     SongsPot

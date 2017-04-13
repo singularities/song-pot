@@ -5,3 +5,7 @@ export interface Song {
   text: string;
   audioIds?: any[];
 }
+
+export interface Audio {
+
+}

@@ -1,0 +1,25 @@
+<div fxLayout="column" *ngIf="visible">
+
+  <div fxLayout="row"
+       fxLayoutAlign="start center">
+    <h4 translate>audio.list.header</h4>
+
+    <div fxFlex></div>
+
+    <button md-icon-button (click)="visible = false">
+      <md-icon >close</md-icon>
+    </button>
+  </div>
+
+audio-list
+
+<div *ngFor="let id of audioIds">
+  {{ id }}
+
+</div>
+
+audio-add-progress
+
+audio-player
+
+</div>

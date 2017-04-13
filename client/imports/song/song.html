@@ -38,6 +38,8 @@
 
     {{ song.text || 'song.text.empty' | translate }}
   </div>
+
+  <song-audios [audioIds]="song.audioIds"></song-audios>
 <!--
     <song-audios audio-ids="songShow.song.audioIds"></song-audios>
   </md-content>
