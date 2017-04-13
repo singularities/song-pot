@@ -6,12 +6,19 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { MaterialModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
+import {HttpModule, Http} from '@angular/http';
+import { TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { SongsPot } from './app.component';
 import { BandComponent } from '../band/band.component';
 import { SongsComponent } from '../songs/songs.component';
 import { SongComponent } from '../songs/song.component';
+
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(http: Http) {
+    return new TranslateHttpLoader(http, "/l10n/");
+}
 
 @NgModule({
   imports: [
@@ -20,6 +27,13 @@ import { SongComponent } from '../songs/song.component';
     FormsModule,
     MaterialModule,
     FlexLayoutModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [ Http ]
+      }
+    }),
     RouterModule.forRoot([
       {
         path: 'band',
@@ -72,24 +86,5 @@ angular.module('SongsPot', [
 
     $mdThemingProvider.enableBrowserColor();
   })
-  .config(function($translateProvider) {
-    'ngInject';
-
-    $translateProvider
-      .useStaticFilesLoader({
-        prefix: 'l10n/',
-        suffix: '.json'
-      })
-      .registerAvailableLanguageKeys(['en', 'es'], {
-        'en_*': 'en',
-        'es_*': 'es'
-      })
-      .useSanitizeValueStrategy('escaped')
-      // Do not change order of next two elements
-      // https://github.com/angular-translate/angular-translate/issues/920#issuecomment-180550269
-      .determinePreferredLanguage()
-      .fallbackLanguage('en');
-  });
-
 
 */
