@@ -1,7 +1,14 @@
 <md-list>
   <md-list-item *ngFor="let song of songs | async">
-    {{ song.title }}
-
+     <a md-line [routerLink]="['/songs', song._id]">
+       {{ song.title }}
+       <ng-container i18n *ngIf="! song.title">No title</ng-container>
+     </a>
+     <button md-icon-button
+             *ngIf="song.audioIds"
+             [routerLink]="['/songs', song._id]">
+        <md-icon>queue_music</md-icon>
+     </button>
   </md-list-item>
 </md-list>
 

@@ -11,6 +11,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { SongsPot } from './app.component';
 import { BandComponent } from '../band/band.component';
 import { SongsComponent } from '../songs/songs.component';
+import { SongComponent } from '../songs/song.component';
 
 @NgModule({
   imports: [
@@ -25,6 +26,10 @@ import { SongsComponent } from '../songs/songs.component';
         component: BandComponent
       },
       {
+        path: 'songs/:id',
+        component: SongComponent
+      },
+      {
         path: '',
         redirectTo: '/band',
         pathMatch: 'full'
@@ -34,7 +39,8 @@ import { SongsComponent } from '../songs/songs.component';
   declarations: [
     SongsPot,
     BandComponent,
-    SongsComponent
+    SongsComponent,
+    SongComponent
   ],
   entryComponents: [
     SongsPot
