@@ -33,6 +33,7 @@
     "zone.js": "^0.8.5"
   },
   "devDependencies": {
+    "@types/hammerjs": "^2.0.34",
     "@types/meteor": "^1.4.1",
     "@types/meteor-accounts-phone": "^0.0.5",
     "@types/underscore": "^1.8.0",

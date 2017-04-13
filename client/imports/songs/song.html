@@ -30,16 +30,15 @@
     </md-menu>
   </md-toolbar>
 
-  <div class="text" fxFlex>
-    {{ song.text }}
+  <div class="text"
+       fxFlex
+       [style.touch-action]="'pan-y'"
+       (swipeleft)='swipe($event.type)'
+       (swiperight)='swipe($event.type)'>
+
+    {{ song.text || 'song.text.empty' | translate }}
   </div>
 <!--
-  <md-content flex layout-padding>
-    <div class="song-text"
-         hm-manager-options='{ "touchAction": "pan-y", "cssProps": {"userSelect": true}}'
-         hm-swipeleft="songShow.nextSong()"
-         hm-swiperight="songShow.prevSong()">{{ songShow.song.text || 'song.text.empty' | translate }}</div>
-
     <song-audios audio-ids="songShow.song.audioIds"></song-audios>
   </md-content>
 
