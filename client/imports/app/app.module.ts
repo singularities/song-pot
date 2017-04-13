@@ -63,28 +63,3 @@ export function HttpLoaderFactory(http: Http) {
 })
 
 export class AppModule {}
-
-/*
-import angularTranslate from 'angular-translate';
-import angularTranslateStaticFiles from 'angular-translate/dist/angular-translate-loader-static-files/angular-translate-loader-static-files';
-
-import songIndex from '../imports/components/songs/index';
-
-angular.module('SongsPot', [
-  angularMeteor,
-  angularMaterial,
-  uiRouter,
-  angularTranslate,
-  songIndex.name
-])
-  .config(function($mdThemingProvider) {
-    'ngInject';
-
-    $mdThemingProvider.theme('default')
-      .primaryPalette('brown')
-      .accentPalette('orange');
-
-    $mdThemingProvider.enableBrowserColor();
-  })
-
-*/
