@@ -21,6 +21,7 @@ import { SongAudiosComponent } from '../song/audios.component';
 import { AudioListComponent } from '../audio/list.component';
 import { AudioDialogChangeName } from '../audio/dialog/change-name.component';
 import { AudioDialogConfirmRemove } from '../audio/dialog/confirm-remove.component';
+import { AudioPlayerComponent } from '../audio/player.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: Http) {
@@ -66,7 +67,8 @@ export function HttpLoaderFactory(http: Http) {
     SongAudiosComponent,
     AudioListComponent,
     AudioDialogChangeName,
-    AudioDialogConfirmRemove
+    AudioDialogConfirmRemove,
+    AudioPlayerComponent
   ],
   entryComponents: [
     SongsPot,

@@ -4,6 +4,8 @@ import { MdDialog, MdDialogRef } from '@angular/material';
 import { Audio } from '../../../imports/models';
 import { Audios } from '../../../imports/collections';
 
+import { AudioService } from './audio.service';
+
 import { AudioDialogChangeName } from './dialog/change-name.component';
 import { AudioDialogConfirmRemove } from './dialog/confirm-remove.component';
 
@@ -25,11 +27,12 @@ export class AudioListComponent implements OnInit {
     this.audios = Audios.find({ _id: { '$in': this.audioIds || [] } });
   }
 
-  constructor (public dialog: MdDialog) {}
+  constructor (public dialog: MdDialog,
+               private audioService: AudioService) {}
 
   play (audio: Audio): void {
-    console.log('play');
 
+    this.audioService.loadAndPlay(audio);
   }
 
   changeName(audio) {
