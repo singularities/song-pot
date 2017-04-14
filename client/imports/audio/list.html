@@ -1,0 +1,44 @@
+<md-nav-list>
+  <md-list-item *ngFor="let audio of audios | async">
+     <a md-line (click)="play(audio)" >{{ audio.name }}</a>
+
+     <button md-icon-button [mdMenuTriggerFor]="audioMenu">
+       <md-icon>more_vert</md-icon>
+     </button>
+     <md-menu #audioMenu="mdMenu">
+       <button md-menu-item (click)="changeName(audio)">
+         <span translate>song.list.menu.rename</span>
+       </button>
+       <button md-menu-item (click)="confirmRemove(audio)">
+         <span translate>song.list.menu.remove</span>
+       </button>
+     </md-menu>
+  </md-list-item>
+
+  <div *ngIf="! (audios | async)?.length" translate>
+    audio.list.empty.message
+  </div>
+</md-nav-list>
+
+<!--
+
+        <md-menu-item>
+          <md-button ng-click="audioList.changeName(audio, $event)">
+            <span translate>song.list.menu.rename</span>
+          </md-button>
+        </md-menu-item>
+        <md-menu-divider></md-menu-divider>
+        <md-menu-item>
+          <md-button ng-click="audioList.confirmRemove(audio, $event)">
+            <span translate>song.list.menu.remove</span>
+          </md-button>
+        </md-menu-item>
+      </md-menu-content>
+    </md-menu>
+  </md-list-item>
+
+  <div class="md-caption" ng-if="! audioList.audios" translate>
+    audio.list.empty.message
+  </div>
+</md-list>
+-->

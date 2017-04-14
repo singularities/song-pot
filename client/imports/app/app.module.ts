@@ -18,6 +18,9 @@ import { BandComponent } from '../band/band.component';
 import { SongsComponent } from '../song/songs.component';
 import { SongComponent } from '../song/song.component';
 import { SongAudiosComponent } from '../song/audios.component';
+import { AudioListComponent } from '../audio/list.component';
+import { AudioDialogChangeName } from '../audio/dialog/change-name.component';
+import { AudioDialogConfirmRemove } from '../audio/dialog/confirm-remove.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: Http) {
@@ -60,10 +63,15 @@ export function HttpLoaderFactory(http: Http) {
     BandComponent,
     SongsComponent,
     SongComponent,
-    SongAudiosComponent
+    SongAudiosComponent,
+    AudioListComponent,
+    AudioDialogChangeName,
+    AudioDialogConfirmRemove
   ],
   entryComponents: [
-    SongsPot
+    SongsPot,
+    AudioDialogChangeName,
+    AudioDialogConfirmRemove
   ],
   bootstrap: [ SongsPot ]
 })
