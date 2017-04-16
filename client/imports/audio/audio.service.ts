@@ -64,7 +64,9 @@ export class AudioService {
   pause () {
     this.cancelWatch();
 
-    this.object.pause();
+    if (this.object) {
+      this.object.pause();
+    }
   }
 
   stop () {
