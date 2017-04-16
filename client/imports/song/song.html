@@ -1,4 +1,8 @@
-<div fxShow fxHide.gt-md="true" fxLayout="column" fxFill class="song-mobile" *ngIf="song">
+<div fxShow
+     fxHide.gt-md="true"
+     fxLayout="column"
+     fxFill class="song-mobile"
+     *ngIf="song">
   <md-toolbar color="primary">
     <button md-icon-button [routerLink]="'/band'">
       <md-icon >arrow_back</md-icon>
@@ -12,16 +16,17 @@
       <md-icon>more_vert</md-icon>
     </button>
     <md-menu #menu="mdMenu">
-      <button md-menu-item *ngIf="song.audioIds && song.audioIds.length > 0">
-        <!-- song-audios-toggle -->
+      <button md-menu-item
+              *ngIf="song.audioIds && song.audioIds.length > 0"
+              (click)="bottomContainer = 'audios'">
         <span translate>song.show.toolbar.audio_list</span>
       </button>
       <button md-menu-item >
         <!-- audio-add="songShow.song" -->
         <span translate>song.show.toolbar.audio_add</span>
       </button>
-      <button md-menu-item>
-        <!-- ng-click="songShow.bottomComponent = 'metronome'" -->
+      <button md-menu-item
+              (click)="bottomContainer = 'metronome'">
         <span translate>song.show.toolbar.metronome</span>
       </button>
       <button md-menu-item>
@@ -39,10 +44,13 @@
     {{ song.text || 'song.text.empty' | translate }}
   </div>
 
-  <song-audios [audioIds]="song.audioIds"></song-audios>
+  <div class="bottom-container" [@flyBottomUp] *ngIf="bottomContainer">
+    <song-audios [audioIds]="song.audioIds"
+                 *ngIf="bottomContainer === 'audios'"
+                 (onClose)="bottomContainer = null"></song-audios>
+  </div>
+
 <!--
-    <song-audios audio-ids="songShow.song.audioIds"></song-audios>
-  </md-content>
 
   <div flex="initial" class="bottom-component" ng-if="songShow.bottomComponent === 'metronome'">
     <div layout layout-align="start center" layout-padding="">

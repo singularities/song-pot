@@ -1,4 +1,4 @@
-<div fxLayout="column" *ngIf="visible">
+<div fxLayout="column">
 
   <div fxLayout="row"
        fxLayoutAlign="start center">
@@ -6,7 +6,7 @@
 
     <div fxFlex></div>
 
-    <button md-icon-button (click)="visible = false">
+    <button md-icon-button (click)="close()">
       <md-icon >close</md-icon>
     </button>
   </div>

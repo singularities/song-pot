@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 import { Audio } from '../../../imports/models';
 
@@ -12,7 +12,10 @@ import template from "./audios.html";
 
 export class SongAudiosComponent {
   @Input() audioIds: string[];
+  @Output() onClose = new EventEmitter();
 
-  visible: boolean = true;
+  close () {
+    this.onClose.emit();
+  }
 
 }

@@ -2,6 +2,7 @@ import 'rxjs/add/operator/switchMap';
 
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 import { Songs } from '../../../imports/collections';
 
@@ -9,7 +10,20 @@ import template from "./song.html";
 
 @Component({
   selector: 'song',
-  template
+  template,
+  animations: [
+    trigger('flyBottomUp', [
+      state('in',
+        style({ transform: 'translateY(0)' })),
+      transition('void => *', [
+        style( { transform: 'translateY(100%)' } ),
+        animate(300)
+      ]),
+      transition('* => void', [
+        animate(300, style({transform: 'translateY(100%)'}))
+      ])
+    ])
+  ],
 })
 
 export class SongComponent implements OnInit {
