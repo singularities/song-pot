@@ -1,0 +1,54 @@
+<div class="metronome"
+     fxLayout="row"
+     fxLayoutAlign="space-between stretch">
+
+  <div fxLayout="column" fxLayoutAlign="space-around center" fxFlex="nogrow">
+
+    <section class="bpm" fxLayout="row" fxLayoutAlign="start center">
+      <md-input-container fxFlex>
+        <input mdInput
+               type="number"
+               [placeholder]="'metronome.bpm.label' | translate"
+               [(ngModel)]="bpm"
+               step="1">
+      </md-input-container>
+
+      <div class="bpm-buttons">
+        <md-icon (click)="bpm = bpm - 1">remove</md-icon>
+        <md-icon (click)="bpm = bpm + 1">add</md-icon>
+      </div>
+    </section>
+
+    <section class="bpb" fxLayout="row" fxLayoutAlign="start center">
+      <md-input-container fxFlex>
+        <input mdInput
+               type="number"
+               [placeholder]="'metronome.bpb.label' | translate"
+               [(ngModel)]="bpb"
+               step="1">
+      </md-input-container>
+
+      <div class="bpm-buttons">
+        <md-icon (click)="bpb = bpb - 1">remove</md-icon>
+        <md-icon (click)="bpb = bpb + 1">add</md-icon>
+      </div>
+    </section>
+
+  </div>
+
+  <section class="play" fxLayout="column" fxLayoutAlign="space-around end" flex="noshrink">
+
+    <md-progress-spinner
+        mode="determinate"
+        color="accent"
+        [class]="playing ? '' : 'stopped'"
+        [value]="progressValue()"
+        [attr.data-progress-count]="beatCountFull()">
+    </md-progress-spinner>
+    
+    <button md-fab class="metronome-play-stop"
+            (click)="toggle()">
+      <md-icon>{{ playing ? 'stop' : 'play_arrow' }}</md-icon>
+    </md-button>
+  </section>
+</div>

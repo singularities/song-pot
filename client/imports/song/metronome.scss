@@ -1,0 +1,40 @@
+.metronome {
+
+  section.play {
+    margin-left: 16px;
+  }
+
+
+  md-progress-spinner {
+    width: 64px;
+    height: 64px;
+    position: relative;
+
+    &::before {
+      content: attr(data-progress-count);
+      font-size: 30px;
+      font-weight: bold;
+      position: absolute;
+      left: 23px;
+      top: 14px;
+    }
+
+    &.stopped {
+      opacity: 0.4;
+
+      path {
+        stroke : rgba(0, 0, 0, 0.870588);
+      }
+
+    }
+  }
+
+  button.metronome-play-stop {
+    background-color: transparent !important;
+    margin-right: 3px;
+
+    md-icon {
+      color: rgba(0,0,0,0.54);
+    }
+  }
+}

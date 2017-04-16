@@ -31,6 +31,8 @@ export class SongComponent implements OnInit {
 
   song;
 
+  bottomContainer;
+
   constructor (
     private router: Router,
     private route: ActivatedRoute
