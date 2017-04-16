@@ -1,5 +1,5 @@
 <div fxShow
-     fxHide.gt-md="true"
+     fxHide.gt-sm="true"
      fxLayout="column"
      fxFill class="song-mobile"
      *ngIf="song">
@@ -63,114 +63,89 @@
   </div>
 </div>
 
-<!--
-<div hide show-gt-md layout layout-fill class="song-show-desktop">
-  <div layout="column" flex>
-    <md-toolbar>
-      <div class="md-toolbar-tools">
-        <h3>
-          <span>Quebrantahuesos</span>
-        </h3>
-      </div>
+<div fxHide fxShow.gt-sm fxLayout="row" fxFill class="song-desktop" *ngIf="song">
+  <div fxLayout="column" fxFlex>
+    <md-toolbar color="primary">
+      <span>Quebrantahuesos</span>
     </md-toolbar>
 
-    <div layout>
+    <div fxLayout="row" fxFlex>
+      <div fxFlex="20" class="padding-16">
+        <md-card fxFlex fxLayout="column">
+          <md-card-title fxLayout="row" fxLayoutAlign="start center">
+            <span translate>song.list.title</span>
+            <span fxFlex></span>
+            <button md-icon-button><!-- song add -->
+              <md-icon>add</md-icon>
+            </button>
+          </md-card-title>
 
-      <div flex="20" layout="column" layout-margin>
-
-        <div layout="column" class="md-whiteframe-4dp">
-          <div layout layout-padding="" layout-align="start center">
-            <h2 class="md-title">
-              <span translate>song.list.title</span>
-            </h2>
-            <span flex></span>
-            <md-button class="md-icon-button" song-add aria-label="New song">
-              <md-icon md-svg-icon="content:ic_add_24px"></md-icon>
-            </md-button>
-          </div>
-
-          <md-content>
-            <song-list></song-list>
-          </md-content>
-        </div>
-
-        <div flex></div>
+          <md-card-content>
+            <songs></songs>
+          </md-card-content>
+        </md-card>
       </div>
 
-      <div flex="80" layout="column">
+      <div fxFlex="80" fxLayout="column">
 
-        <h2 class="md-headline song-title">
-          <span>{{ songShow.song.title || 'song.title.empty' | translate }}</span>
+        <h2 class="song-title">
+          <span>{{ song.title || 'song.title.empty' | translate }}</span>
         </h2>
 
-        <div layout>
+        <div fxLayout="row" fxFlex>
 
-          <div flex="50" layout="column" layout-margin>
+          <div fxFlex="50" fxLayout="column" class="padding-16">
 
-            <div layout="column" class="md-whiteframe-4dp">
+            <md-card fxLayout="column">
+              <md-card-title fxLayout="row" fxLayoutAlign="start center">
+                <span translate>metronome.title</span>
+                <span fxFlex></span>
+              </md-card-title>
 
-              <div layout layout-padding="" layout-align="start center">
-                <h3 class="md-title">
-                  <span translate>metronome.title</span>
-                </h3>
-                <span flex></span>
-              </div>
+              <md-card-content>
+                <metronome [song]="song"></metronome>
+              </md-card-content>
+            </md-card>
 
-              <md-content>
-                <metronome metronome-song="songShow.song"></metronome>
-              </md-content>
-            </div>
+            <div class="spacer"></div>
 
-            <div layout="column" class="md-whiteframe-4dp">
-              <div layout layout-padding="" layout-align="start center">
-                <h3 class="md-title">
-                  <span translate>song.audio.title</span>
-                </h3>
-                <span flex></span>
-                <md-button audio-add="songShow.song" class="md-icon-button" aria-label="{{ 'song.show.toolbar.audio_add' | translate }}">
-                  <md-icon md-svg-icon="av:ic_playlist_add_24px"></md-icon>
-                </md-button>
-              </div>
+            <md-card fxLayout="column">
+              <md-card-title fxLayout="row" fxLayoutAlign="start center">
+                <span translate>song.audio.title</span>
+                <span fxFlex></span>
+                <button md-icon-button><!-- audio add -->
+                  <md-icon>playlist_add</md-icon>
+                </button>
+              </md-card-title>
 
-              <md-content>
+              <md-card-content fxLayout="column">
+                <audio-list [audioIds]="song.audioIds"></audio-list>
 
-                <audio-list audio-ids="songShow.song.audioIds"></audio-list>
+                <!--audio-add-progress status="songShow.addProgress" layout-margin></audio-add-progress-->
 
-                <audio-add-progress status="songShow.addProgress" layout-margin></audio-add-progress>
-
-                <audio-player flex="none" audio-ids="songShow.song.audioIds"></audio-player>
-
-              </md-content>
-            </div>
-
-            <div flex></div>
+                <audio-player fxFlex="none"></audio-player>
+              </md-card-content>
+            </md-card>
           </div>
 
-          <div flex="50" layout="column" layout-margin>
+          <div fxFlex="50" fxLayout="column" class="padding-16">
 
-            <div layout="column" class="md-whiteframe-4dp">
+            <md-card fxLayout="column">
+              <md-card-title fxLayout="row" fxLayoutAlign="start center">
+                <span translate>song.text.title</span>
+                <span fxFlex></span>
+                <button md-icon-button><!-- edit -->
+                  <md-icon>mode_edit</md-icon>
+                </button>
+              </md-card-title>
 
-              <div layout layout-padding="" layout-align="start center">
-                <h3 class="md-title">
-                  <span translate>song.text.title</span>
-                </h3>
-                <span flex></span>
-                <md-button ui-sref="songEdit({ id: songShow.song._id })" class="md-icon-button" aria-label="{{ 'song.show.toolbar.edit' | translate }}">
-                  <md-icon md-svg-icon="editor:ic_mode_edit_24px"></md-icon>
-                </md-button>
-              </div>
-
-             <md-content>
-              <div class="song-text">{{ songShow.song.text || 'song.text.empty' | translate }}</div>
-             </md-content>
-            </div>
-
-            <div flex></div>
+              <md-card-content>
+                <div class="text">{{ song.text || 'song.text.empty' | translate }}</div>
+              </md-card-content>
+            </md-card>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
--->
