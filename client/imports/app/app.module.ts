@@ -18,6 +18,7 @@ import { BandComponent } from '../band/band.component';
 import { SongsComponent } from '../song/songs.component';
 import { SongComponent } from '../song/song.component';
 import { SongAudiosComponent } from '../song/audios.component';
+import { SongAddDirective } from '../song/add.directive';
 import { MetronomeComponent } from '../song/metronome.component';
 import { AudioListComponent } from '../audio/list.component';
 import { AudioDialogChangeName } from '../audio/dialog/change-name.component';
@@ -66,6 +67,7 @@ export function HttpLoaderFactory(http: Http) {
     SongsComponent,
     SongComponent,
     SongAudiosComponent,
+    SongAddDirective,
     MetronomeComponent,
     AudioListComponent,
     AudioDialogChangeName,

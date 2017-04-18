@@ -1,0 +1,21 @@
+band {
+  display: block;
+  height: 100%;
+
+  .songs-desktop {
+
+    .padding-16 {
+      padding: 16px;
+    }
+
+    songs {
+      .mat-list-item-content {
+        padding: 0 !important;
+      }
+    }
+
+    md-card-content {
+      overflow: auto;
+    }
+  }
+}

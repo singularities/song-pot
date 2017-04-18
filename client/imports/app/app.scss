@@ -11,4 +11,12 @@ body {
 
 songs-pot {
   display: block;
+
+  .md-fab-bottom-fixed {
+	  position: fixed !important;
+    top: auto;
+    right: 20px;
+    bottom: 20px;
+    left: auto;
+  }
 }

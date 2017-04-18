@@ -1,5 +1,41 @@
-<md-toolbar color="primary">
-  <span>Quebrantahuesos</span>
-</md-toolbar>
+<div fxLayout="column"
+     fxFill>
 
-<songs></songs>
+  <md-toolbar color="primary">
+    <span>Quebrantahuesos</span>
+  </md-toolbar>
+
+  <div fxShow
+       fxHide.gt-sm="true">
+
+    <songs></songs>
+
+
+    <button md-fab class="md-fab-bottom-fixed"
+           song-add>
+      <md-icon>add</md-icon>
+    </button>
+  </div>
+
+  <div fxLayout="row"
+       fxFlex
+       fxHide
+       fxShow.gt-sm
+       class="songs-desktop">
+    <div fxFlex="20" class="padding-16">
+      <md-card fxFlex fxLayout="column">
+        <md-card-title fxLayout="row" fxLayoutAlign="start center">
+          <span translate>song.list.title</span>
+          <span fxFlex></span>
+          <button md-icon-button song-add>
+            <md-icon>add</md-icon>
+          </button>
+        </md-card-title>
+
+        <md-card-content>
+          <songs></songs>
+        </md-card-content>
+      </md-card>
+    </div>
+  </div>
+</div>
