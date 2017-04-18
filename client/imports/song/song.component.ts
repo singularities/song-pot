@@ -1,6 +1,6 @@
 import 'rxjs/add/operator/switchMap';
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 
@@ -35,14 +35,15 @@ export class SongComponent implements OnInit {
 
   constructor (
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private ref: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
 
     this.route.params
       .switchMap((params: Params) => Songs.find({ _id: params['id']}))
-      .subscribe(songs => { this.song = songs[0]; });
+      .subscribe(songs => { this.song = songs[0]; this.ref.detectChanges(); });
   }
 
   swipe(direction) {
