@@ -31,6 +31,9 @@ export class SongComponent implements OnInit {
 
   song;
 
+  editing;
+
+  // Show components (metronome, audio list) in mobile
   bottomContainer;
 
   constructor (
@@ -44,6 +47,9 @@ export class SongComponent implements OnInit {
     this.route.params
       .switchMap((params: Params) => Songs.find({ _id: params['id']}))
       .subscribe(songs => { this.song = songs[0]; this.ref.detectChanges(); });
+
+    this.route.params
+      .subscribe((params: Params) => { this.editing = params['child'] === 'edit' } );
   }
 
   swipe(direction) {
@@ -75,6 +81,25 @@ export class SongComponent implements OnInit {
         this.router.navigate([ '/songs', songs[0]._id]);
       }
     })
+  }
 
+  cancel () {
+    // Reset song
+    this.song = Songs.findOne({ _id: this.song._id });
+
+    this.router.navigate(['/songs', this.song._id]);
+  }
+
+  save () {
+    Songs.update({
+      _id: this.song._id
+    }, {
+      $set: {
+        title: this.song.title,
+        text: this.song.text
+      }
+    });
+
+    this.router.navigate(['/songs', this.song._id]);
   }
 }

@@ -17,6 +17,7 @@ import { SongsPot } from './app.component';
 import { BandComponent } from '../band/band.component';
 import { SongsComponent } from '../song/songs.component';
 import { SongComponent } from '../song/song.component';
+import { SongEditComponent } from '../song/edit.component';
 import { SongAudiosComponent } from '../song/audios.component';
 import { SongAddDirective } from '../song/add.directive';
 import { MetronomeComponent } from '../song/metronome.component';
@@ -52,7 +53,12 @@ export function HttpLoaderFactory(http: Http) {
       },
       {
         path: 'songs/:id',
-        component: SongComponent
+        component: SongComponent,
+      },
+      // TODO use child routes?
+      {
+        path: 'songs/:id/:child',
+        component: SongComponent,
       },
       {
         path: '',
@@ -66,6 +72,7 @@ export function HttpLoaderFactory(http: Http) {
     BandComponent,
     SongsComponent,
     SongComponent,
+    SongEditComponent,
     SongAudiosComponent,
     SongAddDirective,
     MetronomeComponent,

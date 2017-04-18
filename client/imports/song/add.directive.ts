@@ -23,7 +23,7 @@ export class SongAddDirective {
         createdAt: new Date()
       })
       .subscribe(id => {
-        this.router.navigate(['/songs/', id]);
+        this.router.navigate(['/songs/', id, 'edit']);
       });
 
   }
