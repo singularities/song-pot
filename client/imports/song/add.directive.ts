@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Songs } from '../../../imports/collections';
 
 @Directive({
-  selector: '[song-add]'
+  selector: '[songAdd]'
 })
 
 export class SongAddDirective {
