@@ -13,6 +13,10 @@ export class SongsComponent implements OnInit {
   songs;
 
   ngOnInit(): void {
-    this.songs = Songs.find({});
+    this.songs = Songs.find({}, {
+      sort: {
+        createdAt: -1
+      }
+    });
   }
 }
