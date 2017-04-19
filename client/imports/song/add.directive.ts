@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener, Input } from '@angular/core';
+import { Directive, HostListener, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Songs } from '../../../imports/collections';
