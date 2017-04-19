@@ -6,6 +6,7 @@ song {
     white-space: pre-line;
     font-size: 16px;
     overflow: auto;
+    line-height: 26px;
   }
 
   .song-mobile {
@@ -35,6 +36,11 @@ song {
 
     .spacer {
       height: 16px;
+    }
+
+    md-card-title {
+      font-size: 20px;
+      font-weight: 500;
     }
 
     md-card-content {
