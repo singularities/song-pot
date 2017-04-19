@@ -20,6 +20,7 @@ import { SongComponent } from '../song/song.component';
 import { SongEditComponent } from '../song/edit.component';
 import { SongAudiosComponent } from '../song/audios.component';
 import { SongAddDirective } from '../song/add.directive';
+import { SongDialogConfirmRemove } from '../song/dialog/confirm-remove.component';
 import { MetronomeComponent } from '../song/metronome.component';
 import { AudioListComponent } from '../audio/list.component';
 import { AudioDialogChangeName } from '../audio/dialog/change-name.component';
@@ -75,6 +76,7 @@ export function HttpLoaderFactory(http: Http) {
     SongEditComponent,
     SongAudiosComponent,
     SongAddDirective,
+    SongDialogConfirmRemove,
     MetronomeComponent,
     AudioListComponent,
     AudioDialogChangeName,
@@ -83,6 +85,7 @@ export function HttpLoaderFactory(http: Http) {
   ],
   entryComponents: [
     SongsPot,
+    SongDialogConfirmRemove,
     AudioDialogChangeName,
     AudioDialogConfirmRemove
   ],

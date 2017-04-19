@@ -3,8 +3,11 @@ import 'rxjs/add/operator/switchMap';
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { trigger, state, style, animate, transition } from '@angular/animations';
+import { MdDialog } from '@angular/material';
 
 import { Songs } from '../../../imports/collections';
+
+import { SongDialogConfirmRemove } from './dialog/confirm-remove.component';
 
 import template from "./song.html";
 
@@ -39,7 +42,8 @@ export class SongComponent implements OnInit {
   constructor (
     private router: Router,
     private route: ActivatedRoute,
-    private ref: ChangeDetectorRef
+    private ref: ChangeDetectorRef,
+    private dialog: MdDialog
   ) {}
 
   ngOnInit(): void {
@@ -103,5 +107,21 @@ export class SongComponent implements OnInit {
     });
 
     this.router.navigate(['/songs', this.song._id]);
+  }
+
+  confirmRemove() {
+    let dialogRef = this.dialog.open(SongDialogConfirmRemove, {
+      data: {
+        title: this.song.title || ''
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(confirmation => {
+      if (confirmation) {
+        Songs.remove(this.song._id);
+
+        this.router.navigate(['/band']);
+      }
+    });
   }
 }

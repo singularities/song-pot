@@ -49,7 +49,6 @@
     "edit": {
       "toolbar": {
         "menu": "Abrir el menú de editar canción",
-        "remove": "Borrar canción",
         "save": "Guardar"
       },
       "title": "Editando letra"
@@ -70,6 +69,10 @@
       }
     },
     "show": {
+      "actions": {
+        "remove_song": "Borrar canción",
+        "title": "Acciones"
+      },
       "toolbar": {
         "audio_add": "Añadir audio",
         "audio_list": "Lista de audios",
@@ -77,7 +80,8 @@
         "back": "Volver a la lista de canciones",
         "edit": "Editar letra",
         "menu": "Abrir el menú de la canción",
-        "metronome": "Metrónomo"
+        "metronome": "Metrónomo",
+        "remove": "Borrar canción"
       }
     },
     "text": {

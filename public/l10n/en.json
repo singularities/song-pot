@@ -49,7 +49,6 @@
     "edit": {
       "toolbar": {
         "menu": "Open edit song menu",
-        "remove": "Remove song",
         "save": "Save"
       },
       "title": "Editing lyric"
@@ -70,6 +69,10 @@
       }
     },
     "show": {
+      "actions": {
+        "remove_song": "Remove song",
+        "title": "Actions"
+      },
       "toolbar": {
         "audio_add": "Add audio",
         "audio_list": "Audio list",
@@ -77,7 +80,8 @@
         "back": "Back to song list",
         "edit": "Edit lyric",
         "menu": "Open show song menu",
-        "metronome": "Metronome"
+        "metronome": "Metronome",
+        "remove": "Remove song"
       }
     },
     "text": {

@@ -34,6 +34,10 @@
               [routerLink]="['/songs', song._id, 'edit']">
         <span translate>song.show.toolbar.edit</span>
       </button>
+      <button md-menu-item
+              (click)="confirmRemove()">
+        <span translate>song.show.toolbar.remove</span>
+      </button>
     </md-menu>
   </md-toolbar>
 
@@ -110,9 +114,25 @@
 
       <div fxFlex="80" fxLayout="column">
 
-        <h2 class="song-title">
-          <span>{{ song.title || 'song.title.empty' | translate }}</span>
-        </h2>
+        <div fxLayout="row"
+             fxLayoutAlign="start center"
+             class="song-title">
+          <h2>
+            <span>{{ song.title || 'song.title.empty' | translate }}</span>
+          </h2>
+
+          <div fxFlex></div>
+
+          <button md-button [mdMenuTriggerFor]="songMenu">
+            <span translate>song.show.actions.title</span>
+          </button>
+          <md-menu #songMenu="mdMenu">
+            <button md-menu-item
+                    (click)="confirmRemove()">
+              <span translate>song.show.toolbar.remove</span>
+            </button>
+          </md-menu>
+        </div>
 
         <div fxLayout="row" fxFlex>
 
