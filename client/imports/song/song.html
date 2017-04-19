@@ -22,8 +22,9 @@
               (click)="bottomContainer = 'audios'">
         <span translate>song.show.toolbar.audio_list</span>
       </button>
-      <button md-menu-item >
-        <!-- audio-add="songShow.song" -->
+      <button md-menu-item
+              [audioAdd]="song"
+              (click)="bottomContainer = 'audios'">
         <span translate>song.show.toolbar.audio_add</span>
       </button>
       <button md-menu-item
@@ -155,7 +156,7 @@
               <md-card-title fxLayout="row" fxLayoutAlign="start center">
                 <span translate>song.audio.title</span>
                 <span fxFlex></span>
-                <button md-icon-button><!-- audio add -->
+                <button md-icon-button [audioAdd]="song">
                   <md-icon>playlist_add</md-icon>
                 </button>
               </md-card-title>
@@ -163,7 +164,7 @@
               <md-card-content fxLayout="column">
                 <audio-list [audioIds]="song.audioIds"></audio-list>
 
-                <!--audio-add-progress status="songShow.addProgress" layout-margin></audio-add-progress-->
+                <audio-add-progress></audio-add-progress>
 
                 <audio-player fxFlex="none"></audio-player>
               </md-card-content>

@@ -1,0 +1,13 @@
+<div fxLayout="row"
+     fxLayoutAlign="start center"
+     class="upload"
+     *ngFor="let upload of audioUploadService.uploads">
+  <div fxFlex class="name">
+    {{ upload.file.name }}
+  </div>
+
+  <md-progress-spinner mode="determinate"
+                       color="accent"
+                       [value]="upload.progressPercentage">
+  </md-progress-spinner>
+</div>

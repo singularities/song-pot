@@ -1,9 +1,5 @@
 {
   "audio": {
-    "add": {
-      "error": "Error subiendo el audio: ",
-      "success": "Audio guardado"
-    },
     "list": {
       "header": "Audios de la canción",
       "empty": {
@@ -29,6 +25,10 @@
         "placeholder": "Nombre del audio",
         "title": "Cambar nombre del audio"
       }
+    },
+    "upload": {
+      "error": "Error subiendo el audio: {{error}}",
+      "success": "Audio guardado"
     }
   },
   "metronome": {

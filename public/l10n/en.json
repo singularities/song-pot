@@ -1,9 +1,5 @@
 {
   "audio": {
-    "add": {
-      "error": "Error uploading audio: ",
-      "success": "Audio uploaded"
-    },
     "list": {
       "header": "Song audios",
       "empty": {
@@ -29,6 +25,10 @@
         "placeholder": "Audio name",
         "title": "Change audio name"
       }
+    },
+    "upload": {
+      "error": "Error uploading audio: {{error}}",
+      "success": "Audio uploaded"
     }
   },
   "metronome": {
