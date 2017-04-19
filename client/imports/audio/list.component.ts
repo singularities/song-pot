@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MdDialog } from '@angular/material';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import { Audio } from '../../../imports/models';
 import { Audios } from '../../../imports/collections';
@@ -20,11 +21,21 @@ export class AudioListComponent implements OnInit {
 
   audios;
 
-  @Input() audioIds: string[];
+  private _audioIds = new BehaviorSubject<string[]>([]);
+
+  @Input()
+  set audioIds(value) {
+    this._audioIds.next(value || []);
+  }
+
+  get audioIds() {
+    return this._audioIds.getValue();
+  }
 
   ngOnInit(): void {
 
-    this.audios = Audios.find({ _id: { '$in': this.audioIds || [] } });
+    this._audioIds
+        .subscribe(ids => this.audios = Audios.find({ _id: { '$in': ids } }));
   }
 
   constructor (public dialog: MdDialog,
