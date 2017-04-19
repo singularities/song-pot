@@ -45,8 +45,10 @@ export class SongComponent implements OnInit {
   ngOnInit(): void {
 
     this.route.params
+      .filter((params: Params) => ! this.song || this.song._id !== params['id'])
       .switchMap((params: Params) => Songs.find({ _id: params['id']}))
       .subscribe(songs => { this.song = songs[0]; this.ref.detectChanges(); });
+
 
     this.route.params
       .subscribe((params: Params) => { this.editing = params['child'] === 'edit' } );
