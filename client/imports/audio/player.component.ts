@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
-import { AudioService } from './audio.service';
+import { AudioPlayService } from './play.service';
 
 import template from "./player.html";
 
@@ -15,14 +15,14 @@ export class AudioPlayerComponent implements OnInit, OnDestroy {
 
   audio;
 
-  constructor(public audioService: AudioService) { }
+  constructor(public audioPlayService: AudioPlayService) { }
 
   ngOnInit() {
-    this.audioService.loaded
+    this.audioPlayService.loaded
       .subscribe(value => this.displayed = value);
   }
 
   ngOnDestroy() {
-    this.audioService.stop();
+    this.audioPlayService.stop();
   }
 }

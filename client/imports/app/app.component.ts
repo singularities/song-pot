@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
-import { AudioService } from '../audio/audio.service';
+import { AudioPlayService } from '../audio/play.service';
 
 import template from "./app.html";
 
 @Component({
   selector: 'songs-pot',
-  providers: [ AudioService ],
+  providers: [ AudioPlayService ],
   template
 })
 

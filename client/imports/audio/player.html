@@ -2,13 +2,13 @@
      *ngIf="displayed"
      fxLayout="row"
      fxLayoutAlign="start center">
-  <button md-icon-button (click)="audioService.paused ? audioService.play() : audioService.pause()">
-    <md-icon>{{ audioService.paused ? 'play_arrow' : 'pause' }}</md-icon>
+  <button md-icon-button (click)="audioPlayService.paused ? audioPlayService.play() : audioPlayService.pause()">
+    <md-icon>{{ audioPlayService.paused ? 'play_arrow' : 'pause' }}</md-icon>
   </button>
 
-  <md-slider [(ngModel)]="audioService.currentTime"
+  <md-slider [(ngModel)]="audioPlayService.currentTime"
              min="0"
-             [max]="audioService.duration"
+             [max]="audioPlayService.duration"
              fxFlex></md-slider>
 
 </div>

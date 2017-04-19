@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Audio } from '../../../imports/models';
 
 @Injectable()
-export class AudioService {
+export class AudioPlayService {
 
   // The HTML5 audio object
   object;
