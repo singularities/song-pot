@@ -1,4 +1,4 @@
-html, body, songs-pot {
+html, body, song-pot {
   height: 100%;
   position: relative;
 }
@@ -9,7 +9,7 @@ body {
   font-family: Roboto,"Helvetica Neue",sans-serif;
 }
 
-songs-pot {
+song-pot {
   display: block;
 
   .md-fab-bottom-fixed {

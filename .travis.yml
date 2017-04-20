@@ -11,7 +11,7 @@ before_install:
   - curl https://install.meteor.com | /bin/sh
 before_script:
   - npm run dist
-  - docker build -t singularitiesorg/songs-pot .
+  - docker build -t singularitiesorg/song-pot .
   - docker-compose up -d
   - node_modules/protractor/bin/webdriver-manager update
   - node_modules/protractor/bin/webdriver-manager start &
@@ -19,8 +19,8 @@ script:
   - node_modules/protractor/bin/protractor --version
 after_success:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-  - docker tag singularitiesorg/songs-pot "singularitiesorg/songs-pot:$TRAVIS_COMMIT"
-  - docker push "singularitiesorg/songs-pot:$TRAVIS_COMMIT"
+  - docker tag singularitiesorg/song-pot "singularitiesorg/song-pot:$TRAVIS_COMMIT"
+  - docker push "singularitiesorg/song-pot:$TRAVIS_COMMIT"
 notifications:
   webhooks:
     - secure: qFAO+Do0IkEquJrC4z98wfusmp6gmeapNWjuc2GjN/4+0HUH10nxecyCtvV0/n6Pjl6i7sYzpUugizNDea+IolmTAUspFDuooeZ2ixBdddZvXrDMtravHlERXMDwPIb0mjvFIlBQl5lizURkyTt548LfFzz4HOtfx3vJ1ONYKfgacDYe/MyCJ5oQPgeqOUWsmPm5pg/IEmaJ5TcTc9HvbxkTizDS+IB7vQ8Jvm5xnekoNrYGgBl2VfOH0FnlGhojsiCWGZMlGupbyKxHwtXDTxijIJurFEmu6KxwHJVykZgshl3gOiANsjAKKEhXCDuhUtTWOeywe5XWhO/h+/k6xwNoGWBqAI+dsZqSiGrEc5UCu9J/B17I9Y3z2sU2U4fxPmy9hEnjGQa7rsAN/V9Xv9QXALjGdrEawyWVMcXReSu4by6yRYxJ6jOIS8JzZcPUAKN7e5KRuc/hbyd2SMbeZ3cedDjPpjU3J8aAUDL3DKe2PgfkKq2p3/bWTO8fVewLzinfp2wH7n9g1dI0jD7y7VPLQQWRygwynxzVvy+z6WyFO4xq/7dTmiM7MrwU+l4QmwEdQ19nHNxejFhsx5TkqSj/JXORj8Ad5r4op3EOKOMp+UV+Q0FPMVb+c1Z4thIfduCLkkx9DPISF7uNG+IsmDCoEd3kLbMbfUYawY80SbQ=

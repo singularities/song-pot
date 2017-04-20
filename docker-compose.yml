@@ -1,13 +1,13 @@
 version: "2"
 services:
   app:
-    image: singularitiesorg/songs-pot
+    image: singularitiesorg/song-pot
     ports:
       - "3000:80"
     links:
       - mongo
     environment:
-      - MONGO_URL=mongodb://mongo/songs-pot
+      - MONGO_URL=mongodb://mongo/song-pot
       - ROOT_URL=http://localhost:3000
       - MAIL_URL=smtp://some.mailserver.com:25
 

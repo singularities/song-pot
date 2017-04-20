@@ -7,7 +7,7 @@ import { AudioUploadService } from '../audio/upload.service';
 import template from "./app.html";
 
 @Component({
-  selector: 'songs-pot',
+  selector: 'song-pot',
   providers: [
     AudioPlayService,
     AudioUploadService
@@ -15,7 +15,7 @@ import template from "./app.html";
   template
 })
 
-export class SongsPot {
+export class SongPot {
   constructor(translate: TranslateService) {
     // this language will be used as a fallback when a translation isn't found in the current language
     translate.setDefaultLang('en');

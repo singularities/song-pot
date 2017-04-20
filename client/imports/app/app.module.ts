@@ -15,7 +15,7 @@ import { TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 // App
-import { SongsPot } from './app.component';
+import { SongPot } from './app.component';
 
 import { BandComponent } from '../band/band.component';
 
@@ -76,7 +76,7 @@ export function HttpLoaderFactory(http: Http) {
     ]),
   ],
   declarations: [
-    SongsPot,
+    SongPot,
     BandComponent,
     SongsComponent,
     SongComponent,
@@ -93,12 +93,12 @@ export function HttpLoaderFactory(http: Http) {
     AudioAddProgressComponent
   ],
   entryComponents: [
-    SongsPot,
+    SongPot,
     SongDialogConfirmRemove,
     AudioDialogChangeName,
     AudioDialogConfirmRemove
   ],
-  bootstrap: [ SongsPot ]
+  bootstrap: [ SongPot ]
 })
 
 export class AppModule {}

@@ -1,5 +1,5 @@
 {
-  "name": "songs-pot",
+  "name": "song-pot",
   "private": true,
   "scripts": {
     "start": "meteor run",

@@ -6,5 +6,5 @@ module.exports = function(config) {
   config.keystore = "/path/to/keystore.jks";
 
   // The key alias
-  config.keyalias = "songspot";
+  config.keyalias = "songpot";
 };
