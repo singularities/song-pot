@@ -6,9 +6,17 @@
        <md-icon>more_vert</md-icon>
      </button>
      <md-menu #audioMenu="mdMenu">
+       <a target="_self"
+         [href]="audio.url"
+         md-menu-item
+         download>
+         <span translate>song.list.menu.download</span>
+       </a>
+
        <button md-menu-item (click)="changeName(audio)">
          <span translate>song.list.menu.rename</span>
        </button>
+
        <button md-menu-item (click)="confirmRemove(audio)">
          <span translate>song.list.menu.remove</span>
        </button>
