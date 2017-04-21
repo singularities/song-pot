@@ -1,21 +1,26 @@
 <h2 md-dialog-title translate>audio.rename.dialog.title</h2>
 
-<div md-dialog-content>
-  <md-input-container>
-    <input mdInput
-           [placeholder]="'audio.rename.dialog.placeholder' | translate"
-           [(ngModel)]="data.name">
-  </md-input-container>
-</div>
+<form (submit)="dialogRef.close(data.name)">
 
-<div md-dialog-actions>
-  <div fxFlex></div>
+  <div md-dialog-content>
+    <md-input-container>
+      <input mdInput
+             name="title"
+             [placeholder]="'audio.rename.dialog.placeholder' | translate"
+             [(ngModel)]="data.name">
+    </md-input-container>
+  </div>
 
-  <button md-button color="primary" class="dialog-button" (click)="dialogRef.close()">
-    <span translate>audio.rename.dialog.cancel</span>
-  </button>
+  <div md-dialog-actions>
+    <div fxFlex></div>
 
-  <button md-button color="primary" class="dialog-button" (click)="dialogRef.close(data.name)">
-    <span translate>audio.rename.dialog.confirm</span>
-  </button>
-</div>`
+    <button md-button color="primary" class="dialog-button" (click)="dialogRef.close()">
+      <span translate>audio.rename.dialog.cancel</span>
+    </button>
+
+    <button md-button color="primary" class="dialog-button" (click)="dialogRef.close(data.name)">
+      <span translate>audio.rename.dialog.confirm</span>
+    </button>
+  </div>`
+
+</form>
