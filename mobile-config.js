@@ -1,7 +1,7 @@
 App.info({
   id: 'org.singularities.songspot',
   name: 'Song Pot',
-  version: "0.0.3"
+  version: "0.0.4"
 });
 
 App.icons({
@@ -10,4 +10,11 @@ App.icons({
   'android_xhdpi':  'icons/icon-96.png', // (96x96)
   'android_xxhdpi': 'icons/icon-144.png', // (144x144)
   'android_xxxhdpi': 'icons/icon-192.png' // (192x192)
+});
+
+App.launchScreens({
+//  'android_mdpi_portrait': 'splash/android-mdpi.png', // (320x470)
+//  'android_hdpi_portrait': 'splash/android-hdpi.png', // (480x640)
+  'android_xhdpi_portrait': 'splash/android-xhdpi.9.png' // (720x960)
+//  'android_xxhdpi_portrait': 'splash/android-xxhdpi.png' // (1080x1440)
 });
