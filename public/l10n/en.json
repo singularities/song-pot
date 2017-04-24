@@ -31,6 +31,18 @@
       "success": "Audio uploaded"
     }
   },
+  "front": {
+    "feature": {
+      "material": "All your material organized in one place",
+      "process": "Supports the creative process",
+      "tools": "A set of tools for your band"
+    },
+    "intro": {
+      "message": "Cook your music!",
+      "start": "Start"
+
+    }
+  },
   "metronome": {
     "bpm": {
       "label": "Beats per minute"

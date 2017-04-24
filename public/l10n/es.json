@@ -31,6 +31,17 @@
       "success": "Audio guardado"
     }
   },
+  "front": {
+    "intro": {
+      "message": "Cocina tu música",
+      "start": "Empezar"
+    },
+    "feature": {
+      "material": "Todo el material organizado en un sitio",
+      "process": "Asiste en el proceso creativo",
+      "tools": "Un conjunto de herramientas para tu grupo"
+    },
+  },
   "metronome": {
     "bpm": {
       "label": "Pulsos por minuto"

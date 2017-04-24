@@ -1,5 +1,6 @@
 @import "imports/vendor/material-icons";
 @import "imports/vendor/roboto-regular";
+@import "imports/vendor/kaushanscript-regular";
 
 @import "imports/theme";
 
@@ -24,6 +25,7 @@ song-pot:empty + .loading {
 }
 
 @import "imports/app/app";
+@import "imports/front/front";
 @import "imports/band/band";
 @import "imports/song/songs";
 @import "imports/song/song";

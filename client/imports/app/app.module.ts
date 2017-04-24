@@ -17,6 +17,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 // App
 import { SongPot } from './app.component';
 
+import { FrontComponent } from '../front/front.component';
+
 import { BandComponent } from '../band/band.component';
 
 import { SongsComponent } from '../song/songs.component';
@@ -70,13 +72,13 @@ export function HttpLoaderFactory(http: Http) {
       },
       {
         path: '',
-        redirectTo: '/band',
-        pathMatch: 'full'
+        component: FrontComponent
       }
     ]),
   ],
   declarations: [
     SongPot,
+    FrontComponent,
     BandComponent,
     SongsComponent,
     SongComponent,

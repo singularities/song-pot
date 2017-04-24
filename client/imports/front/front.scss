@@ -1,0 +1,65 @@
+front {
+  display: block;
+
+  .mat-toolbar {
+    color: #FFF;
+    background-color: #000;
+
+    img {
+      margin-right: 10px;
+    }
+
+    .brand {
+      font-family: 'Kaushan Script';
+    }
+  }
+
+  .intro {
+    background-image: url(/images/intro.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 100px;
+
+    color: #FFF;
+    text-align: center;
+
+    .message {
+      font-size: 42px;
+      font-family: 'Kaushan Script';
+      margin-bottom: 100px;
+
+    }
+
+    button {
+      background-color: #5c9700;
+      font-size: 42px;
+      line-height: 73px;
+      padding: 0 26px;
+      text-transform: uppercase;
+    }
+  }
+
+  .features {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    max-width: 1170px;
+    margin: auto;
+
+    &>div {
+      margin: 16px;
+      padding: 16px;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .material-icons {
+      font-size: 52px;
+    }
+
+    .description {
+      padding-top: 12px;
+      font-size: 24px;
+    }
+  }
+}
