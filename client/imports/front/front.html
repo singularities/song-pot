@@ -1,9 +1,18 @@
 <md-toolbar>
   <img src="/images/icon-32.png" />
   <span class="brand">Song Pot</span>
+  <div class="spacer"></div>
+  <a href="#"><span translate>front.toolbar.home</span></a>
+  <span>&nbsp;|&nbsp;</span>
+  <a href="#community"><span translate>front.toolbar.community</span></a>
+  <span>&nbsp;|&nbsp;</span>
+  <a href="#behind"><span translate>front.toolbar.behind</span></a>
 </md-toolbar>
 
 <div class="intro">
+  <div class="title">
+    Song Pot
+  </div>
   <div class="message">
     <span translate>front.intro.message</span>
   </div>
@@ -49,4 +58,49 @@
     </div>
   </div>
 
+</div>
+
+<div class="community" id="community">
+  <h1 translate>front.community.title</h1>
+
+  <div fxLayout.gt-sm="row"
+       fxLayoutAlign.gt-sm="start center"
+       fxLayout="column">
+
+    <div fxFlex="50" class="icon">
+      <a href="https://discourse.songpot.rocks/">
+        <md-icon>question_answer</md-icon>
+        <div class="icon-text">
+          Song Pot Discourse
+        </div>
+      </a>
+
+
+
+    </div>
+
+    <div fxFlex="50"
+         class="text"
+         [innerHTML]="'front.community.text' | translate"></div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="behind" id="behind">
+  <h1 translate>front.behind.title</h1>
+
+  <div fxLayout.gt-sm="row"
+       fxLayoutAlign.gt-sm="start center"
+       fxLayout="column">
+    <div fxFlex="50"
+         class="text"
+         [innerHTML]="'front.behind.text' | translate"></div>
+
+    <div fxFlex="50" class="image">
+      <img src="/images/atd.jpg" alt="atd">
+    </div>
+
+  </div>
 </div>

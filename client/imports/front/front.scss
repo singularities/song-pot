@@ -1,9 +1,19 @@
 front {
+  background-color: #000;
+  color: #fff;
   display: block;
 
+  .mat-toolbar,
+  .features,
+  .community,
+  .behind {
+    margin: auto;
+    max-width: 1170px;
+  }
+
   .mat-toolbar {
-    color: #FFF;
     background-color: #000;
+    color: #fff;
 
     img {
       margin-right: 10px;
@@ -12,21 +22,33 @@ front {
     .brand {
       font-family: 'Kaushan Script';
     }
+
+    a {
+      color: #fff;
+      font-size: 14px;
+      text-decoration: none;
+    }
   }
 
   .intro {
-    background-image: url(/images/intro.jpg);
+    background-image: url('/images/intro.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    color: #fff;
     padding-top: 100px;
-
-    color: #FFF;
     text-align: center;
 
-    .message {
-      font-size: 42px;
+    .title {
+
       font-family: 'Kaushan Script';
+      font-size: 64px;
+      margin-bottom: 10px;
+    }
+
+    .message {
+      font-family: 'Kaushan Script';
+      font-size: 42px;
       margin-bottom: 100px;
 
     }
@@ -41,16 +63,14 @@ front {
   }
 
   .features {
-    padding-top: 100px;
     padding-bottom: 100px;
-    max-width: 1170px;
-    margin: auto;
+    padding-top: 100px;
 
     &>div {
+      background-color: rgba(0, 0, 0, 0.5);
       margin: 16px;
       padding: 16px;
       text-align: center;
-      background-color: rgba(0, 0, 0, 0.5);
     }
 
     .material-icons {
@@ -58,8 +78,64 @@ front {
     }
 
     .description {
-      padding-top: 12px;
       font-size: 24px;
+      padding-top: 12px;
+    }
+  }
+
+  h1 {
+    font-family: 'Kaushan Script';
+  }
+
+  .community,
+  .behind {
+    a {
+      color: #5c9700;
+      text-decoration: none;
+    }
+  }
+
+  .community {
+    padding: 16px;
+    margin-bottom: 70px;
+
+    .icon {
+      padding-right: 8px;
+      text-align: center;
+
+      a {
+        color: #fff;
+      }
+
+      .material-icons {
+        font-size: 52px;
+      }
+    }
+
+    .icon-text {
+      font-size: 24px;
+    }
+    .text {
+      padding-left: 8px;
+      font-size: 21px;
+    }
+  }
+
+  .behind {
+    padding: 16px;
+
+    img {
+      width: 100%;
+    }
+
+    .text {
+      font-size: 21px;
+      padding-right: 8px;
+
+    }
+
+    .image {
+      padding-left: 8px;
     }
   }
 }
