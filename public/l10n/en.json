@@ -56,13 +56,39 @@
       },
       "cancel": "Maybe later",
       "confirm": "Go!",
-      "title": "Start using Song Pot!",
+      "forgotPassword": {
+        "confirm": "Send",
+        "email": {
+          "hint": "We will send you instructions to recover it"
+        },
+        "title": "Recover your password"
+      },
+      "login": {
+        "forgotPassword": {
+          "question": "Did you forget your password?"
+        },
+        "register": {
+          "link": "Register",
+          "question": "Are you not in Song Pot yet?"
+        },
+        "title": "Log in Song Pot"
+      },
+      "register": {
+        "login": {
+          "link": "Login",
+          "question": "Already registered?"
+        },
+        "title": "Start using Song Pot!"
+      },
       "user": {
         "email": {
           "placeholder": "Your email"
         },
         "name": {
           "placeholder": "Your name"
+        },
+        "password": {
+          "placeholder": "Your password"
         }
       }
     },

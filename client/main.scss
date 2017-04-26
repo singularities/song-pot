@@ -26,6 +26,7 @@ song-pot:empty + .loading {
 
 @import "imports/app/app";
 @import "imports/front/front";
+@import "imports/front/dialog/start";
 @import "imports/band/band";
 @import "imports/song/songs";
 @import "imports/song/song";

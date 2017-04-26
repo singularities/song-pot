@@ -55,7 +55,30 @@
       },
       "cancel": "Más tarde",
       "confirm": "¡Vamos!",
-      "title": "¡Empieza a usar Song Pot!",
+      "forgotPassword": {
+        "cofirm": "Enviar",
+        "email": {
+          "hint": "Te enviaremos indicaciones para recuperarlo"
+        },
+        "title": "Recupera tu contraseña"
+      },
+      "login": {
+        "forgotPassword": {
+          "question": "¿Olvidaste tu contraseña?"
+        },
+        "register": {
+          "link": "Regístrate",
+          "question": "¿Todavía no estás en Song Pot?"
+        },
+        "title": "Entra en Song Pot"
+      },
+      "register": {
+        "login": {
+          "link": "Login",
+          "question": "Already registered?"
+        },
+        "title": "¡Empieza a usar Song Pot!"
+      },
       "user": {
         "email": {
           "placeholder": "Tu email"
