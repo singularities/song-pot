@@ -78,26 +78,31 @@
       "placeholder": "El nombre de tu grupo"
     },
     "cancel": "Más tarde",
-    "confirm": "¡Vamos!",
     "forgotPassword": {
-      "cofirm": "Enviar",
+      "confirm": "Enviar",
       "email": {
         "hint": "Te enviaremos indicaciones para recuperarlo"
+      },
+      "otherSection": {
+        "link": "Regístrate ahora",
+        "question": "¿Aún no estás en Song Pot?"
       }
     },
     "login": {
+      "confirm": "Entrar",
       "forgotPassword": {
         "question": "¿Olvidaste tu contraseña?"
       },
-      "register": {
+      "otherSection": {
         "link": "Regístrate",
         "question": "¿Todavía no estás en Song Pot?"
       }
     },
     "register": {
-      "login": {
-        "link": "Login",
-        "question": "Already registered?"
+      "confirm": "¡Vamos!",
+      "otherSection": {
+        "link": "Entrar",
+        "question": "¿Ya te has registrado?"
       }
     },
     "user": {
@@ -106,6 +111,9 @@
       },
       "name": {
         "placeholder": "Tu nombre"
+      },
+      "password": {
+        "placeholder": "Tu contraseña"
       }
     }
   },

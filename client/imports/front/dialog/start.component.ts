@@ -13,4 +13,9 @@ export class FrontDialogStartComponent {
   constructor(public dialogRef: MdDialogRef<FrontDialogStartComponent>) {}
 
   section = 'register';
+  sessionSection;
+
+  onSectionChanged (section) {
+    this.sessionSection = section;
+  }
 }

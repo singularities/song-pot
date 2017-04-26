@@ -79,24 +79,29 @@
       "placeholder": "Your band name"
     },
     "cancel": "Maybe later",
-    "confirm": "Go!",
     "forgotPassword": {
       "confirm": "Send",
       "email": {
         "hint": "We will send you instructions to recover it"
+      },
+      "otherSection": {
+        "link": "Register now",
+        "question": "Didn't register yet?"
       }
     },
     "login": {
+      "confirm": "Log in",
       "forgotPassword": {
         "question": "Did you forget your password?"
       },
-      "register": {
+      "otherSection": {
         "link": "Register",
         "question": "Are you not in Song Pot yet?"
       }
     },
     "register": {
-      "login": {
+      "confirm": "Go!",
+      "otherSection": {
         "link": "Login",
         "question": "Already registered?"
       }

@@ -1,8 +1,8 @@
-<form (ngSubmit)="onRegister()" #registerForm="ngForm" *ngIf="section === 'register'">
+<form (ngSubmit)="onSubmit(section)" #sessionForm="ngForm">
 
   <div md-dialog-content
        fxLayout="column">
-    <md-input-container>
+    <md-input-container *ngIf="section === 'register'">
       <input mdInput
              name="band-name"
              required
@@ -10,7 +10,7 @@
              [(ngModel)]="band">
     </md-input-container>
 
-    <md-input-container>
+    <md-input-container *ngIf="section === 'register'">
       <input mdInput
              name="username"
              required
@@ -25,64 +25,27 @@
              required
              [placeholder]="'session.user.email.placeholder' | translate"
              [(ngModel)]="useremail">
-    </md-input-container>
-  </div>
 
-  <div md-dialog-actions>
-    <div fxFlex></div>
-
-    <button md-button
-            type="button"
-            color="primary"
-            class="dialog-button"
-            (click)="cancel()">
-      <span translate>session.cancel</span>
-    </button>
-
-    <button md-raised-button
-            type="submit"
-            color="primary"
-            [disabled]="!registerForm.form.valid"
-            class="dialog-button">
-      <span translate>session.confirm</span>
-    </button>
-  </div>`
-
-  <div class="login-link">
-    <span translate>session.register.login.question</span>
-    <a href="#" (click)="section = 'login'">
-      <span translate>session.register.login.link</span>
-    </a>
-
-  </div>
-</form>
-
-<form (ngSubmit)="onLogin()" #loginForm="ngForm" *ngIf="section === 'login'">
-
-  <div md-dialog-content
-       fxLayout="column">
-    <md-input-container>
-      <input mdInput
-             name="useremail"
-             type="email"
-             required
-             [placeholder]="'session.user.email.placeholder' | translate"
-             [(ngModel)]="useremail">
+      <md-hint *ngIf="section === 'forgotPassword'">
+        <span translate>session.forgotPassword.email.hint</span>
+      </md-hint>
     </md-input-container>
 
-    <md-input-container>
+    <md-input-container *ngIf="section === 'login'">
       <input mdInput
              name="userpassword"
              type="password"
              required
              [placeholder]="'session.user.password.placeholder' | translate"
              [(ngModel)]="userpassword">
-      <md-hint align="end">
-        <a (click)="section = 'forgotPassword'">
-          <span translate>session.login.forgotPassword.question</span>
-        </a>
-      </md-hint>
+
     </md-input-container>
+
+    <div *ngIf="section === 'login'" class="forgot-password-link">
+      <a (click)="section = 'forgotPassword'">
+        <span translate>session.login.forgotPassword.question</span>
+      </a>
+    </div>
   </div>
 
   <div md-dialog-actions>
@@ -99,54 +62,17 @@
     <button md-raised-button
             type="submit"
             color="primary"
-            [disabled]="!loginForm.form.valid"
+            [disabled]="!sessionForm.form.valid"
             class="dialog-button">
-      <span translate>session.confirm</span>
+      <span translate>{{ 'session.' + section + '.confirm' }}</span>
     </button>
   </div>`
 
-  <div class="login-link">
-    <span translate>session.login.register.question</span>
-    <a href="#" (click)="section = 'register'">
-      <span translate>session.login.register.link</span>
+  <div class="other-section-link">
+    <span translate>{{ 'session.' + section + '.otherSection.question' }}</span>
+    <a href="#" (click)="section = switchSection()">
+      <span translate>{{ 'session.' + section + '.otherSection.link' }}</span>
     </a>
 
   </div>
-</form>
-
-<form (ngSubmit)="onForgotPassword()" #forgotPasswordForm="ngForm" *ngIf="section === 'forgotPassword'">
-
-  <div md-dialog-content
-       fxLayout="column">
-    <md-input-container>
-      <input mdInput
-             name="useremail"
-             type="email"
-             required
-             [placeholder]="'session.user.email.placeholder' | translate"
-             [(ngModel)]="useremail">
-      <md-hint><span translate>session.forgotPassword.email.hint</span></md-hint>
-    </md-input-container>
-  </div>
-
-  <div md-dialog-actions>
-    <div fxFlex></div>
-
-    <button md-button
-            type="button"
-            color="primary"
-            class="dialog-button"
-            (click)="cancel()">
-      <span translate>session.cancel</span>
-    </button>
-
-    <button md-raised-button
-            type="submit"
-            color="primary"
-            [disabled]="!forgotPasswordForm.form.valid"
-            class="dialog-button">
-      <span translate>session.forgotPassword.confirm</span>
-    </button>
-  </div>`
-
 </form>

@@ -1,6 +1,7 @@
 <h2 md-dialog-title translate>
-  <span translate>{{ 'front.start.title.' + section }}</span>
+  <span translate>{{ 'front.start.title.' + sessionSection }}</span>
 </h2>
 
 <session [section]="section"
+         (onSectionChanged)="onSectionChanged($event)"
          (onCancel)="dialogRef.close()"></session>

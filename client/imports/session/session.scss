@@ -3,4 +3,8 @@ session {
     color: mat-color($primary);
     text-decoration: none;
   }
+
+  .forgot-password-link {
+    text-align: right;
+  }
 }
