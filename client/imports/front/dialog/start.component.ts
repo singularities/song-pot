@@ -13,8 +13,4 @@ export class FrontDialogStartComponent {
   constructor(public dialogRef: MdDialogRef<FrontDialogStartComponent>) {}
 
   section = 'register';
-
-  onSubmit () {
-    console.log('send');
-  }
 }

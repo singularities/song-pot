@@ -50,42 +50,10 @@
       "start": "Empezar"
     },
     "start": {
-      "band": {
-        "placeholder": "El nombre de tu grupo"
-      },
-      "cancel": "Más tarde",
-      "confirm": "¡Vamos!",
-      "forgotPassword": {
-        "cofirm": "Enviar",
-        "email": {
-          "hint": "Te enviaremos indicaciones para recuperarlo"
-        },
-        "title": "Recupera tu contraseña"
-      },
-      "login": {
-        "forgotPassword": {
-          "question": "¿Olvidaste tu contraseña?"
-        },
-        "register": {
-          "link": "Regístrate",
-          "question": "¿Todavía no estás en Song Pot?"
-        },
-        "title": "Entra en Song Pot"
-      },
-      "register": {
-        "login": {
-          "link": "Login",
-          "question": "Already registered?"
-        },
-        "title": "¡Empieza a usar Song Pot!"
-      },
-      "user": {
-        "email": {
-          "placeholder": "Tu email"
-        },
-        "name": {
-          "placeholder": "Tu nombre"
-        }
+      "title": {
+        "forgotPassword": "Recupera tu contraseña",
+        "login": "Entra en Song Pot",
+        "register": "¡Empieza a usar Song Pot!"
       }
     },
     "toolbar": {
@@ -104,6 +72,42 @@
     "play": "Encender",
     "stop": "Apagar",
     "title": "Metrónomo"
+  },
+  "session": {
+    "band": {
+      "placeholder": "El nombre de tu grupo"
+    },
+    "cancel": "Más tarde",
+    "confirm": "¡Vamos!",
+    "forgotPassword": {
+      "cofirm": "Enviar",
+      "email": {
+        "hint": "Te enviaremos indicaciones para recuperarlo"
+      }
+    },
+    "login": {
+      "forgotPassword": {
+        "question": "¿Olvidaste tu contraseña?"
+      },
+      "register": {
+        "link": "Regístrate",
+        "question": "¿Todavía no estás en Song Pot?"
+      }
+    },
+    "register": {
+      "login": {
+        "link": "Login",
+        "question": "Already registered?"
+      }
+    },
+    "user": {
+      "email": {
+        "placeholder": "Tu email"
+      },
+      "name": {
+        "placeholder": "Tu nombre"
+      }
+    }
   },
   "song": {
     "audio": {

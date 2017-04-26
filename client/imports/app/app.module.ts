@@ -20,6 +20,8 @@ import { SongPot } from './app.component';
 import { FrontComponent } from '../front/front.component';
 import { FrontDialogStartComponent } from '../front/dialog/start.component';
 
+import { SessionComponent } from '../session/session.component';
+
 import { BandComponent } from '../band/band.component';
 
 import { SongsComponent } from '../song/songs.component';
@@ -81,6 +83,7 @@ export function HttpLoaderFactory(http: Http) {
     SongPot,
     FrontComponent,
     FrontDialogStartComponent,
+    SessionComponent,
     BandComponent,
     SongsComponent,
     SongComponent,

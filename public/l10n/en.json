@@ -51,45 +51,10 @@
 
     },
     "start": {
-      "band": {
-        "placeholder": "Your band name"
-      },
-      "cancel": "Maybe later",
-      "confirm": "Go!",
-      "forgotPassword": {
-        "confirm": "Send",
-        "email": {
-          "hint": "We will send you instructions to recover it"
-        },
-        "title": "Recover your password"
-      },
-      "login": {
-        "forgotPassword": {
-          "question": "Did you forget your password?"
-        },
-        "register": {
-          "link": "Register",
-          "question": "Are you not in Song Pot yet?"
-        },
-        "title": "Log in Song Pot"
-      },
-      "register": {
-        "login": {
-          "link": "Login",
-          "question": "Already registered?"
-        },
-        "title": "Start using Song Pot!"
-      },
-      "user": {
-        "email": {
-          "placeholder": "Your email"
-        },
-        "name": {
-          "placeholder": "Your name"
-        },
-        "password": {
-          "placeholder": "Your password"
-        }
+      "title": {
+        "forgotPassword": "Recover your password",
+        "login": "Log in Song Pot",
+        "register": "Start using Song Pot!"
       }
     },
     "toolbar": {
@@ -108,6 +73,45 @@
     "play": "Play",
     "stop": "Stop",
     "title": "Metronome"
+  },
+  "session": {
+    "band": {
+      "placeholder": "Your band name"
+    },
+    "cancel": "Maybe later",
+    "confirm": "Go!",
+    "forgotPassword": {
+      "confirm": "Send",
+      "email": {
+        "hint": "We will send you instructions to recover it"
+      }
+    },
+    "login": {
+      "forgotPassword": {
+        "question": "Did you forget your password?"
+      },
+      "register": {
+        "link": "Register",
+        "question": "Are you not in Song Pot yet?"
+      }
+    },
+    "register": {
+      "login": {
+        "link": "Login",
+        "question": "Already registered?"
+      }
+    },
+    "user": {
+      "email": {
+        "placeholder": "Your email"
+      },
+      "name": {
+        "placeholder": "Your name"
+      },
+      "password": {
+        "placeholder": "Your password"
+      }
+    }
   },
   "song": {
     "audio": {
