@@ -50,6 +50,22 @@
       "start": "Start"
 
     },
+    "start": {
+      "band": {
+        "placeholder": "Your band name"
+      },
+      "cancel": "Maybe later",
+      "confirm": "Go!",
+      "title": "Start using Song Pot!",
+      "user": {
+        "email": {
+          "placeholder": "Your email"
+        },
+        "name": {
+          "placeholder": "Your name"
+        }
+      }
+    },
     "toolbar": {
       "behind": "Who is behind?",
       "community": "Community",

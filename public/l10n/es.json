@@ -49,6 +49,22 @@
       "message": "Cocina tu música",
       "start": "Empezar"
     },
+    "start": {
+      "band": {
+        "placeholder": "El nombre de tu grupo"
+      },
+      "cancel": "Más tarde",
+      "confirm": "¡Vamos!",
+      "title": "¡Empieza a usar Song Pot!",
+      "user": {
+        "email": {
+          "placeholder": "Tu email"
+        },
+        "name": {
+          "placeholder": "Tu nombre"
+        }
+      }
+    },
     "toolbar": {
       "behind": "¿Quién está detrás?",
       "community": "Comunidad",

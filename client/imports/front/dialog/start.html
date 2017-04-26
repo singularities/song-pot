@@ -1,0 +1,53 @@
+<h2 md-dialog-title translate>front.start.title</h2>
+
+<form (ngSubmit)="onSubmit()" #startForm="ngForm">
+
+  <div md-dialog-content
+       fxLayout="column">
+    <md-input-container>
+      <input mdInput
+             name="band-name"
+             required
+             [placeholder]="'front.start.band.placeholder' | translate"
+             [(ngModel)]="band">
+    </md-input-container>
+
+    <md-input-container>
+      <input mdInput
+             name="username"
+             required
+             [placeholder]="'front.start.user.name.placeholder' | translate"
+             [(ngModel)]="username">
+    </md-input-container>
+
+    <md-input-container>
+      <input mdInput
+             name="useremail"
+             type="email"
+             required
+             [placeholder]="'front.start.user.email.placeholder' | translate"
+             [(ngModel)]="useremail">
+    </md-input-container>
+  </div>
+
+  <div md-dialog-actions>
+    <div fxFlex></div>
+
+    <button md-button
+            type="button"
+            color="primary"
+            class="dialog-button"
+            (click)="dialogRef.close()">
+      <span translate>front.start.cancel</span>
+    </button>
+
+    <button md-raised-button
+            type="submit"
+            color="primary"
+            [disabled]="!startForm.form.valid"
+            class="dialog-button">
+      <span translate>front.start.confirm</span>
+    </button>
+  </div>`
+
+</form>

@@ -18,6 +18,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { SongPot } from './app.component';
 
 import { FrontComponent } from '../front/front.component';
+import { FrontDialogStartComponent } from '../front/dialog/start.component';
 
 import { BandComponent } from '../band/band.component';
 
@@ -79,6 +80,7 @@ export function HttpLoaderFactory(http: Http) {
   declarations: [
     SongPot,
     FrontComponent,
+    FrontDialogStartComponent,
     BandComponent,
     SongsComponent,
     SongComponent,
@@ -96,6 +98,7 @@ export function HttpLoaderFactory(http: Http) {
   ],
   entryComponents: [
     SongPot,
+    FrontDialogStartComponent,
     SongDialogConfirmRemove,
     AudioDialogChangeName,
     AudioDialogConfirmRemove
