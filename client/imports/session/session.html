@@ -18,7 +18,9 @@
              [(ngModel)]="username">
     </md-input-container>
 
-    <md-input-container>
+    <md-input-container *ngIf="section === 'register' ||
+                               section === 'login' ||
+                               section === 'forgotPassword'">
       <input mdInput
              name="useremail"
              type="email"
@@ -48,6 +50,10 @@
     </div>
   </div>
 
+  <div *ngIf="section === 'sentPasswordEmail'" class="sent-password-email-text">
+    <span translate>session.sentPasswordEmail.text</span>
+  </div>
+
   <div md-dialog-actions>
     <div fxFlex></div>
 
@@ -55,6 +61,9 @@
             type="button"
             color="primary"
             class="dialog-button"
+            *ngIf="session === 'register' ||
+                   session === 'login' ||
+                   session === 'forgotPassword'"
             (click)="cancel()">
       <span translate>session.cancel</span>
     </button>
@@ -68,7 +77,10 @@
     </button>
   </div>`
 
-  <div class="other-section-link">
+  <div class="other-section-link"
+       *ngIf="section === 'register' ||
+              section === 'login' ||
+              section === 'forgotPassword'">
     <span translate>{{ 'session.' + section + '.otherSection.question' }}</span>
     <a href="#" (click)="section = switchSection()">
       <span translate>{{ 'session.' + section + '.otherSection.link' }}</span>

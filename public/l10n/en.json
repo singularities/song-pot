@@ -54,7 +54,8 @@
       "title": {
         "forgotPassword": "Recover your password",
         "login": "Log in Song Pot",
-        "register": "Start using Song Pot!"
+        "register": "Start using Song Pot!",
+        "sentPasswordEmail": "Instructions sent!"
       }
     },
     "toolbar": {
@@ -105,6 +106,10 @@
         "link": "Login",
         "question": "Already registered?"
       }
+    },
+    "sentPasswordEmail": {
+      "confirm": "Ok",
+      "text": "Please, check your email to recover your password"
     },
     "user": {
       "email": {

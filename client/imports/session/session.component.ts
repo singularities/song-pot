@@ -37,16 +37,7 @@ export class SessionComponent {
               private ngZone: NgZone) {}
 
   onSubmit () {
-    switch (this.section) {
-    case ('register'):
-      this.onRegister();
-      break;
-    case ('login'):
-      this.onLogin();
-      break;
-    case ('forgotPassword'):
-      this.onForgotPassword();
-    }
+    this['on' + this.section.charAt(0).toUpperCase() + this.section.slice(1)]();
   }
 
   onRegister () {
@@ -54,7 +45,7 @@ export class SessionComponent {
     Accounts.createUser({
       email: this.useremail,
       // Generate random password
-      password: Meteor.uuid(),
+      password: Meteor['uuid'](),
       profile: {
         name: this.username
       }
@@ -66,6 +57,7 @@ export class SessionComponent {
         });
 
       } else {
+        // TODO
         console.log(Meteor.userId());
       }
     })
@@ -78,7 +70,23 @@ export class SessionComponent {
   }
 
   onForgotPassword () {
-    console.log('forgot');
+    Accounts.forgotPassword({
+      email: this.useremail
+    }, (error) => {
+      if (error) {
+        this.ngZone.run(() => {
+          this.snackBar.open(error.reason, null, { duration: 5000 });
+        });
+      } else {
+        this.ngZone.run(() => {
+          this.section = 'sentPasswordEmail';
+        });
+      }
+    });
+  }
+
+  onSentPasswordEmail () {
+    this.cancel();
   }
 
   switchSection () {
