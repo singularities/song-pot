@@ -16,6 +16,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 // App
 import { SongPot } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
 
 import { FrontComponent } from '../front/front.component';
 import { FrontDialogStartComponent } from '../front/dialog/start.component';
@@ -59,25 +60,7 @@ export function HttpLoaderFactory(http: Http) {
         deps: [ Http ]
       }
     }),
-    RouterModule.forRoot([
-      {
-        path: 'band',
-        component: BandComponent
-      },
-      {
-        path: 'songs/:id',
-        component: SongComponent,
-      },
-      // TODO use child routes?
-      {
-        path: 'songs/:id/:child',
-        component: SongComponent,
-      },
-      {
-        path: '',
-        component: FrontComponent
-      }
-    ]),
+    AppRoutingModule
   ],
   declarations: [
     SongPot,
