@@ -84,7 +84,7 @@
       "email": {
         "hint": "Te enviaremos indicaciones para recuperarlo"
       },
-      "otherSection": {
+      "otherAction": {
         "link": "Regístrate ahora",
         "question": "¿Aún no estás en Song Pot?"
       }
@@ -94,14 +94,14 @@
       "forgotPassword": {
         "question": "¿Olvidaste tu contraseña?"
       },
-      "otherSection": {
+      "otherAction": {
         "link": "Regístrate",
         "question": "¿Todavía no estás en Song Pot?"
       }
     },
     "register": {
       "confirm": "¡Vamos!",
-      "otherSection": {
+      "otherAction": {
         "link": "Entrar",
         "question": "¿Ya te has registrado?"
       }

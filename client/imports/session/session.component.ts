@@ -12,32 +12,32 @@ import template from './session.html';
 
 export class SessionComponent {
 
-  _section;
+  _action;
   band;
   username;
   useremail;
   userpassword;
 
   @Input()
-  set section(section: string) {
+  set action(action: string) {
 
-    this.onSectionChanged.emit(section);
+    this.onActionChanged.emit(action);
 
-    this._section = section;
+    this._action = action;
   }
 
-  get section() {
-    return this._section;
+  get action() {
+    return this._action;
   }
 
-  @Output() onSectionChanged = new EventEmitter();
+  @Output() onActionChanged = new EventEmitter();
   @Output() onCancel = new EventEmitter();
 
   constructor(private snackBar: MdSnackBar,
               private ngZone: NgZone) {}
 
   onSubmit () {
-    this['on' + this.section.charAt(0).toUpperCase() + this.section.slice(1)]();
+    this['on' + this.action.charAt(0).toUpperCase() + this.action.slice(1)]();
   }
 
   onRegister () {
@@ -79,7 +79,7 @@ export class SessionComponent {
         });
       } else {
         this.ngZone.run(() => {
-          this.section = 'sentPasswordEmail';
+          this.action = 'sentPasswordEmail';
         });
       }
     });
@@ -89,8 +89,8 @@ export class SessionComponent {
     this.cancel();
   }
 
-  switchSection () {
-    switch (this.section) {
+  switchAction () {
+    switch (this.action) {
       case 'register':
         return 'login';
       default:

@@ -85,7 +85,7 @@
       "email": {
         "hint": "We will send you instructions to recover it"
       },
-      "otherSection": {
+      "otherAction": {
         "link": "Register now",
         "question": "Didn't register yet?"
       }
@@ -95,14 +95,14 @@
       "forgotPassword": {
         "question": "Did you forget your password?"
       },
-      "otherSection": {
+      "otherAction": {
         "link": "Register",
         "question": "Are you not in Song Pot yet?"
       }
     },
     "register": {
       "confirm": "Go!",
-      "otherSection": {
+      "otherAction": {
         "link": "Login",
         "question": "Already registered?"
       }

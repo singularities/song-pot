@@ -12,10 +12,10 @@ export class FrontDialogStartComponent {
 
   constructor(public dialogRef: MdDialogRef<FrontDialogStartComponent>) {}
 
-  section = 'register';
-  sessionSection;
+  action = 'register';
+  sessionAction;
 
-  onSectionChanged (section) {
-    this.sessionSection = section;
+  onActionChanged (action) {
+    this.sessionAction = action;
   }
 }
