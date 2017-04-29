@@ -23,6 +23,7 @@
     "@ngx-translate/core": "^6.0.1",
     "@ngx-translate/http-loader": "^0.0.3",
     "babel-runtime": "^6.18.0",
+    "bcrypt": "^1.0.2",
     "hammerjs": "^2.0.8",
     "meteor-node-stubs": "~0.2.0",
     "meteor-rxjs": "^0.4.7",
