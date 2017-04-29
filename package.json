@@ -41,6 +41,7 @@
     "@types/meteor": "^1.4.1",
     "@types/meteor-accounts-phone": "^0.0.5",
     "@types/underscore": "^1.8.0",
+    "chance": "^1.0.8",
     "meteor-typings": "^1.3.1"
   }
 }
