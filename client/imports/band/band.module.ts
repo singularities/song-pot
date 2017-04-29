@@ -2,6 +2,7 @@ import { NgModule }       from '@angular/core';
 import { CommonModule }   from '@angular/common';
 import { MaterialModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { SongModule } from '../song/song.module';
 
@@ -14,6 +15,7 @@ import { BandRoutingModule } from './band-routing.module';
     CommonModule,
     MaterialModule,
     FlexLayoutModule,
+    TranslateModule,
     SongModule,
     BandRoutingModule
   ],
