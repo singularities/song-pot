@@ -7,6 +7,10 @@ const frontRoutes: Routes = [
   {
     path: '',
     component: FrontComponent
+  },
+  {
+    path: 'session/:action/:token',
+    component: FrontComponent
   }
 ];
 

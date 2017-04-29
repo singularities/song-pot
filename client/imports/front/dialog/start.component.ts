@@ -1,5 +1,5 @@
 import { Component, Inject  } from '@angular/core';
-import { MdDialogRef} from '@angular/material';
+import { MdDialogRef, MD_DIALOG_DATA} from '@angular/material';
 
 import template from './start.html';
 
@@ -10,10 +10,16 @@ import template from './start.html';
 
 export class FrontDialogStartComponent {
 
-  constructor(public dialogRef: MdDialogRef<FrontDialogStartComponent>) {}
-
-  action = 'register';
+  action;
   sessionAction;
+
+  constructor(public dialogRef: MdDialogRef<FrontDialogStartComponent>,
+              @Inject(MD_DIALOG_DATA) public data: any) {}
+
+  ngOnInit() {
+    this.action = this.data.action || 'register';
+
+  }
 
   onActionChanged (action) {
     this.sessionAction = action;

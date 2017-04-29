@@ -14,9 +14,7 @@ export class SessionComponent {
 
   _action;
   band;
-  username;
-  useremail;
-  userpassword;
+  user = <any>{};
 
   @Input()
   set action(action: string) {
@@ -29,6 +27,7 @@ export class SessionComponent {
   get action() {
     return this._action;
   }
+  @Input() token;
 
   @Output() onActionChanged = new EventEmitter();
   @Output() onCancel = new EventEmitter();
@@ -43,11 +42,11 @@ export class SessionComponent {
   onRegister () {
 
     Accounts.createUser({
-      email: this.useremail,
+      email: this.user.email,
       // Generate random password
       password: Meteor['uuid'](),
       profile: {
-        name: this.username
+        name: this.user.name
       }
     }, (error) => {
       if (error) {
@@ -65,13 +64,12 @@ export class SessionComponent {
   }
 
   onLogin () {
-    console.log(this.useremail);
-
+    // TODO redirect to first user band
   }
 
   onForgotPassword () {
     Accounts.forgotPassword({
-      email: this.useremail
+      email: this.user.email
     }, (error) => {
       if (error) {
         this.ngZone.run(() => {
@@ -87,6 +85,19 @@ export class SessionComponent {
 
   onSentPasswordEmail () {
     this.cancel();
+  }
+
+  onResetPassword () {
+    Accounts.resetPassword(this.token, this.user.password, (error) => {
+      if (error) {
+        this.ngZone.run(() => {
+          this.snackBar.open(error.reason, null, { duration: 5000 });
+        });
+      } else {
+        // TODO redirect to first band
+      }
+    })
+
   }
 
   switchAction () {

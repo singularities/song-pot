@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { ActivatedRoute } from '@angular/router';
 import { MdDialog } from '@angular/material';
 
 import { FrontDialogStartComponent } from './dialog/start.component';
@@ -13,11 +13,30 @@ import template from './front.html';
 
 export class FrontComponent {
 
-  constructor (public dialog: MdDialog) {}
+  constructor (private route: ActivatedRoute,
+               public dialog: MdDialog) {}
 
-  start () {
+  ngOnInit() {
+    this.route.params
+      .subscribe(params => {
+        switch (params['action']) {
+          case 'reset-password':
+            this.start({
+              action: 'resetPassword',
+              token: params['token']
+            });
+            break;
 
-    let dialogRef = this.dialog.open(FrontDialogStartComponent);
+          default:
+        }
+      });
+
+  }
+
+  start (params = {}) {
+    let dialogRef = this.dialog.open(FrontDialogStartComponent, {
+      data: params
+    });
 
     dialogRef.afterClosed().subscribe(data => {
       if (data) {

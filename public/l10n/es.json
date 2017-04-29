@@ -54,6 +54,7 @@
         "forgotPassword": "Recupera tu contraseña",
         "login": "Entra en Song Pot",
         "register": "¡Empieza a usar Song Pot!",
+        "resetPassword": "Cambia tu contraseña",
         "sentPasswordEmail": "Indicaciones enviadas"
       }
     },
@@ -106,6 +107,9 @@
         "question": "¿Ya te has registrado?"
       }
     },
+    "resetPassword": {
+      "confirm": "Establecer contraseña nueva"
+    },
     "sentPasswordEmail": {
       "confirm": "Ok",
       "text": "Por favor, revisa tu correo para recuperar tu contraseña"
@@ -119,6 +123,9 @@
       },
       "password": {
         "placeholder": "Tu contraseña"
+      },
+      "passwordConfirmation": {
+        "placeholder": "Tu contraseña otra vez"
       }
     }
   },

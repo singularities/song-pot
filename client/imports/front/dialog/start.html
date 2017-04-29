@@ -3,5 +3,6 @@
 </h2>
 
 <session [action]="action"
+         [token]="data.token"
          (onActionChanged)="onActionChanged($event)"
          (onCancel)="dialogRef.close()"></session>

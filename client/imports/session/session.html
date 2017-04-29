@@ -12,36 +12,38 @@
 
     <md-input-container *ngIf="action === 'register'">
       <input mdInput
-             name="username"
+             name="userName"
              required
              [placeholder]="'session.user.name.placeholder' | translate"
-             [(ngModel)]="username">
+             [(ngModel)]="user.name">
     </md-input-container>
 
     <md-input-container *ngIf="action === 'register' ||
                                action === 'login' ||
                                action === 'forgotPassword'">
       <input mdInput
-             name="useremail"
+             name="userEmail"
              type="email"
              required
              [placeholder]="'session.user.email.placeholder' | translate"
-             [(ngModel)]="useremail">
+             [(ngModel)]="user.email">
 
       <md-hint *ngIf="action === 'forgotPassword'">
         <span translate>session.forgotPassword.email.hint</span>
       </md-hint>
     </md-input-container>
 
-    <md-input-container *ngIf="action === 'login'">
+    <md-input-container *ngIf="action === 'login' ||
+                               action === 'resetPassword'">
       <input mdInput
-             name="userpassword"
+             name="userPassword"
              type="password"
              required
              [placeholder]="'session.user.password.placeholder' | translate"
-             [(ngModel)]="userpassword">
+             [(ngModel)]="user.password">
 
     </md-input-container>
+
 
     <div *ngIf="action === 'login'" class="forgot-password-link">
       <a (click)="action = 'forgotPassword'">
@@ -63,7 +65,8 @@
             class="dialog-button"
             *ngIf="action === 'register' ||
                    action === 'login' ||
-                   action === 'forgotPassword'"
+                   action === 'forgotPassword' ||
+                   action === 'resetPassword'"
             (click)="cancel()">
       <span translate>session.cancel</span>
     </button>
