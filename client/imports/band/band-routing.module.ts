@@ -5,7 +5,7 @@ import { BandComponent } from './band.component';
 
 const bandRoutes: Routes = [
   {
-    path: 'band',
+    path: 'bands/:id',
     component: BandComponent
   },
 ];

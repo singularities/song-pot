@@ -1,3 +1,10 @@
+export interface Band {
+  _id?: string;
+  createdAt: Date;
+  name: string;
+  userIds: string[];
+}
+
 export interface Song {
   _id?: string;
   createdAt: Date;

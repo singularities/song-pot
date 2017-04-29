@@ -1,7 +1,10 @@
 import { Component, Input, Output, EventEmitter, NgZone } from '@angular/core';
+import { Router } from '@angular/router';
 import { MdSnackBar } from '@angular/material';
 import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
+
+import { Bands } from '../../../imports/collections';
 
 import template from './session.html';
 
@@ -32,7 +35,8 @@ export class SessionComponent {
   @Output() onActionChanged = new EventEmitter();
   @Output() onCancel = new EventEmitter();
 
-  constructor(private snackBar: MdSnackBar,
+  constructor(private router: Router,
+              private snackBar: MdSnackBar,
               private ngZone: NgZone) {}
 
   onSubmit () {
@@ -56,8 +60,18 @@ export class SessionComponent {
         });
 
       } else {
-        // TODO
-        console.log(Meteor.userId());
+
+        Bands
+          .insert({
+            name: this.band,
+            createdAt: new Date(),
+            userIds: [ Meteor.userId() ]
+          })
+          .subscribe(id => {
+            this.close();
+
+            this.router.navigate(['/bands', id]);
+          });
       }
     })
 
@@ -84,7 +98,7 @@ export class SessionComponent {
   }
 
   onSentPasswordEmail () {
-    this.cancel();
+    this.close();
   }
 
   onResetPassword () {
@@ -107,6 +121,11 @@ export class SessionComponent {
       default:
         return 'register';
     }
+  }
+
+  // Syntactic sugar
+  close () {
+    this.cancel();
   }
 
   cancel () {
