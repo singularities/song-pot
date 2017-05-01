@@ -2,6 +2,13 @@ class Session {
 
   constructor () {
 
+    this.default = {
+      band: "Quebrantahuesos",
+      userName: "Lerón",
+      userEmail: "leron@quebrantahuesos.rocks",
+      userPassword: 'NoTePagoParaQueMePagues'
+    };
+
     this.bandInput = element(by.css('input[name="band"]'));
     this.userNameInput = element(by.css('input[name="userName"]'));
     this.userPasswordInput = element(by.css('input[name="userPassword"]'));
@@ -10,19 +17,19 @@ class Session {
     this.formButton = element(by.css('form button[type=submit]'));
   }
 
-  setBand (name) {
+  setBand (name = this.default.band) {
     return this.bandInput.sendKeys(name);
   }
 
-  setUserName (name) {
+  setUserName (name = this.default.userName) {
     return this.userNameInput.sendKeys(name);
   }
 
-  setUserEmail (email) {
+  setUserEmail (email = this.default.userEmail) {
     return this.userEmailInput.sendKeys(email);
   }
 
-  setPassword (password) {
+  setPassword (password = this.default.password) {
     return this.userPasswordInput.sendKeys(password);
   }
 
@@ -40,6 +47,13 @@ class Register extends Session {
     this.setUserEmail(data.userEmail);
 
     this.submit();
+  }
+}
+
+class ForgotPassword extends Session {
+
+  forgotPassword (data = {}) {
+
   }
 }
 

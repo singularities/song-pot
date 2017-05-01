@@ -8,6 +8,10 @@ class FrontPage {
     browser.get('/');
   }
 
+  start () {
+    this.startButton.click();
+  }
+
 }
 
 module.exports = FrontPage;

@@ -17,7 +17,7 @@ describe('session', () => {
         userName = chance.name(),
         userEmail = chance.email();
 
-    frontPage.startButton.click();
+    frontPage.start();
 
     registerPage.register({
       band: band,
@@ -25,7 +25,7 @@ describe('session', () => {
       userEmail: userEmail
     });
 
-    browser.wait(protractor.ExpectedConditions.textToBePresentInElement(bandPage.bandNameElement, band));
+    bandPage.waitForBand(band);
 
     expect(bandPage.getBandName()).toEqual(band);
   });

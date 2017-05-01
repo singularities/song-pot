@@ -8,6 +8,9 @@ class BandPage {
     return this.bandNameElement.getText();
   }
 
+  waitForBand(name) {
+    browser.wait(protractor.ExpectedConditions.textToBePresentInElement(this.bandNameElement, name));
+  }
 }
 
 module.exports = BandPage;
