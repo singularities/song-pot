@@ -78,7 +78,16 @@ export class SessionComponent {
   }
 
   onLogin () {
-    // TODO redirect to first user band
+    Meteor.loginWithPassword(this.user.email, this.user.password, (error) => {
+      if (error) {
+
+        this.ngZone.run(() => {
+          this.snackBar.open(error.reason, null, { duration: 5000 });
+        });
+      } else {
+        // TODO redirect to first user band
+      }
+    })
   }
 
   onForgotPassword () {
