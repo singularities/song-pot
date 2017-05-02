@@ -14,7 +14,6 @@ tracker@1.1.2                 # Meteor's client-side reactive programming librar
 standard-minifier-js@2.0.0    # JS minifier run for production mode
 es5-shim@4.6.15                # ECMAScript 5 compatibility for older browsers.
 
-autopublish@1.0.7             # Publish all data to the clients (for prototyping)
 insecure@1.0.7                # Allow all DB writes from clients (for prototyping)
 jalik:ufs
 jalik:ufs-gridfs

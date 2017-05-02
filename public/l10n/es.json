@@ -31,6 +31,14 @@
       "success": "Audio guardado"
     }
   },
+  "band": {
+    "toolbar": {
+      "selector": {
+        "create": "Crear un grupo nuevo",
+        "placeholder": "Grupos"
+      }
+    }
+  },
   "front": {
     "behind": {
       "text": "<p>¡Hola! Me llamo <a href=\"http://singularities.org/atd\">Antonio Tapiador</a> y desde los 18 años he estado tocando en grupos de música y programando.</p><p>He tenido varios grupos de música, y fui uno de los impulsores del colectivo musical <a href=\"http://ruidodebarrio.lapiluka.org/\">Ruido de Barrio</a>, en Madrid.</p><p>Junto con el último proyecto musical en el que estoy participando, Quebrantahuesos, me he dedicado a contruir <a href=\"https://songpot.rocks/\">Song Pot</a>, <a href=\"https://github.com/singularities/song-pot\">una herramienta de software libre</a> que nos está resultando muy útil para gestionar el material del grupo y practicar las canciones.</p><p>Ahora quiero compartirla contigo, porque creo que merece la pena y puede ser útil a ti también. ¡Espero que la disfrutes!</p>",

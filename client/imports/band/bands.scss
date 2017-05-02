@@ -1,0 +1,19 @@
+bands {
+  display: block;
+  height: 100%;
+
+  md-toolbar {
+    .mat-select-trigger,
+    .mat-select-arrow {
+      color: inherit;
+    }
+
+    .mat-select-value {
+      color: white;
+    }
+
+    .mat-select-underline {
+      background-color: rgba(255, 255, 255, .12);
+    }
+  }
+}

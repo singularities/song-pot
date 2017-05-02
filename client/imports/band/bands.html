@@ -1,0 +1,15 @@
+<div fxLayout="column"
+     fxFill>
+
+  <md-toolbar color="primary">
+    <md-select [placeholder]="'band.toolbar.selector.placeholder'| translate"
+               [(ngModel)]="currentBand"
+               floatPlaceholder="never">
+       <md-option *ngFor="let band of bands | async" [value]="band._id">{{ band.name }}</md-option>
+       <md-option (click)="newBand()"
+                  value="new-band">{{ 'band.toolbar.selector.create' | translate }}</md-option>
+    </md-select>
+  </md-toolbar>
+
+  <router-outlet></router-outlet>
+</div>

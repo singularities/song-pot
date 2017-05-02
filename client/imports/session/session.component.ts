@@ -85,7 +85,9 @@ export class SessionComponent {
           this.snackBar.open(error.reason, null, { duration: 5000 });
         });
       } else {
-        // TODO redirect to first user band
+        this.close();
+
+        this.router.navigate(['bands']);
       }
     })
   }
@@ -117,7 +119,9 @@ export class SessionComponent {
           this.snackBar.open(error.reason, null, { duration: 5000 });
         });
       } else {
-        // TODO redirect to first band
+        this.close();
+
+        this.router.navigate(['bands']);
       }
     })
 
