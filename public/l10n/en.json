@@ -131,6 +131,9 @@
       "confirm": "Ok",
       "text": "Please, check your email to recover your password"
     },
+    "toolbar": {
+      "logout": "Log out"
+    },
     "user": {
       "email": {
         "placeholder": "Your email"

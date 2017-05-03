@@ -130,6 +130,9 @@
       "confirm": "Ok",
       "text": "Por favor, revisa tu correo para recuperar tu contraseña"
     },
+    "toolbar": {
+      "logout": "Salir"
+    },
     "user": {
       "email": {
         "placeholder": "Tu email"

@@ -1,0 +1,13 @@
+<div class="session-logged-in"
+     *ngIf="user">
+  <button md-button [mdMenuTriggerFor]="sessionMenu">
+    <span>{{ user.profile.name }}</span>
+    <md-icon>arrow_drop_down</md-icon>
+  </button>
+  <md-menu #sessionMenu="mdMenu">
+    <button md-menu-item
+            (click)="logout()">
+      <span translate>session.toolbar.logout</span>
+    </button>
+  </md-menu>
+</div>

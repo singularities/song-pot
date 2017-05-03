@@ -5,6 +5,7 @@ import { MaterialModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TranslateModule } from '@ngx-translate/core';
 
+import { SessionModule } from '../session/session.module';
 import { SongModule } from '../song/song.module';
 
 import { BandsComponent } from './bands.component';
@@ -20,6 +21,7 @@ import { BandRoutingModule } from './band-routing.module';
     MaterialModule,
     FlexLayoutModule,
     TranslateModule,
+    SessionModule,
     SongModule,
     BandRoutingModule
   ],
