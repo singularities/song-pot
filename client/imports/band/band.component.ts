@@ -4,6 +4,8 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Bands } from '../../../imports/collections';
 import { Band } from '../../../imports/models';
 
+import { BandService } from './band.service';
+
 import template from "./band.html";
 
 @Component({
@@ -16,7 +18,8 @@ export class BandComponent {
   band: Band;
 
   constructor(private ngZone: NgZone,
-              private route: ActivatedRoute) {}
+              private route: ActivatedRoute,
+              private bandService: BandService) {}
 
   ngOnInit() {
 
@@ -26,6 +29,8 @@ export class BandComponent {
       .subscribe(bands => {
         this.ngZone.run(() => {
           this.band = bands[0];
+
+          this.bandService.changeBand(this.band);
         });
       });
   }

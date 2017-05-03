@@ -2,13 +2,21 @@
      fxFill>
 
   <md-toolbar color="primary">
-    <md-select [placeholder]="'band.toolbar.selector.placeholder'| translate"
-               [(ngModel)]="currentBand"
-               floatPlaceholder="never">
-       <md-option *ngFor="let band of bands | async" [value]="band._id">{{ band.name }}</md-option>
-       <md-option (click)="newBand()"
-                  value="new-band">{{ 'band.toolbar.selector.create' | translate }}</md-option>
-    </md-select>
+    <span [mdMenuTriggerFor]="bandsMenu">{{ currentBand?.name }}</span>
+    <button md-icon-button [mdMenuTriggerFor]="bandsMenu">
+      <md-icon>arrow_drop_down</md-icon>
+    </button>
+    <md-menu #bandsMenu="mdMenu">
+      <button md-menu-item
+              *ngFor="let band of bands | async"
+              [routerLink]="[band._id]">
+        <span>{{ band.name }}</span>
+      </button>
+      <button md-menu-item
+              (click)="newBand()">
+        <span translate>band.toolbar.selector.create</span>
+      </button>
+    </md-menu>
 
     <div fxFlex></div>
 
