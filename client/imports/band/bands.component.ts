@@ -39,9 +39,8 @@ export class BandsComponent {
     let dialogRef = this.dialog.open(BandDialogCreate);
 
     dialogRef.afterClosed().subscribe(name => {
-      console.log('after close');
+
       if (name) {
-        console.log('name' + name);
         Bands
           .insert({
             name: name,
@@ -49,7 +48,6 @@ export class BandsComponent {
             userIds: [ Meteor.userId() ]
           })
           .subscribe(id => {
-            console.log('created' + id);
             this.router.navigate(['/bands', id]);
           });
       }
