@@ -28,12 +28,17 @@ export class SessionFormComponent {
   }
 
   get action() {
-    return this._action;
+    return this._action || 'register';
   }
   @Input() token;
 
   @Output() onActionChanged = new EventEmitter();
   @Output() onCancel = new EventEmitter();
+
+  ngOnInit() {
+    // set parent component action to default action
+    this.onActionChanged.emit(this.action);
+  }
 
   constructor(private router: Router,
               private snackBar: MdSnackBar,

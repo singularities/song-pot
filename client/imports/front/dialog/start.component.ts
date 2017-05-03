@@ -16,11 +16,6 @@ export class FrontDialogStartComponent {
   constructor(public dialogRef: MdDialogRef<FrontDialogStartComponent>,
               @Inject(MD_DIALOG_DATA) public data: any) {}
 
-  ngOnInit() {
-    this.action = this.data.action || 'register';
-
-  }
-
   onActionChanged (action) {
     this.sessionAction = action;
   }
