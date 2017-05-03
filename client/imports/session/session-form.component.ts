@@ -6,14 +6,14 @@ import { Accounts } from 'meteor/accounts-base';
 
 import { Bands } from '../../../imports/collections';
 
-import template from './session.html';
+import template from './session-form.html';
 
 @Component({
-  selector: 'session',
+  selector: 'session-form',
   template
 })
 
-export class SessionComponent {
+export class SessionFormComponent {
 
   _action;
   band;

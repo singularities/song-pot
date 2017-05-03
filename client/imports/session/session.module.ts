@@ -5,7 +5,7 @@ import { MaterialModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TranslateModule } from '@ngx-translate/core';
 
-import { SessionComponent } from './session.component';
+import { SessionFormComponent } from './session-form.component';
 import { NoSessionGuard } from './no-session-guard.service';
 
 @NgModule({
@@ -17,13 +17,13 @@ import { NoSessionGuard } from './no-session-guard.service';
     TranslateModule,
   ],
   declarations: [
-    SessionComponent
+    SessionFormComponent
   ],
   providers: [
     NoSessionGuard
   ],
   exports: [
-    SessionComponent
+    SessionFormComponent
   ]
 })
 

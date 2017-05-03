@@ -2,7 +2,7 @@
   <span translate>{{ 'front.start.title.' + sessionAction }}</span>
 </h2>
 
-<session [action]="action"
+<session-form [action]="action"
          [token]="data.token"
          (onActionChanged)="onActionChanged($event)"
-         (onCancel)="dialogRef.close()"></session>
+         (onCancel)="dialogRef.close()"></session-form>
