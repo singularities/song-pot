@@ -3,10 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { FrontComponent } from './front.component';
 
+import { NoSessionGuard } from '../session/no-session-guard.service';
+
 const frontRoutes: Routes = [
   {
     path: '',
-    component: FrontComponent
+    component: FrontComponent,
+    canActivate: [ NoSessionGuard ]
   },
   {
     path: 'session/:action/:token',
