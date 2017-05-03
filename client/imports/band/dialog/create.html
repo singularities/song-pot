@@ -1,0 +1,34 @@
+<h2 md-dialog-title translate>band.create.dialog.title</h2>
+
+<form (submit)="dialogRef.close(name)">
+
+  <div md-dialog-content>
+    <md-input-container>
+      <input mdInput
+             name="name"
+             [placeholder]="'band.create.dialog.placeholder' | translate"
+             [(ngModel)]="name">
+    </md-input-container>
+  </div>
+
+  <div md-dialog-actions>
+    <div fxFlex></div>
+
+    <button md-button
+            type="button"
+            color="primary"
+            class="dialog-button"
+            (click)="dialogRef.close()">
+      <span translate>band.create.dialog.cancel</span>
+    </button>
+
+    <button md-button
+            type="submit"
+            color="primary"
+            class="dialog-button"
+            (click)="dialogRef.close(name)">
+      <span translate>band.create.dialog.confirm</span>
+    </button>
+  </div>`
+
+</form>

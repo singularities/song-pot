@@ -32,6 +32,14 @@
     }
   },
   "band": {
+    "create": {
+      "dialog": {
+        "cancel": "Cancel",
+        "confirm": "Create",
+        "placeholder": "Name of the band",
+        "title": "Create new band"
+      }
+    },
     "toolbar": {
       "selector": {
         "create": "Create new band",

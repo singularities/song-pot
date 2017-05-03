@@ -32,6 +32,14 @@
     }
   },
   "band": {
+    "create": {
+      "dialog": {
+        "cancel": "Cancelar",
+        "confirm": "Crear",
+        "placeholder": "Nombre del grupo",
+        "title": "Crear grupo nuevo"
+      }
+    },
     "toolbar": {
       "selector": {
         "create": "Crear un grupo nuevo",

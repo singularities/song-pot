@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { MdDialog } from '@angular/material';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 import { MeteorObservable } from 'meteor-rxjs';
 
 import { Band } from '../../../imports/models';
 import { Bands } from '../../../imports/collections';
+
+import { BandDialogCreate } from './dialog/create.component';
 
 import template from './bands.html';
 
@@ -19,7 +23,8 @@ export class BandsComponent {
   bandsSub: Subscription;
   currentBand: string;
 
-  constructor() { }
+  constructor(private router: Router,
+              private dialog: MdDialog) { }
 
   ngOnInit() {
     this.bands = Bands.find({}).zone();
@@ -31,7 +36,24 @@ export class BandsComponent {
   }
 
   newBand() {
-    console.log('new band');
+    let dialogRef = this.dialog.open(BandDialogCreate);
+
+    dialogRef.afterClosed().subscribe(name => {
+      console.log('after close');
+      if (name) {
+        console.log('name' + name);
+        Bands
+          .insert({
+            name: name,
+            createdAt: new Date(),
+            userIds: [ Meteor.userId() ]
+          })
+          .subscribe(id => {
+            console.log('created' + id);
+            this.router.navigate(['/bands', id]);
+          });
+      }
+    });
   }
 
 }
