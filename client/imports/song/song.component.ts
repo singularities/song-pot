@@ -1,10 +1,13 @@
 import 'rxjs/add/operator/switchMap';
 
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { MdDialog } from '@angular/material';
+import { Subscription } from 'rxjs/Subscription';
+import { MeteorObservable } from 'meteor-rxjs';
 
+import { Song } from '../../../imports/models';
 import { Songs } from '../../../imports/collections';
 
 import { SongDialogConfirmRemove } from './dialog/confirm-remove.component';
@@ -32,17 +35,19 @@ import template from "./song.html";
 export class SongComponent implements OnInit {
   SWIPE_ACTION = { LEFT: 'swipeleft', RIGHT: 'swiperight' };
 
-  song;
+  song: Song;
 
-  editing;
+  editing: boolean;
 
   // Show components (metronome, audio list) in mobile
-  bottomContainer;
+  bottomContainer: string;
+
+  audiosSub: Subscription;
 
   constructor (
     private router: Router,
     private route: ActivatedRoute,
-    private ref: ChangeDetectorRef,
+    private ngZone: NgZone,
     private dialog: MdDialog
   ) {}
 
@@ -51,11 +56,26 @@ export class SongComponent implements OnInit {
     this.route.params
       .filter((params: Params) => ! this.song || this.song._id !== params['id'])
       .switchMap((params: Params) => Songs.find({ _id: params['id']}))
-      .subscribe(songs => { this.song = songs[0]; this.ref.detectChanges(); });
+      .subscribe(songs => {
+        this.ngZone.run(() => {
+          this.song = songs[0];
 
+          if (this.audiosSub) {
+            this.audiosSub.unsubscribe();
+          }
+
+          if (this.song) {
+            this.audiosSub = MeteorObservable.subscribe('song.audios', this.song.audioIds).subscribe();
+          }
+        })
+      });
 
     this.route.params
       .subscribe((params: Params) => { this.editing = params['child'] === 'edit' } );
+  }
+
+  ngOnDestroy() {
+    this.audiosSub.unsubscribe();
   }
 
   swipe(direction) {
