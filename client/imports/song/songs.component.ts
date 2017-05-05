@@ -7,6 +7,7 @@ import { Song, Band } from '../../../imports/models';
 import { Songs } from '../../../imports/collections';
 
 import { BandService } from '../band/band.service';
+import { SongService } from './song.service';
 
 import template from "./songs.html";
 
@@ -18,8 +19,10 @@ import template from "./songs.html";
 export class SongsComponent {
 
   band: Band;
+  song: Song;
 
   songsSub: Subscription;
+  songChangedSub: Subscription;
   songs: Observable<Song[]>;
 
 
@@ -48,12 +51,20 @@ export class SongsComponent {
           }).zone();
         }
       });
+
+    this.songChangedSub = this.songService.songChanged$
+      .subscribe(song => this.ngZone.run(() => {
+        this.song = song;
+      }))
   }
 
   ngOnDestroy() {
     this.songsSub.unsubscribe();
+
+    this.songChangedSub.unsubscribe();
   }
 
   constructor (private ngZone: NgZone,
-               private bandService: BandService) {}
+               private bandService: BandService,
+               private songService: SongService) {}
 }

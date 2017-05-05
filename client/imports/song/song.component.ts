@@ -12,6 +12,8 @@ import { Songs } from '../../../imports/collections';
 
 import { SongDialogConfirmRemove } from './dialog/confirm-remove.component';
 
+import { SongService } from './song.service';
+
 import template from "./song.html";
 
 @Component({
@@ -48,7 +50,8 @@ export class SongComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private ngZone: NgZone,
-    private dialog: MdDialog
+    private dialog: MdDialog,
+    private songService: SongService
   ) {}
 
   ngOnInit(): void {
@@ -59,6 +62,8 @@ export class SongComponent implements OnInit {
       .subscribe(songs => {
         this.ngZone.run(() => {
           this.song = songs[0];
+
+          this.songService.changeSong(this.song);
 
           if (this.audiosSub) {
             this.audiosSub.unsubscribe();

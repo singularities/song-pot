@@ -4,13 +4,17 @@
   <div fxShow
        fxHide.gt-sm="true">
 
-    <song-list [songs]="songs"></song-list>
+    <div *ngIf="! song">
+      <song-list [songs]="songs"></song-list>
 
 
-    <button md-fab class="md-fab-bottom-fixed"
-            [songAdd]="band">
-      <md-icon>add</md-icon>
-    </button>
+      <button md-fab class="md-fab-bottom-fixed"
+              [songAdd]="band">
+        <md-icon>add</md-icon>
+      </button>
+    </div>
+
+    <router-outlet></router-outlet>
   </div>
 
   <div fxLayout="row"

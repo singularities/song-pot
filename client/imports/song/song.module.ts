@@ -16,6 +16,8 @@ import { SongAddDirective } from './add.directive';
 import { SongDialogConfirmRemove } from './dialog/confirm-remove.component';
 import { MetronomeComponent } from './metronome.component';
 
+import { SongService } from './song.service';
+
 import { SongRoutingModule } from './song-routing.module';
 
 @NgModule({
@@ -41,10 +43,13 @@ import { SongRoutingModule } from './song-routing.module';
   entryComponents: [
     SongDialogConfirmRemove
   ],
+  providers: [
+    SongService
+  ],
   exports: [
     SongsComponent,
     SongAddDirective
   ]
-
 })
+
 export class SongModule {}
