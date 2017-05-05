@@ -4,7 +4,7 @@
   <div fxShow
        fxHide.gt-sm="true">
 
-    <songs></songs>
+    <songs [songIds]="band?.songIds"></songs>
 
 
     <button md-fab class="md-fab-bottom-fixed"
@@ -29,7 +29,7 @@
         </md-card-title>
 
         <md-card-content>
-          <songs></songs>
+          <songs [songIds]="band?.songIds"></songs>
         </md-card-content>
       </md-card>
     </div>
