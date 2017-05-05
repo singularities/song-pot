@@ -2,12 +2,15 @@ import { Directive, HostListener, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Songs } from '../../../imports/collections';
+import { Band } from '../../../imports/models';
 
 @Directive({
   selector: '[songAdd]'
 })
 
 export class SongAddDirective {
+
+  @Input('songAdd') band: Band;
 
   @HostListener('click') onClick() {
     this.create();
@@ -20,6 +23,7 @@ export class SongAddDirective {
 
     Songs
       .insert({
+        bandId: this.band._id,
         createdAt: new Date()
       })
       .subscribe(id => {

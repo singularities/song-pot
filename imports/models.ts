@@ -7,6 +7,7 @@ export interface Band {
 
 export interface Song {
   _id?: string;
+  bandId: string;
   createdAt: Date;
   title?: string;
   text?: string;

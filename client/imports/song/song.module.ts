@@ -40,7 +40,8 @@ import { SongRoutingModule } from './song-routing.module';
     SongDialogConfirmRemove
   ],
   exports: [
-    SongsComponent
+    SongsComponent,
+    SongAddDirective
   ]
 
 })
