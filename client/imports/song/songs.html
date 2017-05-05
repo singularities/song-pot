@@ -1,10 +1,13 @@
 <div fxLayout="column"
      fxFill>
 
-  <div fxShow
-       fxHide.gt-sm="true">
+  <div fxLayout="column"
+       fxLayout.gt-sm="row"
+       fxFlex.gt-sm>
 
-    <div *ngIf="! song">
+    <div fxShow
+         fxHide.gt-sm
+         *ngIf="! song">
       <song-list [songs]="songs"></song-list>
 
 
@@ -14,15 +17,11 @@
       </button>
     </div>
 
-    <router-outlet></router-outlet>
-  </div>
+    <div fxHide
+         fxShow.gt-sm
+         fxFlex="20"
+         class="padding-16">
 
-  <div fxLayout="row"
-       fxFlex
-       fxHide
-       fxShow.gt-sm
-       class="songs-desktop">
-    <div fxFlex="20" class="padding-16">
       <md-card fxFlex fxLayout="column">
         <md-card-title fxLayout="row" fxLayoutAlign="start center">
           <span translate>song.list.title</span>
@@ -38,7 +37,7 @@
       </md-card>
     </div>
 
-    <div fxFlex="80">
+    <div fxFlex.gt-sm="80">
       <router-outlet></router-outlet>
     </div>
   </div>
