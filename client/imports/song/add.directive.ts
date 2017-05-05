@@ -24,6 +24,7 @@ export class SongAddDirective {
     Songs
       .insert({
         bandId: this.band._id,
+        audioIds: [],
         createdAt: new Date()
       })
       .subscribe(id => {

@@ -12,7 +12,7 @@ export interface Song {
   createdAt: Date;
   title?: string;
   text?: string;
-  audioIds?: any[];
+  audioIds: any[];
 }
 
 export interface Audio {
