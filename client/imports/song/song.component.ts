@@ -113,7 +113,7 @@ export class SongComponent implements OnInit {
     // Reset song
     this.song = Songs.findOne({ _id: this.song._id });
 
-    this.router.navigate(['/songs', this.song._id]);
+    this.router.navigate(['../'], { relativeTo: this.route });
   }
 
   save () {
@@ -126,7 +126,7 @@ export class SongComponent implements OnInit {
       }
     });
 
-    this.router.navigate(['/songs', this.song._id]);
+    this.router.navigate(['../'], { relativeTo: this.route });
   }
 
   confirmRemove() {
