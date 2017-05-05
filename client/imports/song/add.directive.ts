@@ -1,5 +1,5 @@
 import { Directive, HostListener, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { Songs } from '../../../imports/collections';
 import { Band } from '../../../imports/models';
@@ -16,7 +16,8 @@ export class SongAddDirective {
     this.create();
   }
 
-  constructor(private router: Router) {
+  constructor(private router: Router,
+              private route: ActivatedRoute) {
   }
 
   create () {
@@ -28,7 +29,7 @@ export class SongAddDirective {
         createdAt: new Date()
       })
       .subscribe(id => {
-        this.router.navigate(['/songs/', id, 'edit']);
+        this.router.navigate([id, 'edit'], { relativeTo: this.route });
       });
 
   }

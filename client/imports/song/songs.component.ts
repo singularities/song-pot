@@ -1,7 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, NgZone} from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-import { Song } from '../../../imports/models';
+import { Song, Band } from '../../../imports/models';
 import { Songs } from '../../../imports/collections';
 
 import { BandService } from '../band/band.service';
@@ -13,22 +13,31 @@ import template from "./songs.html";
   template
 })
 
-export class SongsComponent implements OnInit {
+export class SongsComponent {
 
+  band: Band;
   songs: Observable<Song[]>;
 
 
   ngOnInit(): void {
 
     this.bandService.bandChanged$
-      .subscribe(band => this.songs = Songs.find({
+      .subscribe(band => {
+
+        this.ngZone.run(() => {
+          this.band = band;
+        });
+
+        this.songs = Songs.find({
           _id: { '$in': band.songIds }
         }, {
           sort: {
             createdAt: -1
           }
-        }).zone());
+        }).zone();
+      });
   }
 
-  constructor (private bandService: BandService) {}
+  constructor (private ngZone: NgZone,
+               private bandService: BandService) {}
 }
