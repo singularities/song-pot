@@ -1,11 +1,11 @@
 <md-nav-list>
   <md-list-item *ngFor="let song of songs | async">
-     <a md-line [routerLink]="['/songs', song._id]">
+     <a md-line [routerLink]="[song._id]">
        {{ song.title || 'song.title.empty' | translate }}
      </a>
      <button md-icon-button
              *ngIf="song.audioIds"
-             [routerLink]="['/songs', song._id]">
+             [routerLink]="[song._id]">
         <md-icon>queue_music</md-icon>
      </button>
   </md-list-item>

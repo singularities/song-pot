@@ -3,20 +3,23 @@ song {
   height: 100%;
 
   .text {
-    white-space: pre-line;
     font-size: 16px;
-    overflow: auto;
     line-height: 26px;
+    overflow: auto;
+    white-space: pre-line;
   }
 
   .song-mobile {
 
-    .text, .song-editing {
+    .text,
+    .song-editing {
       padding: 16px;
     }
   }
 
   .song-desktop {
+    height: 100%;
+
     .padding-16 {
       padding: 16px;
     }
@@ -28,10 +31,11 @@ song {
     }
 
     .song-title {
+      margin: 13px 16px 0;
+
       h2 {
         font-weight: normal;
       }
-      margin: 13px 16px 0px 16px;
     }
 
     .spacer {

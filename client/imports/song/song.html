@@ -90,123 +90,101 @@
   </div>
 </div>
 
-<div fxHide fxShow.gt-sm fxLayout="row" fxFill class="song-desktop" *ngIf="song">
-  <div fxLayout="column" fxFlex>
-    <md-toolbar color="primary">
-      <span>Quebrantahuesos</span>
-    </md-toolbar>
+<div fxLayout="column"
+     fxHide
+     fxShow.gt-sm
+     class="song-desktop"
+     *ngIf="song">
 
-    <div fxLayout="row" fxFlex>
-      <div fxFlex="20" class="padding-16">
-        <md-card fxFlex fxLayout="column">
-          <md-card-title fxLayout="row" fxLayoutAlign="start center">
-            <span translate>song.list.title</span>
-            <span fxFlex></span>
-            <button md-icon-button songAdd>
-              <md-icon>add</md-icon>
-            </button>
-          </md-card-title>
+  <div fxLayout="row"
+       fxLayoutAlign="start center"
+       class="song-title">
+    <h2>
+      <span>{{ song.title || 'song.title.empty' | translate }}</span>
+    </h2>
 
-          <md-card-content>
-            <songs></songs>
-          </md-card-content>
-        </md-card>
-      </div>
+    <div fxFlex></div>
 
-      <div fxFlex="80" fxLayout="column">
+    <button md-button [mdMenuTriggerFor]="songMenu">
+      <span translate>song.show.actions.title</span>
+    </button>
+    <md-menu #songMenu="mdMenu">
+      <button md-menu-item
+              (click)="confirmRemove()">
+        <span translate>song.show.toolbar.remove</span>
+      </button>
+    </md-menu>
+  </div>
 
-        <div fxLayout="row"
-             fxLayoutAlign="start center"
-             class="song-title">
-          <h2>
-            <span>{{ song.title || 'song.title.empty' | translate }}</span>
-          </h2>
+  <div fxLayout="row" fxFlex>
 
-          <div fxFlex></div>
+    <div fxFlex="50" fxLayout="column" class="padding-16">
 
-          <button md-button [mdMenuTriggerFor]="songMenu">
-            <span translate>song.show.actions.title</span>
+      <md-card fxLayout="column">
+        <md-card-title fxLayout="row" fxLayoutAlign="start center">
+          <span translate>metronome.title</span>
+          <span fxFlex></span>
+        </md-card-title>
+
+        <md-card-content>
+          <metronome [song]="song"></metronome>
+        </md-card-content>
+      </md-card>
+
+      <div class="spacer"></div>
+
+      <md-card fxLayout="column">
+        <md-card-title fxLayout="row" fxLayoutAlign="start center">
+          <span translate>song.audio.title</span>
+          <span fxFlex></span>
+          <button md-icon-button [audioAdd]="song">
+            <md-icon>playlist_add</md-icon>
           </button>
-          <md-menu #songMenu="mdMenu">
-            <button md-menu-item
-                    (click)="confirmRemove()">
-              <span translate>song.show.toolbar.remove</span>
-            </button>
-          </md-menu>
-        </div>
+        </md-card-title>
 
-        <div fxLayout="row" fxFlex>
+        <md-card-content fxLayout="column">
+          <audio-list [audioIds]="song.audioIds"></audio-list>
 
-          <div fxFlex="50" fxLayout="column" class="padding-16">
+          <audio-add-progress></audio-add-progress>
 
-            <md-card fxLayout="column">
-              <md-card-title fxLayout="row" fxLayoutAlign="start center">
-                <span translate>metronome.title</span>
-                <span fxFlex></span>
-              </md-card-title>
+          <audio-player fxFlex="none"></audio-player>
+        </md-card-content>
+      </md-card>
+    </div>
 
-              <md-card-content>
-                <metronome [song]="song"></metronome>
-              </md-card-content>
-            </md-card>
+    <div fxFlex="50" fxLayout="column" class="padding-16">
 
-            <div class="spacer"></div>
+      <md-card fxLayout="column">
+        <md-card-title fxLayout="row" fxLayoutAlign="start center">
+          <span translate>song.text.title</span>
+          <span fxFlex></span>
+          <button md-icon-button
+                  *ngIf="! editing"
+                  [routerLink]="['/songs', song._id, 'edit']">
+            <md-icon>mode_edit</md-icon>
+          </button>
 
-            <md-card fxLayout="column">
-              <md-card-title fxLayout="row" fxLayoutAlign="start center">
-                <span translate>song.audio.title</span>
-                <span fxFlex></span>
-                <button md-icon-button [audioAdd]="song">
-                  <md-icon>playlist_add</md-icon>
-                </button>
-              </md-card-title>
+          <button md-icon-button
+                  *ngIf="editing"
+                  (click)="cancel()">
+            <md-icon>cancel</md-icon>
+          </button>
 
-              <md-card-content fxLayout="column">
-                <audio-list [audioIds]="song.audioIds"></audio-list>
+          <button md-icon-button
+                  *ngIf="editing"
+                  (click)="save()">
+            <md-icon>save</md-icon>
+          </button>
+        </md-card-title>
 
-                <audio-add-progress></audio-add-progress>
+        <md-card-content>
+          <div class="text" *ngIf="! editing">{{ song.text || 'song.text.empty' | translate }}</div>
 
-                <audio-player fxFlex="none"></audio-player>
-              </md-card-content>
-            </md-card>
+          <div class="song-editing" *ngIf="editing">
+            <song-edit [song]="song"></song-edit>
           </div>
-
-          <div fxFlex="50" fxLayout="column" class="padding-16">
-
-            <md-card fxLayout="column">
-              <md-card-title fxLayout="row" fxLayoutAlign="start center">
-                <span translate>song.text.title</span>
-                <span fxFlex></span>
-                <button md-icon-button
-                        *ngIf="! editing"
-                        [routerLink]="['/songs', song._id, 'edit']">
-                  <md-icon>mode_edit</md-icon>
-                </button>
-
-                <button md-icon-button
-                        *ngIf="editing"
-                        (click)="cancel()">
-                  <md-icon>cancel</md-icon>
-                </button>
-
-                <button md-icon-button
-                        *ngIf="editing"
-                        (click)="save()">
-                  <md-icon>save</md-icon>
-                </button>
-              </md-card-title>
-
-              <md-card-content>
-                <div class="text" *ngIf="! editing">{{ song.text || 'song.text.empty' | translate }}</div>
-
-                <div class="song-editing" *ngIf="editing">
-                  <song-edit [song]="song"></song-edit>
-                </div>
-              </md-card-content>
-            </md-card>
-          </div>
-        </div>
-      </div>
+        </md-card-content>
+      </md-card>
     </div>
   </div>
 </div>
