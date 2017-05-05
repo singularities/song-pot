@@ -104,7 +104,7 @@ export class SongComponent implements OnInit {
     })
     .subscribe(songs => {
       if (songs.length) {
-        this.router.navigate([ '/songs', songs[0]._id]);
+        this.router.navigate([songs[0]._id], { relativeTo: this.route });
       }
     })
   }
@@ -140,7 +140,7 @@ export class SongComponent implements OnInit {
       if (confirmation) {
         Songs.remove(this.song._id);
 
-        this.router.navigate(['/band']);
+        this.router.navigate(['./'], { relativeTo: this.route });
       }
     });
   }
