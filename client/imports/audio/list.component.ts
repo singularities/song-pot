@@ -35,7 +35,7 @@ export class AudioListComponent implements OnInit {
   ngOnInit(): void {
 
     this._audioIds
-        .subscribe(ids => { console.dir(ids); return this.audios = Audios.find({ _id: { '$in': ids } })});
+        .subscribe(ids => this.audios = Audios.find({ _id: { '$in': ids } }).zone());
   }
 
   constructor (public dialog: MdDialog,
