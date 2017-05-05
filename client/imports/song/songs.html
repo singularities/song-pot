@@ -1,12 +1,37 @@
-<md-nav-list>
-  <md-list-item *ngFor="let song of songs | async">
-     <a md-line [routerLink]="['/songs', song._id]">
-       {{ song.title || 'song.title.empty' | translate }}
-     </a>
-     <button md-icon-button
-             *ngIf="song.audioIds"
-             [routerLink]="['/songs', song._id]">
-        <md-icon>queue_music</md-icon>
-     </button>
-  </md-list-item>
-</md-nav-list>
+<div fxLayout="column"
+     fxFill>
+
+  <div fxShow
+       fxHide.gt-sm="true">
+
+    <song-list [songs]="songs"></song-list>
+
+
+    <button md-fab class="md-fab-bottom-fixed"
+            [songAdd]="band">
+      <md-icon>add</md-icon>
+    </button>
+  </div>
+
+  <div fxLayout="row"
+       fxFlex
+       fxHide
+       fxShow.gt-sm
+       class="songs-desktop">
+    <div fxFlex="20" class="padding-16">
+      <md-card fxFlex fxLayout="column">
+        <md-card-title fxLayout="row" fxLayoutAlign="start center">
+          <span translate>song.list.title</span>
+          <span fxFlex></span>
+          <button md-icon-button [songAdd]="band">
+            <md-icon>add</md-icon>
+          </button>
+        </md-card-title>
+
+        <md-card-content>
+          <song-list [songs]="songs"></song-list>
+        </md-card-content>
+      </md-card>
+    </div>
+  </div>
+</div>

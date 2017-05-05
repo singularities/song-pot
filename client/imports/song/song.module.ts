@@ -8,6 +8,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { AudioModule } from '../audio/audio.module';
 
 import { SongsComponent } from './songs.component';
+import { SongListComponent } from './list.component';
 import { SongComponent } from './song.component';
 import { SongEditComponent } from './edit.component';
 import { SongAudiosComponent } from './audios.component';
@@ -29,6 +30,7 @@ import { SongRoutingModule } from './song-routing.module';
   ],
   declarations: [
     SongsComponent,
+    SongListComponent,
     SongComponent,
     SongEditComponent,
     SongAudiosComponent,

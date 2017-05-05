@@ -58,7 +58,8 @@ export class BandsComponent {
           .insert({
             name: name,
             createdAt: new Date(),
-            userIds: [ Meteor.userId() ]
+            userIds: [ Meteor.userId() ],
+            songIds: []
           })
           .subscribe(id => {
             this.router.navigate(['/bands', id]);

@@ -13,7 +13,7 @@ import { Band } from '../../../imports/models';
 export class BandService {
 
  // Observable string sources
-  private bandChangedSource = new Subject();
+  private bandChangedSource: Subject<Band> = new Subject();
 
   // Observable string streams
   bandChanged$ = this.bandChangedSource.asObservable();

@@ -3,6 +3,7 @@ export interface Band {
   createdAt: Date;
   name: string;
   userIds: string[];
+  songIds: string[];
 }
 
 export interface Song {
