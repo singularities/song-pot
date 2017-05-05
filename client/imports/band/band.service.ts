@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs/Subject';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import { Band } from '../../../imports/models';
 
@@ -13,7 +13,7 @@ import { Band } from '../../../imports/models';
 export class BandService {
 
  // Observable string sources
-  private bandChangedSource: Subject<Band> = new Subject();
+  private bandChangedSource: BehaviorSubject<Band> = new BehaviorSubject(undefined);
 
   // Observable string streams
   bandChanged$ = this.bandChangedSource.asObservable();
