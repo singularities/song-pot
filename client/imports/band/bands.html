@@ -1,7 +1,8 @@
 <div fxLayout="column"
      fxFill>
 
-  <md-toolbar color="primary">
+  <md-toolbar color="primary"
+              *ngIf="media.isActive('gt-sm') || showToolbar">
     <span [mdMenuTriggerFor]="bandsMenu">{{ currentBand?.name }}</span>
     <button md-icon-button [mdMenuTriggerFor]="bandsMenu">
       <md-icon>arrow_drop_down</md-icon>

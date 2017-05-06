@@ -13,6 +13,7 @@ import { Songs } from '../../../imports/collections';
 import { SongDialogConfirmRemove } from './dialog/confirm-remove.component';
 
 import { SongService } from './song.service';
+import { BandToolbarService } from '../band/toolbar.service';
 
 import template from "./song.html";
 
@@ -51,7 +52,8 @@ export class SongComponent implements OnInit {
     private route: ActivatedRoute,
     private ngZone: NgZone,
     private dialog: MdDialog,
-    private songService: SongService
+    private songService: SongService,
+    private bandToolbarService: BandToolbarService
   ) {}
 
   ngOnInit(): void {
@@ -77,12 +79,16 @@ export class SongComponent implements OnInit {
 
     this.route.params
       .subscribe((params: Params) => { this.editing = params['child'] === 'edit' } );
+
+    this.bandToolbarService.changeToolbar(false);
   }
 
   ngOnDestroy() {
     this.audiosSub.unsubscribe();
 
     this.songService.changeSong(null);
+
+    this.bandToolbarService.changeToolbar(true);
   }
 
   swipe(direction) {

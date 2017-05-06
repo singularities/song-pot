@@ -11,6 +11,7 @@ import { SongModule } from '../song/song.module';
 import { BandsComponent } from './bands.component';
 import { BandComponent } from './band.component';
 import { BandService } from './band.service';
+import { BandToolbarService } from './toolbar.service';
 import { BandDialogCreate } from './dialog/create.component';
 
 import { BandRoutingModule } from './band-routing.module';
@@ -35,7 +36,8 @@ import { BandRoutingModule } from './band-routing.module';
     BandDialogCreate
   ],
   providers: [
-    BandService
+    BandService,
+    BandToolbarService
   ]
 })
 
