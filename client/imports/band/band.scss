@@ -1,6 +1,5 @@
 band {
-  display: block;
-  height: 100%;
+  @include fx-column-flex();
 
   .songs-desktop {
 

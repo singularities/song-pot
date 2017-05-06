@@ -1,44 +1,40 @@
 <div fxLayout="column"
-     fxFill>
+     fxLayout.gt-sm="row"
+     fxFlex.gt-sm>
 
-  <div fxLayout="column"
-       fxLayout.gt-sm="row"
-       fxFlex.gt-sm>
+  <div fxShow
+       fxHide.gt-sm
+       *ngIf="! song">
+    <song-list [songs]="songs"></song-list>
 
-    <div fxShow
-         fxHide.gt-sm
-         *ngIf="! song">
-      <song-list [songs]="songs"></song-list>
+    <button md-fab class="md-fab-bottom-fixed"
+            [songAdd]="band">
+      <md-icon>add</md-icon>
+    </button>
+  </div>
 
+  <div fxHide
+       fxShow.gt-sm
+       fxFlex="20"
+       fxLayout="column"
+       class="padding-16">
 
-      <button md-fab class="md-fab-bottom-fixed"
-              [songAdd]="band">
-        <md-icon>add</md-icon>
-      </button>
-    </div>
+    <md-card fxFlex fxLayout="column">
+      <md-card-title fxLayout="row" fxLayoutAlign="start center">
+        <span translate>song.list.title</span>
+        <span fxFlex></span>
+        <button md-icon-button [songAdd]="band">
+          <md-icon>add</md-icon>
+        </button>
+      </md-card-title>
 
-    <div fxHide
-         fxShow.gt-sm
-         fxFlex="20"
-         class="padding-16">
+      <md-card-content>
+        <song-list [songs]="songs"></song-list>
+      </md-card-content>
+    </md-card>
+  </div>
 
-      <md-card fxFlex fxLayout="column">
-        <md-card-title fxLayout="row" fxLayoutAlign="start center">
-          <span translate>song.list.title</span>
-          <span fxFlex></span>
-          <button md-icon-button [songAdd]="band">
-            <md-icon>add</md-icon>
-          </button>
-        </md-card-title>
-
-        <md-card-content>
-          <song-list [songs]="songs"></song-list>
-        </md-card-content>
-      </md-card>
-    </div>
-
-    <div fxFlex.gt-sm="80">
-      <router-outlet></router-outlet>
-    </div>
+  <div fxFlex.gt-sm="80">
+    <router-outlet></router-outlet>
   </div>
 </div>

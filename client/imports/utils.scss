@@ -1,0 +1,9 @@
+@mixin fx-column-flex() {
+  -webkit-box-direction: normal;
+  -webkit-box-flex: 1;
+  -webkit-box-orient: vertical;
+  box-sizing: border-box;
+  display: flex;
+  flex: 1 1 .000000001px;
+  flex-direction: column;
+}
