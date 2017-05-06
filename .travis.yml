@@ -16,7 +16,7 @@ before_script:
   - node_modules/protractor/bin/webdriver-manager update
   - node_modules/protractor/bin/webdriver-manager start &
 script:
-  - node_modules/protractor/bin/protractor --version
+  - node_modules/protractor/bin/protractor tests/e2e.js
 after_success:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - docker tag singularitiesorg/song-pot "singularitiesorg/song-pot:$TRAVIS_COMMIT"
