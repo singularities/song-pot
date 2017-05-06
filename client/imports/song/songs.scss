@@ -1,3 +1,11 @@
 songs {
   @include fx-column-flex();
+
+  .songs-desktop {
+    padding: 16px;
+
+    md-card-content {
+      overflow-y: auto;
+    }
+  }
 }
