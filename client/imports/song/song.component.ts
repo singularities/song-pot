@@ -81,6 +81,8 @@ export class SongComponent implements OnInit {
 
   ngOnDestroy() {
     this.audiosSub.unsubscribe();
+
+    this.songService.changeSong(null);
   }
 
   swipe(direction) {
@@ -109,7 +111,7 @@ export class SongComponent implements OnInit {
     })
     .subscribe(songs => {
       if (songs.length) {
-        this.router.navigate([songs[0]._id], { relativeTo: this.route });
+        this.router.navigate(['../', songs[0]._id], { relativeTo: this.route });
       }
     })
   }
