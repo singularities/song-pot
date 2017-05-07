@@ -60,6 +60,7 @@
   <div class="text"
        fxFlex
        *ngIf="! editing"
+       [@slide]="slideState"
        [style.touch-action]="'pan-y'"
        (swipeleft)='swipe($event.type)'
        (swiperight)='swipe($event.type)'>

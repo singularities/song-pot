@@ -17,6 +17,8 @@ import { BandToolbarService } from '../band/toolbar.service';
 
 import template from "./song.html";
 
+let slideAnimationDuration = 300;
+
 @Component({
   selector: 'song',
   template,
@@ -31,8 +33,22 @@ import template from "./song.html";
       transition('* => void', [
         animate(300, style({transform: 'translateY(100%)'}))
       ])
+    ]),
+    trigger('slide', [
+      state('0, 1, 2',
+            style({transform: 'translateX(0)'})),
+      transition('1 => 2, 2 => 3, 3 => 1, :leave', [
+        animate(slideAnimationDuration, style({transform: 'translateX(100%)'}))
+      ]),
+      transition('1 => 3, 3 => 2, 2 => 1', [
+        animate(slideAnimationDuration, style({transform: 'translateX(-100%)'}))
+      ]),
+      transition(':enter', [
+        style({transform: 'translateX(100%)'}),
+        animate(slideAnimationDuration)
+      ])
     ])
-  ],
+  ]
 })
 
 export class SongComponent implements OnInit {
@@ -41,6 +57,9 @@ export class SongComponent implements OnInit {
   song: Song;
 
   editing: boolean;
+
+  // controls mobile slide animations
+  slideState = 1;
 
   // Show components (metronome, audio list) in mobile
   bottomContainer: string;
@@ -117,9 +136,24 @@ export class SongComponent implements OnInit {
     })
     .subscribe(songs => {
       if (songs.length) {
-        this.router.navigate(['../', songs[0]._id], { relativeTo: this.route });
+        this.updateSlideState(direction);
+
+        // Wait until the animation has finished to change the song
+        setTimeout(() => {
+          this.router.navigate(['../', songs[0]._id], { relativeTo: this.route });
+        }, slideAnimationDuration);
       }
     })
+  }
+
+  updateSlideState(direction) {
+    let current = this.slideState;
+
+    if (direction === 'previous') {
+      current++;
+    }
+
+    this.slideState = (current % 3) + 1;
   }
 
   cancel () {
