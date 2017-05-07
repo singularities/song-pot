@@ -3,7 +3,7 @@ var sessionPages = require('./e2e/pages/session'),
     BandPage = require('./e2e/pages/band');
 
 exports.config = {
-  seleniumAddress: 'http://localhost:4444/wd/hub',
+  directConnect: true,
   specs: [ 'e2e/**/*.js' ],
   baseUrl: 'http://localhost:3000',
   onPrepare: function () {
