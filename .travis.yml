@@ -20,7 +20,10 @@ before_script:
   - export PATH=$PATH:/usr/lib/chromium-browser/
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
+  # Run mocha test in terminal
+  - npm install -g spacejam
 script:
+  - spacejam test --driver-package=practicalmeteor:mocha
   - node_modules/protractor/bin/protractor tests/e2e.js
 after_success:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"

@@ -1,5 +1,7 @@
-import { Directive, HostListener, Input } from '@angular/core';
+import { Directive, HostListener, Input, NgZone } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { MdSnackBar } from '@angular/material';
+import { MeteorObservable } from 'meteor-rxjs';
 
 import { Songs } from '../../../imports/collections';
 import { Band } from '../../../imports/models';
@@ -17,20 +19,27 @@ export class SongAddDirective {
   }
 
   constructor(private router: Router,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private ngZone: NgZone,
+              private snackBar: MdSnackBar) {
   }
 
   create () {
 
-    Songs
-      .insert({
-        bandId: this.band._id,
-        audioIds: [],
-        createdAt: new Date()
-      })
-      .subscribe(id => {
+    MeteorObservable.call('song.insert', {
+      bandId: this.band._id
+    })
+    .subscribe({
+      next: (id) => {
         this.router.navigate([id, 'edit'], { relativeTo: this.route });
-      });
+      },
+      error: (e) => {
 
+        this.ngZone.run(() => {
+          this.snackBar.open(e.reason, null, { duration: 5000 });
+        });
+
+      }
+    });
   }
 }

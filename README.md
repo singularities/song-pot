@@ -25,3 +25,13 @@ meteor
 ```
 
 Access the app at `localhost:3000`
+
+## Testing
+
+For running unit test, execute
+
+```bash
+meteor test --driver-package=practicalmeteor:mocha --port 3002
+```
+
+and point your browser to `localhost:3002`
