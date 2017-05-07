@@ -1,8 +1,9 @@
 import { Component, Input, Output, EventEmitter, NgZone } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { MdSnackBar } from '@angular/material';
 import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
+import { MeteorObservable } from 'meteor-rxjs';
 
 import { Bands } from '../../../imports/collections';
 
@@ -41,6 +42,7 @@ export class SessionFormComponent {
   }
 
   constructor(private router: Router,
+              private route: ActivatedRoute,
               private snackBar: MdSnackBar,
               private ngZone: NgZone) {}
 
@@ -66,20 +68,25 @@ export class SessionFormComponent {
 
       } else {
 
-        Bands
-          .insert({
-            name: this.band,
-            createdAt: new Date(),
-            userIds: [ Meteor.userId() ]
-          })
-          .subscribe(id => {
+        MeteorObservable.call('band.insert', {
+          name: this.band
+        })
+        .subscribe({
+          next: (id) => {
             this.close();
 
-            this.router.navigate(['/bands', id]);
-          });
+            this.router.navigate(['bands', id]);
+          },
+          error: (e) => {
+
+            this.ngZone.run(() => {
+              this.snackBar.open(e.reason, null, { duration: 5000 });
+            });
+
+          }
+        });
       }
     })
-
   }
 
   onLogin () {

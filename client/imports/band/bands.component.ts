@@ -1,6 +1,6 @@
 import { Component, NgZone } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { MdDialog } from '@angular/material';
+import { MdDialog, MdSnackBar } from '@angular/material';
 import { ObservableMedia } from '@angular/flex-layout';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
@@ -35,6 +35,7 @@ export class BandsComponent {
               private route: ActivatedRoute,
               private ngZone: NgZone,
               private dialog: MdDialog,
+              private snackBar: MdSnackBar,
               public media: ObservableMedia,
               private bandService: BandService,
               private toolbarService: BandToolbarService) { }
@@ -68,16 +69,21 @@ export class BandsComponent {
     dialogRef.afterClosed().subscribe(name => {
 
       if (name) {
-        Bands
-          .insert({
-            name: name,
-            createdAt: new Date(),
-            userIds: [ Meteor.userId() ],
-            songIds: []
-          })
-          .subscribe(id => {
-            this.router.navigate(['/bands', id]);
-          });
+        MeteorObservable.call('band.insert', {
+          name: name
+        })
+        .subscribe({
+          next: (id) => {
+            this.router.navigate([id], { relativeTo: this.route });
+          },
+          error: (e) => {
+
+            this.ngZone.run(() => {
+              this.snackBar.open(e.reason, null, { duration: 5000 });
+            });
+
+          }
+        });
       }
     });
   }
