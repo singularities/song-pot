@@ -28,5 +28,25 @@ Meteor.methods({
     });
 
     return songId;
+  },
+
+  'song.update'(id, newParams) {
+
+    check(id, String);
+
+    check(newParams, {
+      title: String,
+      text: String
+    });
+
+    let song = Songs.collection.findOne({ _id: id });
+
+    check(song, Object);
+
+    check(song.bandId, bandIncludesUser);
+
+    Songs.collection.update({ _id: id }, {
+      $set: newParams
+    })
   }
 });

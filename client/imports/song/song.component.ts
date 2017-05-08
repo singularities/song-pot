@@ -3,7 +3,7 @@ import 'rxjs/add/operator/switchMap';
 import { Component, OnInit, NgZone } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { trigger, state, style, animate, transition } from '@angular/animations';
-import { MdDialog } from '@angular/material';
+import { MdDialog, MdSnackBar } from '@angular/material';
 import { Subscription } from 'rxjs/Subscription';
 import { MeteorObservable } from 'meteor-rxjs';
 
@@ -71,6 +71,7 @@ export class SongComponent implements OnInit {
     private route: ActivatedRoute,
     private ngZone: NgZone,
     private dialog: MdDialog,
+    private snackBar: MdSnackBar,
     private songService: SongService,
     private bandToolbarService: BandToolbarService
   ) {}
@@ -164,16 +165,21 @@ export class SongComponent implements OnInit {
   }
 
   save () {
-    Songs.update({
-      _id: this.song._id
-    }, {
-      $set: {
-        title: this.song.title,
-        text: this.song.text
+    MeteorObservable.call('song.update', this.song._id, {
+      title: this.song.title,
+      text: this.song.text
+    })
+    .subscribe({
+      next: (id) => {
+        this.router.navigate(['../'], { relativeTo: this.route });
+      },
+      error: (e) => {
+
+        this.ngZone.run(() => {
+          this.snackBar.open(e.reason, null, { duration: 5000 });
+        });
       }
     });
-
-    this.router.navigate(['../'], { relativeTo: this.route });
   }
 
   confirmRemove() {
