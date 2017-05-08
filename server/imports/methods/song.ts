@@ -48,5 +48,17 @@ Meteor.methods({
     Songs.collection.update({ _id: id }, {
       $set: newParams
     })
+  },
+
+  'song.remove'(id) {
+    check(id, String)
+
+    let song = Songs.collection.findOne({ _id: id });
+
+    check(song, Object);
+
+    check(song.bandId, bandIncludesUser);
+
+    Songs.collection.remove(id);
   }
 });

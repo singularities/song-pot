@@ -191,9 +191,20 @@ export class SongComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(confirmation => {
       if (confirmation) {
-        Songs.remove(this.song._id);
 
-        this.router.navigate(['./'], { relativeTo: this.route });
+        MeteorObservable.call('song.remove', this.song._id)
+        .subscribe({
+          next: (id) => {
+
+            this.router.navigate(['../'], { relativeTo: this.route });
+          },
+          error: (e) => {
+
+            this.ngZone.run(() => {
+              this.snackBar.open(e.reason, null, { duration: 5000 });
+            });
+          }
+        });
       }
     });
   }
