@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "start": "meteor run",
-    "dist": "meteor build --directory dist/ --server-only",
+    "dist": "meteor build --directory .dist/ --server-only",
     "build:android": "imports/scripts/build-android-app",
     "pretest": "node_modules/protractor/bin/webdriver-manager update; node_modules/protractor/bin/webdriver-manager start --detach",
     "test": "node_modules/protractor/bin/protractor tests/e2e.js",

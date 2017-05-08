@@ -6,7 +6,7 @@ node_modules/
 **/*swp
 
 # Meteor dist packages
-dist/*
+.dist/*
 
 # Build Android config
 /imports/scripts/config.js

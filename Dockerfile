@@ -4,7 +4,7 @@ RUN mkdir /app
 
 WORKDIR /app
 
-COPY dist/bundle/ /app/
+COPY .dist/bundle/ /app/
 
 RUN cd /app/programs/server && npm install
 
