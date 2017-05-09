@@ -48,8 +48,8 @@ export class AudioUploadService {
         onError: (error) => {
 
           this.ngZone.run(() => {
-            
-            this.translate.get('audio.add.error', { error: error})
+
+            this.translate.get('audio.upload.error', { error: error})
               .subscribe((message: string) => {
                 this.snackBar.open(message, null, { duration: 5000 });
             });
