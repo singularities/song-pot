@@ -36,7 +36,16 @@ export class AudioListComponent implements OnInit {
   ngOnInit(): void {
 
     this._audioIds
-        .subscribe(ids => this.audios = Audios.find({ _id: { '$in': ids } }).zone());
+    .subscribe(ids => this.audios = Audios.find(
+      {
+        _id: { '$in': ids }
+      },
+      {
+        sort: {
+          uploadedAt: 1
+        }
+      })
+    );
   }
 
   constructor (private ngZone: NgZone,
