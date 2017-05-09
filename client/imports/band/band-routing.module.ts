@@ -2,6 +2,7 @@ import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { BandsComponent } from './bands.component';
+import { BandListComponent } from './list.component';
 import { BandComponent } from './band.component';
 import { SongsComponent } from '../song/songs.component';
 import { SongComponent } from '../song/song.component';
@@ -11,6 +12,10 @@ const bandRoutes: Routes = [
     path: 'bands',
     component: BandsComponent,
     children: [
+      {
+        path: '',
+        component: BandListComponent
+      },
       {
         path: ':id',
         component: BandComponent,

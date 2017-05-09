@@ -13,7 +13,7 @@
     </button>
     <md-menu #bandsMenu="mdMenu">
       <button md-menu-item
-              *ngFor="let band of bands | async"
+              *ngFor="let band of bands"
               [routerLink]="[band._id]">
         <span>{{ band.name }}</span>
       </button>

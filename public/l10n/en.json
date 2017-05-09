@@ -40,6 +40,10 @@
         "title": "Create new band"
       }
     },
+    "list": {
+      "members": "{{count}} members",
+      "songs": "{{ count }} songs"
+    },
     "toolbar": {
       "selector": {
         "create": "Create new band",

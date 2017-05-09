@@ -9,6 +9,7 @@ import { SessionModule } from '../session/session.module';
 import { SongModule } from '../song/song.module';
 
 import { BandsComponent } from './bands.component';
+import { BandListComponent } from './list.component';
 import { BandComponent } from './band.component';
 import { BandService } from './band.service';
 import { BandToolbarService } from './toolbar.service';
@@ -29,6 +30,7 @@ import { BandRoutingModule } from './band-routing.module';
   ],
   declarations: [
     BandsComponent,
+    BandListComponent,
     BandComponent,
     BandDialogCreate
   ],

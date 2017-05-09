@@ -1,0 +1,15 @@
+<md-grid-list [cols]="gridCols" rowHeight="130px">
+  <md-grid-tile *ngFor="let band of bands">
+    <md-card fxFlex>
+      <md-card-title>{{ band.name }}</md-card-title>
+      <md-card-content>
+        <div translate [translateParams]="{ count: band.songIds.length }">band.list.songs</div>
+      </md-card-content>
+    </md-card>
+  </md-grid-tile>
+</md-grid-list>
+
+<div *ngIf="! bands?.length">
+  No bands message
+
+</div>

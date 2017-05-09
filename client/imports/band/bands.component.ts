@@ -23,7 +23,7 @@ import template from './bands.html';
 
 export class BandsComponent {
 
-  bands: Observable<Band[]>;
+  bands: Band[];
   bandsSub: Subscription;
   bandChangedSub: Subscription;
   toolbarChangedSub: Subscription;
@@ -41,7 +41,15 @@ export class BandsComponent {
               private toolbarService: BandToolbarService) { }
 
   ngOnInit() {
-    this.bands = Bands.find({}).zone();
+    Bands.find({})
+    .subscribe(bands => {
+      this.ngZone.run(() => {
+        this.bands = bands;
+
+        this.bandService.changeBands(bands);
+      });
+
+    })
     this.bandsSub = MeteorObservable.subscribe('bands').subscribe();
 
     this.bandChangedSub = this.bandService.bandChanged$
