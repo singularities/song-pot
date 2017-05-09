@@ -8,7 +8,7 @@
       Song Pot
     </span>
     <span class="band-name" [mdMenuTriggerFor]="bandsMenu">{{ currentBand?.name }}</span>
-    <button md-icon-button [mdMenuTriggerFor]="bandsMenu">
+    <button md-icon-button *ngIf="bands" [mdMenuTriggerFor]="bandsMenu">
       <md-icon>arrow_drop_down</md-icon>
     </button>
     <md-menu #bandsMenu="mdMenu">
