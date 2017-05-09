@@ -1,4 +1,15 @@
 bands {
   display: block;
   height: 100%;
+
+  md-toolbar {
+    .brand {
+      font-family: 'Kaushan Script';
+      line-height: 30px;
+
+      img {
+        vertical-align: middle;
+      }
+    }
+  }
 }

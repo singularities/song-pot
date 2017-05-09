@@ -3,6 +3,10 @@
 
   <md-toolbar color="primary"
               *ngIf="media.isActive('gt-sm') || showToolbar">
+    <span *ngIf="! currentBand" class="brand">
+      <img src="/images/icon-32.png">
+      Song Pot
+    </span>
     <span class="band-name" [mdMenuTriggerFor]="bandsMenu">{{ currentBand?.name }}</span>
     <button md-icon-button [mdMenuTriggerFor]="bandsMenu">
       <md-icon>arrow_drop_down</md-icon>
