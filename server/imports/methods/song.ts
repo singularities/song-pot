@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check'
 
-import { Bands, Songs } from '../../../imports/collections';
+import { Bands, Songs, Audios } from '../../../imports/collections';
 import { bandPermission } from './checkers';
 
 Meteor.methods({
@@ -45,6 +45,21 @@ Meteor.methods({
     check(song, Object);
 
     check(song.bandId, bandPermission);
+
+    // Check that new audio/s belong to this song
+    if (newParams.audioIds) {
+      newParams.audioIds
+      .filter(e => song.audioIds.indexOf(e) < 0)
+      .forEach(audioId => {
+        let audio = Audios.collection.findOne(audioId);
+
+        if (audio.songId !== id) {
+          
+          throw new Meteor.Error('song-id-mismatch',
+          'Trying to assing an audio to a different song');
+        }
+      });
+    }
 
     Songs.collection.update({ _id: id }, {
       $set: newParams
