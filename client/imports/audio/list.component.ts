@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { MdDialog } from '@angular/material';
+import { Component, Input, OnInit, NgZone } from '@angular/core';
+import { MdDialog, MdSnackBar } from '@angular/material';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { MeteorObservable } from 'meteor-rxjs';
 
 import { Audio } from '../../../imports/models';
 import { Audios } from '../../../imports/collections';
@@ -38,7 +39,9 @@ export class AudioListComponent implements OnInit {
         .subscribe(ids => this.audios = Audios.find({ _id: { '$in': ids } }).zone());
   }
 
-  constructor (public dialog: MdDialog,
+  constructor (private ngZone: NgZone,
+               public dialog: MdDialog,
+               private snackBar: MdSnackBar,
                private audioPlayService: AudioPlayService) {}
 
   play (audio: Audio): void {
@@ -55,7 +58,18 @@ export class AudioListComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(newName => {
       if (newName) {
-        Audios.update(audio._id, { $set: { name: newName }});
+        MeteorObservable.call('audio.update', audio._id, {
+          name: newName
+        })
+        .subscribe({
+          error: (e) => {
+
+            this.ngZone.run(() => {
+              this.snackBar.open(e.reason, null, { duration: 5000 });
+            });
+
+          }
+        });
       }
     });
   }
@@ -69,7 +83,16 @@ export class AudioListComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(confirmation => {
       if (confirmation) {
-        Audios.remove(audio._id);
+        MeteorObservable.call('audio.remove', audio._id)
+        .subscribe({
+          error: (e) => {
+
+            this.ngZone.run(() => {
+              this.snackBar.open(e.reason, null, { duration: 5000 });
+            });
+
+          }
+        });
       }
     });
   }

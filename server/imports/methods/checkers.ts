@@ -1,9 +1,9 @@
 import { Meteor } from 'meteor/meteor';
 import { check, Match } from 'meteor/check'
 
-import { Bands } from '../../../imports/collections';
+import { Bands, Songs } from '../../../imports/collections';
 
-export var bandIncludesUser = Match.Where(bandId => {
+export var bandPermission = Match.Where(bandId => {
 
   // User must be logged in
   if (! Meteor.userId()) {
@@ -24,3 +24,36 @@ export var bandIncludesUser = Match.Where(bandId => {
 
   return true;
 });
+
+export var songPermission = Match.Where(songId => {
+
+  // User must be logged in
+  if (! Meteor.userId()) {
+    throw new Meteor.Error('loggin-required',
+    'You must be logged in to create a band');
+  }
+
+  return userOwnsSong(Meteor.userId(), songId);
+});
+
+/*
+ * Check if the user can add the audio to a song
+ *
+ * Currently that means the user belongs to the band
+ * that owns that song
+ */
+export function userOwnsSong(userId, songId) {
+
+  check(userId, String);
+  check(songId, String);
+
+  let song = Songs.collection.findOne(songId);
+
+  check(song, Object);
+
+  let band = Bands.collection.findOne(song.bandId);
+
+  check(band, Object);
+
+  return band.userIds.indexOf(userId) > -1;
+}

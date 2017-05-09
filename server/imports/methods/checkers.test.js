@@ -4,7 +4,7 @@ import { chai } from 'meteor/practicalmeteor:chai';
 
 import { Bands } from '../../../imports/collections';
 
-import { bandIncludesUser } from './checkers';
+import { bandPermission } from './checkers';
 
 var userId = '12345';
 var band = {
@@ -14,7 +14,7 @@ var band = {
   songIds: []
 };
 
-describe('checker bandIncludesUser', function() {
+describe('checker bandPermission', function() {
 
   before(function () {
 
@@ -25,7 +25,7 @@ describe('checker bandIncludesUser', function() {
 
   it('should validate with default data', function() {
 
-    chai.assert.isUndefined(check(band._id, bandIncludesUser));
+    chai.assert.isUndefined(check(band._id, bandPermission));
   });
 
   describe('when user is not logged in', function() {
@@ -40,7 +40,7 @@ describe('checker bandIncludesUser', function() {
 
     it('should fail', function() {
       // Must encapsulate function call into function
-      chai.assert.throws(function() { check(band._id, bandIncludesUser); },
+      chai.assert.throws(function() { check(band._id, bandPermission); },
         'loggin-required');
     });
 
@@ -50,7 +50,7 @@ describe('checker bandIncludesUser', function() {
 
     it('should fail', function() {
       // Must encapsulate function call into function
-      chai.assert.throws(function() { check(undefined, bandIncludesUser); },
+      chai.assert.throws(function() { check(undefined, bandPermission); },
         'Expected string, got undefined');
     });
 
@@ -69,7 +69,7 @@ describe('checker bandIncludesUser', function() {
 
     it('should fail', function() {
       // Must encapsulate function call into function
-      chai.assert.throws(function() { check(band._id, bandIncludesUser); },
+      chai.assert.throws(function() { check(band._id, bandPermission); },
         'Expected object, got null');
     });
 
@@ -88,7 +88,7 @@ describe('checker bandIncludesUser', function() {
 
     it('should fail', function() {
       // Must encapsulate function call into function
-      chai.assert.throws(function() { check(band._id, bandIncludesUser); },
+      chai.assert.throws(function() { check(band._id, bandPermission); },
         'Match.Where validation');
     });
 

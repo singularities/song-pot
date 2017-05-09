@@ -17,5 +17,5 @@ export interface Song {
 
 export interface Audio {
   url?: string;
-
+  songId: string;
 }

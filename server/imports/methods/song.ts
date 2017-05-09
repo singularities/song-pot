@@ -2,12 +2,12 @@ import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check'
 
 import { Bands, Songs } from '../../../imports/collections';
-import { bandIncludesUser } from './checkers';
+import { bandPermission } from './checkers';
 
 Meteor.methods({
   'song.insert'(params) {
 
-    check(params.bandId, bandIncludesUser);
+    check(params.bandId, bandPermission);
 
     let band = Bands.collection.findOne({ _id: params.bandId });
 
@@ -44,7 +44,7 @@ Meteor.methods({
 
     check(song, Object);
 
-    check(song.bandId, bandIncludesUser);
+    check(song.bandId, bandPermission);
 
     Songs.collection.update({ _id: id }, {
       $set: newParams
@@ -58,7 +58,7 @@ Meteor.methods({
 
     check(song, Object);
 
-    check(song.bandId, bandIncludesUser);
+    check(song.bandId, bandPermission);
 
     Songs.collection.remove(id);
   }
