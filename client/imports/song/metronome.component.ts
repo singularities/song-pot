@@ -1,4 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, NgZone } from '@angular/core';
+import { MdSnackBar } from '@angular/material';
+import { MeteorObservable } from 'meteor-rxjs';
 
 import { Songs } from '../../../imports/collections';
 
@@ -20,7 +22,8 @@ export class MetronomeComponent {
 
   timeoutId;
 
-  constructor () {
+  constructor (private ngZone: NgZone,
+               private snackBar: MdSnackBar) {
 
     this.beepAudio.src = '/ogg/beep.ogg';
     this.beepAudio.preload = 'auto';
@@ -49,11 +52,15 @@ export class MetronomeComponent {
       value = 1;
     }
 
-    Songs.update({
-      _id: this.song._id
-    }, {
-      $set: {
-        'metronome.bpm': value
+    MeteorObservable.call('song.update', this.song._id, {
+      'metronome.bpm': value
+    })
+    .subscribe({
+      error: (e) => {
+
+        this.ngZone.run(() => {
+          this.snackBar.open(e.reason, null, { duration: 5000 });
+        });
       }
     });
   }
@@ -72,11 +79,15 @@ export class MetronomeComponent {
       value = 1;
     }
 
-    Songs.update({
-      _id: this.song._id
-    }, {
-      $set: {
-        'metronome.bpb': value
+    MeteorObservable.call('song.update', this.song._id, {
+      'metronome.bpb': value
+    })
+    .subscribe({
+      error: (e) => {
+
+        this.ngZone.run(() => {
+          this.snackBar.open(e.reason, null, { duration: 5000 });
+        });
       }
     });
   }

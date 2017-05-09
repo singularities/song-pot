@@ -37,7 +37,9 @@ Meteor.methods({
     check(newParams, {
       title: Match.Maybe(String),
       text: Match.Maybe(String),
-      audioIds: Match.Maybe([String])
+      audioIds: Match.Maybe([String]),
+      'metronome.bpm': Match.Maybe(Number),
+      'metronome.bpb': Match.Maybe(Number)
     });
 
     let song = Songs.collection.findOne({ _id: id });
@@ -54,7 +56,7 @@ Meteor.methods({
         let audio = Audios.collection.findOne(audioId);
 
         if (audio.songId !== id) {
-          
+
           throw new Meteor.Error('song-id-mismatch',
           'Trying to assing an audio to a different song');
         }
