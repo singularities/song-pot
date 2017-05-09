@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { check, Match } from 'meteor/check';
 
-import { Audios } from '../../../imports/collections';
+import { Songs, Audios } from '../../../imports/collections';
 import { songPermission } from './checkers';
 
 Meteor.methods({
@@ -32,6 +32,20 @@ Meteor.methods({
     check(audio, Object);
 
     check(audio.songId, songPermission);
+
+    let song = Songs.collection.findOne(audio.songId);
+
+    check(song, Object);
+
+    let audioIds = song.audioIds;
+
+    audioIds.splice(audioIds.indexOf(id), 1);
+
+    Songs.collection.update({ _id: song._id }, {
+      $set: {
+        audioIds: audioIds
+      }
+    });
 
     Audios.collection.remove(id);
   }
