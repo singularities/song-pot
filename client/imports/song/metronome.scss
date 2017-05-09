@@ -6,21 +6,21 @@
 
 
   md-progress-spinner {
-    width: 64px;
     height: 64px;
     position: relative;
+    width: 64px;
 
     &::before {
       content: attr(data-progress-count);
       font-size: 30px;
       font-weight: bold;
-      position: absolute;
       left: 23px;
+      position: absolute;
       top: 14px;
     }
 
     &.stopped {
-      opacity: 0.4;
+      opacity: .4;
 
       path {
         stroke : rgba(0, 0, 0, 0.870588);
