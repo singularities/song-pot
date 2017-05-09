@@ -35,8 +35,9 @@ Meteor.methods({
     check(id, String);
 
     check(newParams, {
-      title: String,
-      text: String
+      title: Match.Maybe(String),
+      text: Match.Maybe(String),
+      audioIds: Match.Maybe([String])
     });
 
     let song = Songs.collection.findOne({ _id: id });

@@ -1,7 +1,7 @@
 import { Injectable, NgZone } from '@angular/core';
 import { MdSnackBar } from '@angular/material';
 import { TranslateService } from '@ngx-translate/core';
-
+import { MeteorObservable } from 'meteor-rxjs';
 import { UploadFS } from 'meteor/jalik:ufs';
 
 import { Songs, AudiosStore } from '../../../imports/collections';
@@ -23,7 +23,8 @@ export class AudioUploadService {
       var audio = {
         name: file.name,
         size: file.size,
-        type: file.type
+        type: file.type,
+        songId: song._id
       };
 
       var uploader = new UploadFS.Uploader({
@@ -49,7 +50,7 @@ export class AudioUploadService {
 
           this.ngZone.run(() => {
 
-            this.translate.get('audio.upload.error', { error: error})
+            this.translate.get('audio.upload.error', { error: error })
               .subscribe((message: string) => {
                 this.snackBar.open(message, null, { duration: 5000 });
             });
@@ -58,29 +59,32 @@ export class AudioUploadService {
         onComplete: (file) => {
           var audioIds = song.audioIds;
 
-          if (! audioIds) {
-            audioIds = [];
-          }
-
           audioIds.push(file._id);
 
-          Songs.update({
-            _id: song._id
-          }, {
-            $set: {
-              audioIds: audioIds
+          MeteorObservable.call('song.update', song._id, {
+            audioIds: audioIds
+          })
+          .subscribe({
+            next: (id) => {
+
+              this.ngZone.run(() => {
+
+                // Remove file from upload list
+                this.uploads.splice(this.uploads.findIndex(upload => upload.file.name === file.name), 1);
+
+                this.translate.get('audio.upload.success')
+                  .subscribe((message: string) => {
+                    this.snackBar.open(message, null, { duration: 2000 });
+                });
+
+              });
+            },
+            error: (e) => {
+
+              this.ngZone.run(() => {
+                this.snackBar.open(e.reason, null, { duration: 5000 });
+              });
             }
-          });
-
-          this.ngZone.run(() => {
-
-            this.uploads.splice(this.uploads.findIndex(upload => upload.file.name === file.name), 1);
-
-            this.translate.get('audio.upload.success')
-              .subscribe((message: string) => {
-                this.snackBar.open(message, null, { duration: 2000 });
-            });
-
           });
         }
       });
