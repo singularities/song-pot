@@ -1,5 +1,6 @@
 <md-grid-list [cols]="gridCols" rowHeight="130px">
-  <md-grid-tile *ngFor="let band of bands">
+  <md-grid-tile *ngFor="let band of bands"
+                [routerLink]="[band._id]">
     <md-card fxFlex>
       <md-card-title>{{ band.name }}</md-card-title>
       <md-card-content>
