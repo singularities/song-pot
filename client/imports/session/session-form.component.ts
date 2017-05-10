@@ -68,23 +68,30 @@ export class SessionFormComponent {
 
       } else {
 
-        MeteorObservable.call('band.insert', {
-          name: this.band
-        })
-        .subscribe({
-          next: (id) => {
-            this.close();
+        if (this.band && this.band.length) {
 
-            this.router.navigate(['bands', id]);
-          },
-          error: (e) => {
+          MeteorObservable.call('band.insert', {
+            name: this.band
+          })
+          .subscribe({
+            next: (id) => {
+              this.close();
 
-            this.ngZone.run(() => {
-              this.snackBar.open(e.reason, null, { duration: 5000 });
-            });
+              this.router.navigate(['bands', id]);
+            },
+            error: (e) => {
 
-          }
-        });
+              this.ngZone.run(() => {
+                this.snackBar.open(e.reason, null, { duration: 5000 });
+              });
+
+            }
+          });
+        } else {
+          this.close();
+
+          this.router.navigate(['bands']);
+        }
       }
     })
   }

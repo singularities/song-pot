@@ -11,13 +11,12 @@ exports.config = {
         frontPage  = new FrontPage(),
         defaultBandPage  = new BandPage();
 
+    /*
     frontPage.get();
 
     frontPage.start();
 
     registerPage.register();
-
-    /*
 
     defaultBandPage.waitForBand(registerPage.default.band);
 

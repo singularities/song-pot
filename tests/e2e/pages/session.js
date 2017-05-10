@@ -1,4 +1,12 @@
 class Session {
+  constructor () {
+    this.sessionMenuButton = element(by.css('.session-logged-in button'));
+    this.logoutButton = element(by.css('button.logout'));
+  }
+
+}
+
+class SessionForm {
 
   constructor () {
 
@@ -39,9 +47,16 @@ class Session {
 
 }
 
-class Register extends Session {
+class Register extends SessionForm {
 
-  register (data = {}) {
+  register (data = {}, options = {}) {
+
+    // Angular Material dialog focus the first element
+    // we have to wait or the sendKeys methods are messed up
+    if (options.waitForFocus) {
+      browser.wait(() => this.bandInput.equals(browser.driver.switchTo().activeElement()));
+    }
+
     this.setBand(data.band);
     this.setUserName(data.userName);
     this.setUserEmail(data.userEmail);
@@ -50,13 +65,23 @@ class Register extends Session {
   }
 }
 
-class ForgotPassword extends Session {
+class ForgotPassword extends SessionForm {
 
   forgotPassword (data = {}) {
 
   }
 }
 
+class Logout extends Session {
+
+  logout () {
+    this.sessionMenuButton.click();
+    this.logoutButton.click();
+  }
+}
+
 module.exports = {
-  Register
+  Register,
+  ForgotPassword,
+  Logout
 };
