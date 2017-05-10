@@ -22,6 +22,8 @@ before_script:
   - sh -e /etc/init.d/xvfb start
   # Run mocha test in terminal
   - npm install -g spacejam
+  # Install webdriver drivers
+  - node_modules/protractor/bin/webdriver-manager update
 script:
   - spacejam test --driver-package=practicalmeteor:mocha
   - node_modules/protractor/bin/protractor tests/e2e.js
