@@ -75,6 +75,8 @@ class ForgotPassword extends SessionForm {
 class Logout extends Session {
 
   logout () {
+    browser.wait(this.sessionMenuButton.isPresent());
+
     this.sessionMenuButton.click();
     this.logoutButton.click();
   }
