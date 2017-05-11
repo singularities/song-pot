@@ -29,7 +29,9 @@ export class BandComponent {
 
     this.routeSub = this.route.params
     .filter((params: Params) => params['id'] && (! this.band || this.band._id !== params['id']))
-    .switchMap((params: Params) => Bands.find({ _id: params['id']}))
+    // TODO unsubscribe from meteor publication?
+    .switchMap((params: Params) => MeteorObservable.subscribe('band', params['id']))
+    .switchMap(() => Bands.find({ _id: this.route.params.getValue().id}))
     .subscribe(bands => {
       this.bandService.bandChanged$.next(bands[0]);
     });

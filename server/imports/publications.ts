@@ -14,6 +14,13 @@ Meteor.publish('bands', function(): Mongo.Cursor<Band> {
   });
 });
 
+// Direct access to a band
+Meteor.publish('band', function(bandId): Mongo.Cursor<Band> {
+  return Bands.collection.find({
+    _id: bandId
+  });
+});
+
 Meteor.publish('band.songs', function(bandId: string): Mongo.Cursor<Song> {
   return Songs.collection.find({ bandId: bandId });
 })
