@@ -1,5 +1,7 @@
 import { Component, NgZone } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { Subscription } from 'rxjs/Subscription';
+import { MeteorObservable } from 'meteor-rxjs';
 
 import { Bands } from '../../../imports/collections';
 import { Band } from '../../../imports/models';
@@ -16,6 +18,8 @@ import template from "./band.html";
 export class BandComponent {
 
   band: Band;
+  routeSub: Subscription;
+  bandSub: Subscription;
 
   constructor(private ngZone: NgZone,
               private route: ActivatedRoute,
@@ -23,16 +27,23 @@ export class BandComponent {
 
   ngOnInit() {
 
-    this.route.params
-      .filter((params: Params) => params['id'] && (! this.band || this.band._id !== params['id']))
-      .switchMap((params: Params) => Bands.find({ _id: params['id']}))
-      .subscribe(bands => {
+    this.routeSub = this.route.params
+    .filter((params: Params) => params['id'] && (! this.band || this.band._id !== params['id']))
+    .switchMap((params: Params) => Bands.find({ _id: params['id']}))
+    .subscribe(bands => {
+      this.bandService.bandChanged$.next(bands[0]);
+    });
 
-        this.ngZone.run(() => {
-          this.band = bands[0];
-          
-          this.bandService.changeBand(this.band);
-        });
+    this.bandSub = this.bandService.bandChanged$.subscribe((band) => {
+      this.ngZone.run(() => {
+        this.band = band;
       });
+    });
+  }
+
+  ngOnDestroy() {
+    this.routeSub.unsubscribe();
+
+    this.bandSub.unsubscribe();
   }
 }

@@ -13,18 +13,14 @@ import { Band } from '../../../imports/models';
 export class BandService {
 
   // Observable band sources
-  private bandChangedSource: BehaviorSubject<Band> = new BehaviorSubject(undefined);
   private bandsChangedSource: BehaviorSubject<Band[]> = new BehaviorSubject([]);
+  bandChanged$: BehaviorSubject<Band> = new BehaviorSubject(undefined);
 
   // Observable band streams
   bandsChanged$ = this.bandsChangedSource.asObservable();
-  bandChanged$ = this.bandChangedSource.asObservable();
 
   // Service message commands
   changeBands(bands: Band[]) {
     this.bandsChangedSource.next(bands);
-  }
-  changeBand(band: Band) {
-    this.bandChangedSource.next(band);
   }
 }
