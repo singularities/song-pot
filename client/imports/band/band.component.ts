@@ -37,6 +37,15 @@ export class BandComponent {
     });
 
     this.bandSub = this.bandService.bandChanged$.subscribe((band) => {
+      if (! band) {
+        return;
+      }
+
+      // Include this user in the band if she is not already in
+      if (Meteor.userId() && band.userIds.indexOf(Meteor.userId()) < 0) {
+        Meteor.call('band.join', band._id);
+      }
+
       this.ngZone.run(() => {
         this.band = band;
       });
