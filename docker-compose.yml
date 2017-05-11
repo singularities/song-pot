@@ -13,5 +13,7 @@ services:
 
     depends_on:
       - mongo
+    restart: on-failure
   mongo:
     image: mongo:latest
+    restart: on-failure
