@@ -53,11 +53,11 @@
   },
   "front": {
     "behind": {
-      "text": "<p>Hi! My name is <a href=\"http://singularities.org/atd\">Antonio Tapiador</a> and I have been playing in bands and programing since I was 18.</p><p>I have played in several bands, and I was one of the founders of the musical collective <a href=\"http://ruidodebarrio.lapiluka.org/\">Ruido de Barrio</a>, in Madrid.</p><p>Along with Quebrantahuesos, the last musical project I am involved in, I have been engaged in building <a href=\"https://songpot.rocks/\">Song Pot</a>, <a href=\"https://github.com/singularities/song-pot\">a free / open source software tool</a> we have found quite useful to manage the band material and rehearsing the songs.</p><p>I want to share it with you now, because I think it is worth and it can be useful to you as well. I hope you enjoy it!</p>",
+      "text": "<p>Hi! My name is <a href=\"http://singularities.org/atd\" target=\"_blank\">Antonio Tapiador</a> and I have been playing in bands and programing since I was 18.</p><p>I have played in several bands, and I was one of the founders of the musical collective <a href=\"http://ruidodebarrio.lapiluka.org/\" target=\"_blank\">Ruido de Barrio</a>, in Madrid.</p><p>Along with Quebrantahuesos, the last musical project I am involved in, I have been engaged in building <a href=\"https://songpot.rocks/\">Song Pot</a>, <a href=\"https://github.com/singularities/song-pot\" target=\"_blank\">a free / open source software tool</a> we have found quite useful to manage the band material and rehearsing the songs.</p><p>I want to share it with you now, because I think it is worth and it can be useful to you as well. I hope you enjoy it!</p>",
       "title": "Who is behind Song Pot?"
     },
     "community": {
-      "text": "<p>Questions, constructive opinions, improvement suggestions...?</p><p>Join the conversation at <a href=\"https://discourse.songpot.rocks/\">Song Pot Discourse</a>!</p>",
+      "text": "<p>Questions, constructive opinions, improvement suggestions...?</p><p>Join the conversation at <a href=\"https://discourse.songpot.rocks/\" target=\"_blank\">Song Pot Discourse</a>!</p>",
       "title": "Community"
     },
     "feature": {

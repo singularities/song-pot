@@ -18,3 +18,9 @@ App.launchScreens({
   'android_xhdpi_portrait': 'splash/android-xhdpi.9.png' // (720x960)
 //  'android_xxhdpi_portrait': 'splash/android-xxhdpi.png' // (1080x1440)
 });
+
+App.accessRule('https://discourse.songpot.rocks/', { type: 'intent' });
+App.accessRule('http://singularities.org/atd', { type: 'intent' });
+App.accessRule('https://atd.singularities.org/', { type: 'intent' });
+App.accessRule('http://ruidodebarrio.lapiluka.org/', { type: 'intent' });
+App.accessRule('https://github.com/singularities/song-pot', { type: 'intent' });
