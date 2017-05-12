@@ -4,14 +4,14 @@ import { MeteorObservable } from 'meteor-rxjs';
 
 import { SessionService } from './session.service';
 
-import template from './session.html';
+import template from './toolbar.html';
 
 @Component({
-  selector: 'session',
+  selector: 'session-toolbar',
   template
 })
 
-export class SessionComponent {
+export class SessionToolbarComponent {
 
   user;
 

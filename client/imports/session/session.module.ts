@@ -5,7 +5,7 @@ import { MaterialModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TranslateModule } from '@ngx-translate/core';
 
-import { SessionComponent } from './session.component';
+import { SessionToolbarComponent } from './toolbar.component';
 import { SessionFormComponent } from './session-form.component';
 
 import { SessionService } from './session.service';
@@ -20,7 +20,7 @@ import { NoSessionGuard } from './no-session-guard.service';
     TranslateModule,
   ],
   declarations: [
-    SessionComponent,
+    SessionToolbarComponent,
     SessionFormComponent
   ],
   providers: [
@@ -28,7 +28,7 @@ import { NoSessionGuard } from './no-session-guard.service';
     NoSessionGuard
   ],
   exports: [
-    SessionComponent,
+    SessionToolbarComponent,
     SessionFormComponent
   ]
 })
