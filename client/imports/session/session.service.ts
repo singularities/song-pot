@@ -1,13 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Meteor } from 'meteor/meteor';
 import { MdSnackBar } from '@angular/material';
+import { Meteor } from 'meteor/meteor';
+import { MeteorObservable } from 'meteor-rxjs';
 
 @Injectable()
 export class SessionService {
 
   constructor(private router: Router,
               private snackBar: MdSnackBar) {}
+
+  currentUser = MeteorObservable.autorun()
+                .map(() => Meteor.user());
 
   logout () {
 
