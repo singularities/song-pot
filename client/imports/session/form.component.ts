@@ -7,7 +7,7 @@ import { MeteorObservable } from 'meteor-rxjs';
 
 import { Bands } from '../../../imports/collections';
 
-import template from './session-form.html';
+import template from './form.html';
 
 @Component({
   selector: 'session-form',

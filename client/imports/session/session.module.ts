@@ -6,7 +6,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { SessionToolbarComponent } from './toolbar.component';
-import { SessionFormComponent } from './session-form.component';
+import { SessionFormComponent } from './form.component';
 
 import { SessionService } from './session.service';
 import { NoSessionGuard } from './no-session-guard.service';
