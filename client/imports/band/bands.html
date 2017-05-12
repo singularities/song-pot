@@ -1,33 +1,48 @@
-<div fxLayout="column"
-     fxFill>
+<md-sidenav-container>
+  <md-sidenav #sidenav>
+    <session-sidebar></session-sidebar>
+  </md-sidenav>
 
-  <md-toolbar color="primary"
-              *ngIf="media.isActive('gt-sm') || showToolbar">
-    <span *ngIf="! currentBand" class="brand">
-      <img src="/images/icon-32.png">
-      Song Pot
-    </span>
-    <span class="band-name" [mdMenuTriggerFor]="bandsMenu">{{ currentBand?.name }}</span>
-    <button md-icon-button *ngIf="bands" [mdMenuTriggerFor]="bandsMenu">
-      <md-icon>arrow_drop_down</md-icon>
-    </button>
-    <md-menu #bandsMenu="mdMenu">
-      <button md-menu-item
-              *ngFor="let band of bands"
-              [routerLink]="[band._id]">
-        <span>{{ band.name }}</span>
+  <div fxLayout="column"
+       fxFill>
+
+    <md-toolbar color="primary"
+                *ngIf="media.isActive('gt-sm') || showToolbar">
+
+      <button md-icon-button
+              *ngIf="currentBand"
+              fxShow
+              fxHide.gt-sm
+              (click)="sidenav.open()">
+        <md-icon>menu</md-icon>
       </button>
-      <button md-menu-item
-              (click)="newBand()">
-        <span translate>band.toolbar.selector.create</span>
+
+      <span *ngIf="! currentBand" class="brand">
+        <img src="/images/icon-32.png">
+        Song Pot
+      </span>
+      <span class="band-name" [mdMenuTriggerFor]="bandsMenu">{{ currentBand?.name }}</span>
+      <button md-icon-button *ngIf="bands" [mdMenuTriggerFor]="bandsMenu">
+        <md-icon>arrow_drop_down</md-icon>
       </button>
-    </md-menu>
+      <md-menu #bandsMenu="mdMenu">
+        <button md-menu-item
+                *ngFor="let band of bands"
+                [routerLink]="[band._id]">
+          <span>{{ band.name }}</span>
+        </button>
+        <button md-menu-item
+                (click)="newBand()">
+          <span translate>band.toolbar.selector.create</span>
+        </button>
+      </md-menu>
 
-    <div fxFlex></div>
+      <div fxFlex></div>
 
-    <session></session>
+      <session-toolbar fxHide fxShow.gt-sm></session-toolbar>
 
-  </md-toolbar>
+    </md-toolbar>
 
-  <router-outlet></router-outlet>
-</div>
+    <router-outlet></router-outlet>
+  </div>
+</md-sidenav-container>

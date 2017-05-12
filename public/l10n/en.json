@@ -135,6 +135,9 @@
       "confirm": "Ok",
       "text": "Please, check your email to recover your password"
     },
+    "sidebar": {
+      "logout": "Log out"
+    },
     "toolbar": {
       "logout": "Log out"
     },

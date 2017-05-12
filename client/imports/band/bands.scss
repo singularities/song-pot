@@ -2,6 +2,11 @@ bands {
   display: block;
   height: 100%;
 
+  md-sidenav-container {
+    display: block;
+    height: 100%;
+  }
+
   md-toolbar {
     .brand {
       font-family: 'Kaushan Script';

@@ -1,0 +1,20 @@
+session-sidebar {
+  display: block;
+
+  .content {
+    padding: 16px;
+  }
+
+  .name {
+    font-size: 24px;
+  }
+
+  .email {
+    margin-top: 8px;
+  }
+
+  .action {
+    margin-top: 24px;
+    text-align: center;
+  }
+}
