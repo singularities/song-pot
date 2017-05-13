@@ -30,6 +30,7 @@ export class BandsComponent {
 
   currentBand;
   showToolbar: boolean;
+  showShare: boolean = Meteor.isCordova;
 
   constructor(private router: Router,
               private route: ActivatedRoute,
@@ -89,7 +90,6 @@ export class BandsComponent {
             this.ngZone.run(() => {
               this.snackBar.open(e.reason, null, { duration: 5000 });
             });
-
           }
         });
       }

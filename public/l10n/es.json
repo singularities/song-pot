@@ -40,6 +40,12 @@
         "title": "Crear grupo nuevo"
       }
     },
+    "share": {
+      "chooserTitle": "Comparte el material de {{name}}",
+      "message": "Accede al material de {{name}} en",
+      "subject": "Accede al material de {{name}}",
+      "success": "Enlace al material compartido"
+    },
     "toolbar": {
       "selector": {
         "create": "Crear un grupo nuevo",

@@ -44,6 +44,12 @@
       "members": "{{count}} members",
       "songs": "{{ count }} songs"
     },
+    "share": {
+      "chooserTitle": "Share the materials of {{name}}",
+      "message": "Get the materials of {{name}} at",
+      "subject": "Get the materials of {{name}}",
+      "success": "Link to materials shared!"
+    },
     "toolbar": {
       "selector": {
         "create": "Create new band",

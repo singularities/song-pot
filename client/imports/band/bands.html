@@ -41,6 +41,12 @@
 
       <session-toolbar fxHide fxShow.gt-sm></session-toolbar>
 
+      <button md-icon-button
+              *ngIf="showShare && currentBand"
+              [bandShare]="currentBand">
+        <md-icon>share</md-icon>
+      </button>
+
     </md-toolbar>
 
     <router-outlet></router-outlet>

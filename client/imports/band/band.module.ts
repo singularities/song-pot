@@ -11,9 +11,10 @@ import { SongModule } from '../song/song.module';
 import { BandsComponent } from './bands.component';
 import { BandListComponent } from './list.component';
 import { BandComponent } from './band.component';
+import { BandDialogCreate } from './dialog/create.component';
 import { BandService } from './band.service';
 import { BandToolbarService } from './toolbar.service';
-import { BandDialogCreate } from './dialog/create.component';
+import { BandShareDirective } from './share.directive';
 
 import { BandRoutingModule } from './band-routing.module';
 
@@ -32,7 +33,8 @@ import { BandRoutingModule } from './band-routing.module';
     BandsComponent,
     BandListComponent,
     BandComponent,
-    BandDialogCreate
+    BandDialogCreate,
+    BandShareDirective
   ],
   entryComponents: [
     BandDialogCreate
