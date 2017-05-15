@@ -1,7 +1,7 @@
 class BandsPage {
 
   constructor() {
-    this.brandElement = element(by.css('.brand'));
+    this.brandElement = element(by.css('.desktop-brand'));
   }
 
   getBrand() {
