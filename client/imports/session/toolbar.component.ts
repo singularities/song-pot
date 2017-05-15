@@ -22,6 +22,21 @@ export class SessionToolbarComponent {
 
   ngOnInit() {
 
+    MeteorObservable.autorun().subscribe(() =>{
+
+      let user = Meteor.user();
+
+      if (this.user !== user) {
+
+        this.ngZone.run(() => {
+          this.user = user
+        });
+      }
+    });
+
+      /*
+
+      // FIXME user is not available just after register
     this.userSub = this.session.currentUser.subscribe((user) => {
       this.ngZone.run(() => {
         this.user = user
@@ -31,7 +46,9 @@ export class SessionToolbarComponent {
 
   ngOnDestroy() {
     this.userSub.unsubscribe();
+    */
   }
+
 
   logout () {
     this.session.logout();
