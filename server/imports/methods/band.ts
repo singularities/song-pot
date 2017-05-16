@@ -43,6 +43,10 @@ Meteor.methods({
 
     let userIds = band.userIds;
 
+    if (userIds.indexOf(this.userId) > -1) {
+      return;
+    }
+
     userIds.push(this.userId);
 
     Bands.collection.update({
