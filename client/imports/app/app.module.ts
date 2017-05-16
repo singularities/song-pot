@@ -27,6 +27,7 @@ export function HttpLoaderFactory(http: Http) {
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpModule, // requred by mdIcon
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
