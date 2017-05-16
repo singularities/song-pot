@@ -4,9 +4,9 @@
        fxLayout="column">
     <md-input-container *ngIf="action === 'register'">
       <input mdInput
-             name="band"
+             name="bandName"
              [placeholder]="'session.band.placeholder' | translate"
-             [(ngModel)]="band">
+             [(ngModel)]="bandName">
     </md-input-container>
 
     <md-input-container *ngIf="action === 'register'">

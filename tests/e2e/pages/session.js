@@ -17,7 +17,7 @@ class SessionForm {
       userPassword: 'NoTePagoParaQueMePagues'
     };
 
-    this.bandInput = element(by.css('input[name="band"]'));
+    this.bandInput = element(by.css('input[name="bandName"]'));
     this.userNameInput = element(by.css('input[name="userName"]'));
     this.userPasswordInput = element(by.css('input[name="userPassword"]'));
     this.userEmailInput = element(by.css('input[name="userEmail"]'));

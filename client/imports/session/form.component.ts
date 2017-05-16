@@ -1,11 +1,14 @@
 import { Component, Input, Output, EventEmitter, NgZone } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MdSnackBar } from '@angular/material';
+import { Subscription } from 'rxjs/Subscription';
 import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 import { MeteorObservable } from 'meteor-rxjs';
 
+import { Band } from '../../../imports/models';
 import { Bands } from '../../../imports/collections';
+import { BandService } from '../band/band.service';
 
 import template from './form.html';
 
@@ -17,8 +20,10 @@ import template from './form.html';
 export class SessionFormComponent {
 
   _action;
-  band;
+  bandName;
   user = <any>{};
+  currentBand: Band;
+  currentBandSuscription: Subscription;
 
   @Input()
   set action(action: string) {
@@ -37,6 +42,19 @@ export class SessionFormComponent {
   @Output() onCancel = new EventEmitter();
 
   ngOnInit() {
+
+    this.bandService.bandChanged$
+    .subscribe(band => {
+      this.ngZone.run(() => {
+
+        this.currentBand = band;
+
+        if (band) {
+          this.bandName = band.name;
+        }
+      });
+    });
+
     // set parent component action to default action
     this.onActionChanged.emit(this.action);
   }
@@ -44,7 +62,8 @@ export class SessionFormComponent {
   constructor(private router: Router,
               private route: ActivatedRoute,
               private snackBar: MdSnackBar,
-              private ngZone: NgZone) {}
+              private ngZone: NgZone,
+              private bandService: BandService) {}
 
   onSubmit () {
     this['on' + this.action.charAt(0).toUpperCase() + this.action.slice(1)]();
@@ -68,10 +87,13 @@ export class SessionFormComponent {
 
       } else {
 
-        if (this.band && this.band.length) {
+        if (this.bandName &&
+            this.bandName.length &&
+            ( ! this.currentBand ||
+              this.currentBand.name !== this.bandName)) {
 
           MeteorObservable.call('band.insert', {
-            name: this.band
+            name: this.bandName
           })
           .subscribe({
             next: (id) => {
@@ -88,9 +110,7 @@ export class SessionFormComponent {
             }
           });
         } else {
-          this.close();
-
-          this.router.navigate(['bands']);
+          this.afterLogin();
         }
       }
     })
@@ -104,9 +124,7 @@ export class SessionFormComponent {
           this.snackBar.open(error.reason, null, { duration: 5000 });
         });
       } else {
-        this.close();
-
-        this.router.navigate(['bands']);
+        this.afterLogin();
       }
     })
   }
@@ -162,5 +180,16 @@ export class SessionFormComponent {
 
   cancel () {
     this.onCancel.emit();
+  }
+
+  private afterLogin() {
+
+    this.close();
+
+    if (! this.currentBand) {
+      this.router.navigate(['bands']);
+    } else {
+      MeteorObservable.call('band.join').zone();
+    }
   }
 }
