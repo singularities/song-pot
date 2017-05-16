@@ -1,8 +1,10 @@
 import { Component, NgZone } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
+import { MdDialog } from '@angular/material';
 import { MeteorObservable } from 'meteor-rxjs';
 import { Meteor } from 'meteor/meteor';
 
+import { SessionDialogFormComponent } from './dialog/form.component';
 import { SessionService } from './session.service';
 
 import template from './toolbar.html';
@@ -17,7 +19,8 @@ export class SessionToolbarComponent {
   user;
   userSub: Subscription;
 
-  constructor(private ngZone: NgZone,
+  constructor(private dialog: MdDialog,
+              private ngZone: NgZone,
               private session: SessionService) {}
 
   ngOnInit() {
@@ -48,7 +51,6 @@ export class SessionToolbarComponent {
     this.userSub.unsubscribe();
     */
   }
-
 
   logout () {
     this.session.logout();

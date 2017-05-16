@@ -1,0 +1,8 @@
+<h2 md-dialog-title translate>
+  <span translate>{{ 'front.start.title.' + sessionAction }}</span>
+</h2>
+
+<session-form [action]="data.action"
+         [token]="data.token"
+         (onActionChanged)="onActionChanged($event)"
+         (onCancel)="dialogRef.close()"></session-form>

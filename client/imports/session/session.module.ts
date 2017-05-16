@@ -8,6 +8,8 @@ import { TranslateModule } from '@ngx-translate/core';
 import { SessionSidebarComponent } from './sidebar.component';
 import { SessionToolbarComponent } from './toolbar.component';
 import { SessionFormComponent } from './form.component';
+import { SessionDialogFormComponent } from './dialog/form.component';
+import { SessionFormDirective } from './form.directive';
 
 import { SessionService } from './session.service';
 import { NoSessionGuard } from './no-session-guard.service';
@@ -23,16 +25,22 @@ import { NoSessionGuard } from './no-session-guard.service';
   declarations: [
     SessionSidebarComponent,
     SessionToolbarComponent,
-    SessionFormComponent
+    SessionFormComponent,
+    SessionDialogFormComponent,
+    SessionFormDirective
   ],
   providers: [
     SessionService,
     NoSessionGuard
   ],
+  entryComponents: [
+    SessionDialogFormComponent
+  ],
   exports: [
     SessionSidebarComponent,
     SessionToolbarComponent,
-    SessionFormComponent
+    SessionFormComponent,
+    SessionFormDirective
   ]
 })
 

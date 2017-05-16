@@ -137,9 +137,11 @@
       "text": "Por favor, revisa tu correo para recuperar tu contraseña"
     },
     "sidebar": {
+      "login": "Entrar",
       "logout": "Salir"
     },
     "toolbar": {
+      "login": "Entrar",
       "logout": "Salir"
     },
     "user": {

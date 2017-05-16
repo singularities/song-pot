@@ -142,9 +142,11 @@
       "text": "Please, check your email to recover your password"
     },
     "sidebar": {
+      "login": "Log in",
       "logout": "Log out"
     },
     "toolbar": {
+      "login": "Log in",
       "logout": "Log out"
     },
     "user": {

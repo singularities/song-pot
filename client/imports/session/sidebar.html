@@ -29,6 +29,10 @@
 
   <div class="session-sidebar-logged-out"
        *ngIf="! user">
-
+    <button md-raised-button
+            color="accent"
+            [sessionForm]="'login'">
+      <span translate>session.sidebar.login</span>
+    </button>
   </div>
 </div>

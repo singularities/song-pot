@@ -12,3 +12,12 @@
     </button>
   </md-menu>
 </div>
+
+<div class="session-logged-out"
+     *ngIf="! user">
+  <button md-raised-button
+          color="accent"
+          [sessionForm]="'login'">
+    <span translate>session.toolbar.login</span>
+  </button>
+</div>
