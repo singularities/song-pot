@@ -20,7 +20,6 @@ export class SessionFormDirective {
 
   show () {
 
-    console.dir(this.sessionForm);
     let dialogRef = this.dialog.open(SessionDialogFormComponent, {
       data: { action: this.sessionForm }
     });
