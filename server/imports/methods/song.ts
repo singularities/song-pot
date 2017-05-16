@@ -77,6 +77,8 @@ Meteor.methods({
 
     check(song.bandId, bandPermission);
 
+    Audios.collection.remove({ songId: id});
+
     Songs.collection.remove(id);
   }
 });
