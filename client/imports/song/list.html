@@ -4,7 +4,7 @@
        {{ song.title || 'song.title.empty' | translate }}
      </a>
      <button md-icon-button
-             *ngIf="song.audioIds"
+             *ngIf="song.audioIds.length"
              [routerLink]="[song._id]">
         <md-icon>queue_music</md-icon>
      </button>
