@@ -10,7 +10,6 @@
                 *ngIf="media.isActive('gt-sm') || showToolbar">
 
       <button md-icon-button
-              *ngIf="currentBand"
               fxShow
               fxHide.gt-sm
               (click)="sidenav.open()">
@@ -18,7 +17,6 @@
       </button>
 
       <span *ngIf="! currentBand" class="brand desktop-brand">
-        <img src="/images/icon-32.png">
         Song Pot
       </span>
       <span class="band-name" [mdMenuTriggerFor]="bandsMenu">{{ currentBand?.name }}</span>
