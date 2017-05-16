@@ -84,7 +84,7 @@
               action === 'login' ||
               action === 'forgotPassword'">
     <span translate>{{ 'session.' + action + '.otherAction.question' }}</span>
-    <a href="#" (click)="action = switchAction()">
+    <a (click)="action = switchAction()">
       <span translate>{{ 'session.' + action + '.otherAction.link' }}</span>
     </a>
 
