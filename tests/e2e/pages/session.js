@@ -49,7 +49,7 @@ class SessionForm {
 
 class Register extends SessionForm {
 
-  register (data = {}, options = {}) {
+  register (data = {}, options = { waitForFocus: true }) {
 
     // Angular Material dialog focus the first element
     // we have to wait or the sendKeys methods are messed up
