@@ -8,26 +8,26 @@
 /*
  * Generated with http://mcg.mbitson.com/
  */
- $mat-palette-primary: (
-    50 : #efebe9,
-    100 : #d7ccc8,
-    200 : #bcaaa4,
-    300 : #a1887f,
-    400 : #8d6f63,
-    500 : #795548,
-    600 : #714e41,
-    700 : #664438,
-    800 : #5c3b30,
-    900 : #492a21,
-    A100 : #ffa68e,
-    A200 : #ff7e5b,
-    A400 : #ff5628,
-    A700 : #ff420e,
+$md-palette-primary: (
+    50 : #e5e4e3,
+    100 : #bfbcb9,
+    200 : #948f8b,
+    300 : #69625d,
+    400 : #48413a,
+    500 : #281f17,
+    600 : #241b14,
+    700 : #1e1711,
+    800 : #18120d,
+    900 : #0f0a07,
+    A100 : #ff7e53,
+    A200 : #ff5820,
+    A400 : #ec3b00,
+    A700 : #d33500,
     contrast: (
         50 : #000000,
         100 : #000000,
         200 : #000000,
-        300 : #000000,
+        300 : #ffffff,
         400 : #ffffff,
         500 : #ffffff,
         600 : #ffffff,
@@ -36,37 +36,37 @@
         900 : #ffffff,
         A100 : #000000,
         A200 : #000000,
-        A400 : #000000,
+        A400 : #ffffff,
         A700 : #ffffff,
     )
 );
 
-$mat-palette-accent: (
-    50 : #fff3e0,
-    100 : #ffe0b3,
-    200 : #ffcc80,
-    300 : #ffb74d,
-    400 : #ffa726,
-    500 : #ff9800,
-    600 : #ff9000,
-    700 : #ff8500,
-    800 : #ff7b00,
-    900 : #ff6a00,
-    A100 : #ffffff,
-    A200 : #fff7f2,
-    A400 : #ffd6bf,
-    A700 : #ffc5a6,
+$md-palette-accent: (
+    50 : #ebf3e0,
+    100 : #cee0b3,
+    200 : #aecb80,
+    300 : #8db64d,
+    400 : #74a726,
+    500 : #5c9700,
+    600 : #548f00,
+    700 : #4a8400,
+    800 : #417a00,
+    900 : #306900,
+    A100 : #beff98,
+    A200 : #9eff65,
+    A400 : #7eff32,
+    A700 : #6eff19,
     contrast: (
         50 : #000000,
         100 : #000000,
         200 : #000000,
         300 : #000000,
         400 : #000000,
-        500 : #000000,
-        600 : #000000,
-        700 : #000000,
-        800 : #000000,
-        900 : #000000,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
         A100 : #000000,
         A200 : #000000,
         A400 : #000000,
@@ -74,11 +74,12 @@ $mat-palette-accent: (
     )
 );
 
+
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue.
-$palette-primary: mat-palette($mat-palette-primary);
-$palette-accent:  mat-palette($mat-palette-accent);
+$palette-primary: mat-palette($md-palette-primary);
+$palette-accent:  mat-palette($md-palette-accent);
 
 // The warn palette is optional (defaults to red).
 $palette-warn:    mat-palette($mat-red);
