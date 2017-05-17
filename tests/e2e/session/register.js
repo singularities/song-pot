@@ -11,47 +11,62 @@ var Chance = require('chance'),
     bandPage = new BandPage();
 
 describe('session', () => {
-  beforeEach(() => {
-    frontPage.get();
-  });
 
-  afterEach(() => {
-    logoutPage.logout();
-  });
+  describe('in front page', () => {
 
-  it('should register a new user without a band', () => {
-    var userName = chance.name(),
-        userEmail = chance.email();
-
-    frontPage.start();
-
-    registerPage.register({
-      band: '',
-      userName: userName,
-      userEmail: userEmail
+    beforeEach(() => {
+      frontPage.get();
     });
 
-    bandsPage.waitForBrand();
-
-    expect(bandsPage.getBrand()).toEqual('Song Pot');
-  });
-
-  it('should register a new user with a band', () => {
-    var band = chance.name(),
-        userName = chance.name(),
-        userEmail = chance.email();
-
-    frontPage.start();
-
-    registerPage.register({
-      band: band,
-      userName: userName,
-      userEmail: userEmail
+    afterEach(() => {
+      logoutPage.logout();
     });
 
-    bandPage.waitForBand(band);
+    it('should register a new user without a band', () => {
+      var userName = chance.name(),
+          userEmail = chance.email();
 
-    expect(bandPage.getBandName()).toEqual(band);
+      frontPage.start();
+
+      registerPage.register({
+        band: '',
+        userName: userName,
+        userEmail: userEmail
+      });
+
+      bandsPage.waitForBrand();
+
+      expect(bandsPage.getBrand()).toEqual('Song Pot');
+    });
+
+    it('should register a new user with a band', () => {
+      var band = chance.name(),
+          userName = chance.name(),
+          userEmail = chance.email();
+
+      frontPage.start();
+
+      registerPage.register({
+        band: band,
+        userName: userName,
+        userEmail: userEmail
+      });
+
+      bandPage.waitForBand(band);
+
+      expect(bandPage.getBandName()).toEqual(band);
+    });
+
   });
 
+  describe('in a band page', () => {
+
+    xit('should register a new user and add her to the band', () => {
+
+    });
+
+    xit('should register a new user and add create a new band', () => {
+
+    });
+  });
 });
