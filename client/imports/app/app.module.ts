@@ -9,6 +9,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpModule, Http } from '@angular/http';
 import { TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { Angulartics2Module, Angulartics2GoogleAnalytics } from 'angulartics2';
+
 
 // App
 import { SongPot } from './app.component';
@@ -35,6 +37,7 @@ export function HttpLoaderFactory(http: Http) {
         deps: [ Http ]
       }
     }),
+    Angulartics2Module.forRoot([ Angulartics2GoogleAnalytics ]),
     FrontModule,
     BandModule,
     SongModule,

@@ -133,6 +133,10 @@ ajv@^4.9.1:
     co "^4.6.0"
     json-stable-stringify "^1.0.1"
 
+angulartics2@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/angulartics2/-/angulartics2-2.2.1.tgz#07877930d4c57b73bfcbf8557a05133ebe995b30"
+
 ansi-regex@^2.0.0:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/ansi-regex/-/ansi-regex-2.1.1.tgz#c3b33ab5ee360d86e0e628f0468ae7ef27d654df"
