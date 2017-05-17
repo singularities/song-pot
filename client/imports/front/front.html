@@ -60,32 +60,30 @@
 
 </div>
 
-<div class="community" id="community">
-  <h1 translate>front.community.title</h1>
+<div class="community-wrapper">
+  <div class="community" id="community">
+    <h1 translate>front.community.title</h1>
 
-  <div fxLayout.gt-sm="row"
-       fxLayoutAlign.gt-sm="start center"
-       fxLayout="column">
+    <div fxLayout.gt-sm="row"
+         fxLayoutAlign.gt-sm="start center"
+         fxLayout="column">
 
-    <div fxFlex="50" class="icon">
-      <a href="https://discourse.songpot.rocks/" target="_blank">
-        <md-icon>question_answer</md-icon>
-        <div class="icon-text">
-          Song Pot Discourse
-        </div>
-      </a>
+      <div fxFlex="50" class="icon">
+        <a href="https://discourse.songpot.rocks/" target="_blank">
+          <md-icon>question_answer</md-icon>
+          <div class="icon-text">
+            Song Pot Discourse
+          </div>
+        </a>
+      </div>
 
-
-
+      <div fxFlex="50"
+           class="text"
+           [innerHTML]="'front.community.text' | translate"></div>
+      </div>
     </div>
 
-    <div fxFlex="50"
-         class="text"
-         [innerHTML]="'front.community.text' | translate"></div>
-
-    </div>
   </div>
-
 </div>
 
 <div class="behind" id="behind">
