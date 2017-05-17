@@ -1,7 +1,7 @@
 App.info({
   id: 'org.singularities.songspot',
   name: 'Song Pot',
-  version: "0.1.0"
+  version: "0.1.1"
 });
 
 App.icons({
@@ -24,6 +24,7 @@ App.accessRule('http://singularities.org/atd', { type: 'intent' });
 App.accessRule('https://atd.singularities.org/', { type: 'intent' });
 App.accessRule('http://ruidodebarrio.lapiluka.org/', { type: 'intent' });
 App.accessRule('https://github.com/singularities/song-pot', { type: 'intent' });
+App.accessRule('https://www.google-analytics.com');
 
 App.appendToConfig(`
   <preference name="AndroidLaunchMode" value="singleInstance" />
