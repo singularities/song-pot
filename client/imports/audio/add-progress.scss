@@ -1,6 +1,13 @@
 audio-add-progress {
   display: block;
 
+  .upload-title {
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 6px;
+    margin-top: 6px;
+  }
+
   md-progress-spinner {
     height: 40px !important;
     width: 40px !important;
