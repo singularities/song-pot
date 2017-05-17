@@ -28,7 +28,8 @@
     },
     "upload": {
       "error": "Error subiendo el audio: {{error}}",
-      "success": "Audio guardado"
+      "success": "Audio guardado",
+      "title": "Subiendo:"
     }
   },
   "band": {

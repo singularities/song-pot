@@ -28,7 +28,8 @@
     },
     "upload": {
       "error": "Error uploading audio: {{error}}",
-      "success": "Audio uploaded"
+      "success": "Audio uploaded",
+      "title": "Uploading:"
     }
   },
   "band": {
