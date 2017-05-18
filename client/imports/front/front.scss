@@ -89,13 +89,13 @@ front {
   .community,
   .behind {
     a {
-      color: #5c9700;
+      color: mat-color($accent);
       text-decoration: none;
     }
   }
 
   .community-wrapper {
-    background-color: #BA1C05;
+    background-color: mat-color($primary);
   }
 
   .community {
