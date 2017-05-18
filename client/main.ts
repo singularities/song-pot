@@ -11,6 +11,6 @@ Meteor.startup(() => {
   if (Meteor.isCordova) {
     universalLinks.subscribe(null, function (eventData) {
       window.location.pathname = eventData.path;
-});
+    });
   }
 });
