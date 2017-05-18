@@ -77,6 +77,18 @@ Meteor.methods({
 
     check(song.bandId, bandPermission);
 
+    let band = Bands.collection.findOne(song.bandId);
+
+    let songIds = band.songIds;
+
+    songIds.splice(songIds.indexOf(id), 1);
+
+    Bands.collection.update({ _id: band._id }, {
+      $set: {
+        songIds: songIds
+      }
+    });
+
     Audios.collection.remove({ songId: id});
 
     Songs.collection.remove(id);
