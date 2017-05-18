@@ -56,6 +56,11 @@
         "create": "Create new band",
         "placeholder": "Bands"
       }
+    },
+    "welcome": {
+      "button": "Create your first song",
+      "message": "{{band}}, I would like to welcome you to <span class=\"brand\">Song Pot</span>! I wish you create great music here. You can start cooking your music by creating your first song",
+      "title": "Welcome to <span class=\"brand\">Song Pot</span>"
     }
   },
   "front": {

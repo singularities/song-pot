@@ -52,6 +52,11 @@
         "create": "Crear un grupo nuevo",
         "placeholder": "Grupos"
       }
+    },
+    "welcome": {
+      "button": "Crea tu primera canción",
+      "message": "{{band}}, ¡me gustaría daros la bienvenida a <span class=\"brand\">Song Pot</span>! Espero que creeis buena música aquí. Podeís empezar a cocinar vuestra música creando la primera canción",
+      "title": "Bienvenidos a <span class=\"brand\">Song Pot</span>"
     }
   },
   "front": {

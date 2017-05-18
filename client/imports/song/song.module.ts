@@ -12,6 +12,7 @@ import { SongListComponent } from './list.component';
 import { SongComponent } from './song.component';
 import { SongEditComponent } from './edit.component';
 import { SongAudiosComponent } from './audios.component';
+import { SongWelcomeComponent } from './welcome.component';
 import { SongAddDirective } from './add.directive';
 import { SongDialogConfirmRemove } from './dialog/confirm-remove.component';
 import { MetronomeComponent } from './metronome.component';
@@ -36,6 +37,7 @@ import { SongRoutingModule } from './song-routing.module';
     SongComponent,
     SongEditComponent,
     SongAudiosComponent,
+    SongWelcomeComponent,
     SongAddDirective,
     SongDialogConfirmRemove,
     MetronomeComponent

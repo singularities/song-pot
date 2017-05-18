@@ -1,0 +1,19 @@
+<md-card>
+  <md-card-title><span [innerHTML]="'band.welcome.title' | translate"></span></md-card-title>
+  <md-card-content>
+    <div class="message"
+         [innerHTML]="message">
+
+    </div>
+
+    <div class="action">
+      <button md-raised-button
+              [songAdd]="band"
+              color="accent">
+        <span translate>band.welcome.button</span>
+      </button>
+
+    </div>
+
+  </md-card-content>
+</md-card>

@@ -35,6 +35,8 @@
   </div>
 
   <div fxFlex.gt-sm="80">
+    <song-welcome *ngIf="band && ! band.songIds.length"></song-welcome>
+
     <router-outlet></router-outlet>
   </div>
 </div>
