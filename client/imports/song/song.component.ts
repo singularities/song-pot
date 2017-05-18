@@ -104,7 +104,9 @@ export class SongComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    this.audiosSub.unsubscribe();
+    if (this.audiosSub) {
+      this.audiosSub.unsubscribe();
+    }
 
     this.songService.changeSong(null);
 
