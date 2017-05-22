@@ -1,7 +1,7 @@
 <md-card>
   <md-card-title><span [innerHTML]="'band.empty.title' | translate"></span></md-card-title>
   <md-card-content>
-    <p translate>band.empty.withoutBand</p>
+    <p translate [translateParams]="translateParams">band.empty.withoutBand</p>
     <p translate>band.empty.askInvite</p>
     <p translate>band.empty.startTesting</p>
     <div class="action">
