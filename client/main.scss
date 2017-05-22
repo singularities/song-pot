@@ -1,22 +1,14 @@
-@import "imports/vendor/material-icons";
-@import "imports/vendor/roboto-regular";
-@import "imports/vendor/kaushanscript-regular";
+@import 'imports/vendor/material-icons';
+@import 'imports/vendor/roboto-regular';
+@import 'imports/vendor/kaushanscript-regular';
 
-@import "imports/theme";
-@import "imports/utils";
-@import "imports/loading";
+@import 'imports/theme';
+@import 'imports/utils';
+@import 'imports/loading';
 
-@import "imports/app/app";
-@import "imports/front/front";
-@import "imports/session/form";
-@import "imports/session/sidebar";
-@import "imports/band/bands";
-@import "imports/band/list";
-@import "imports/band/band";
-@import "imports/song/songs";
-@import "imports/song/list";
-@import "imports/song/song";
-@import "imports/song/audios";
-@import "imports/song/metronome";
-@import "imports/song/welcome";
-@import "imports/audio/add-progress";
+@import 'imports/app/app';
+@import 'imports/front/front';
+@import 'imports/session/session.module';
+@import 'imports/band/band.module';
+@import 'imports/song/song.module';
+@import 'imports/audio/audio.module';
