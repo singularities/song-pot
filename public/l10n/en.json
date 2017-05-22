@@ -41,6 +41,13 @@
         "title": "Create new band"
       }
     },
+    "empty": {
+      "askInvite": "If any other partner has already registered your band, ask them to invite you to access your private space.",
+      "create": "Create your own band",
+      "startTesting": "You can also start testing the app by creating your own band",
+      "title": "Welcome to <span class=\"brand\">Song Pot</span>",
+      "withoutBand": "Hi {{name}}, you still do not appear in any band."
+    },
     "list": {
       "members": "{{count}} members",
       "songs": "{{ count }} songs"

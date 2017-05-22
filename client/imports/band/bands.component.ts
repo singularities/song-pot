@@ -27,6 +27,7 @@ export class BandsComponent {
   bandsSub: Subscription;
   bandChangedSub: Subscription;
   toolbarChangedSub: Subscription;
+  createSubscription: Subscription;
 
   currentBand;
   showToolbar: boolean;
@@ -62,6 +63,8 @@ export class BandsComponent {
       .subscribe(value => this.ngZone.run(() => {
         this.showToolbar = value;
       }))
+
+    this.createSubscription = this.bandService.create$.subscribe(() => this.newBand());
   }
 
   ngOnDestroy() {
@@ -70,6 +73,8 @@ export class BandsComponent {
     this.bandChangedSub.unsubscribe();
 
     this.toolbarChangedSub.unsubscribe();
+
+    this.createSubscription.unsubscribe();
   }
 
   newBand() {

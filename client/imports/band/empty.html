@@ -1,0 +1,15 @@
+<md-card>
+  <md-card-title><span [innerHTML]="'band.empty.title' | translate"></span></md-card-title>
+  <md-card-content>
+    <p translate>band.empty.withoutBand</p>
+    <p translate>band.empty.askInvite</p>
+    <p translate>band.empty.startTesting</p>
+    <div class="action">
+      <button md-raised-button
+              color="accent"
+              (click)="create()">
+        <span translate>band.empty.create</span>
+      </button>
+    </div>
+  </md-card-content>
+</md-card>

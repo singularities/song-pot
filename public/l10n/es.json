@@ -41,6 +41,13 @@
         "title": "Crear grupo nuevo"
       }
     },
+    "empty": {
+      "askInvite": "Si algún otro compañero/a ya ha registrado vuestra banda, pídele que te invite para acceder a vuestro espacio privado.",
+      "create": "Crea tu propio grupo",
+      "startTesting": "También puedes empezar a probar la app creando tu propio grupo",
+      "title": "Bienvenido/a a <span class=\"brand\">Song Pot</span>",
+      "withoutBand": "Hola {{name}}, todavía no apareces en ningún grupo."
+    },
     "list": {
       "members": "{{count}} integrantes",
       "songs": "{{ count }} canciones"

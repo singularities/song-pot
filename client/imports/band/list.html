@@ -1,4 +1,4 @@
-<md-grid-list [cols]="gridCols" rowHeight="130px">
+<md-grid-list [cols]="gridCols" rowHeight="130px" *ngIf="bands?.length">
   <md-grid-tile *ngFor="let band of bands"
                 [routerLink]="[band._id]">
     <md-card fxFlex>
@@ -10,7 +10,4 @@
   </md-grid-tile>
 </md-grid-list>
 
-<div *ngIf="! bands?.length">
-  No bands message
-
-</div>
+<band-empty *ngIf="! bands?.length"></band-empty>
