@@ -41,6 +41,10 @@
         "title": "Crear grupo nuevo"
       }
     },
+    "list": {
+      "members": "{{count}} integrantes",
+      "songs": "{{ count }} canciones"
+    },
     "share": {
       "chooserTitle": "Comparte el material de {{name}}",
       "message": "Accede al material de {{name}} en",
