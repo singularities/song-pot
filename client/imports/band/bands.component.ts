@@ -48,7 +48,7 @@ export class BandsComponent {
       this.ngZone.run(() => {
         this.bands = bands;
 
-        this.bandService.changeBands(bands);
+        this.bandService.bandsChanged$.next(bands);
       });
 
     })
