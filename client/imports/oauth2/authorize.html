@@ -1,0 +1,7 @@
+<div *ngIf="step === 'login'; else message">
+  Login form
+</div>
+
+<ng-template #message>
+  <span translate>{{ 'oauth2.message.' + step }}</span>
+</ng-template>

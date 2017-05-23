@@ -22,3 +22,4 @@ standard-minifier-css@1.3.4
 accounts-password@1.3.6
 practicalmeteor:mocha
 ecmascript
+prime8consulting:meteor-oauth2-server

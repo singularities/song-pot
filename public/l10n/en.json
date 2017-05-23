@@ -32,6 +32,12 @@
       "title": "Uploading:"
     }
   },
+  "oauth2": {
+    "message": {
+      "authCodeGrant": "Getting authorization code...",
+      "redirect": "Redirecting..."
+    }
+  },
   "band": {
     "create": {
       "dialog": {

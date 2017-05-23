@@ -17,6 +17,7 @@ import { SongPot } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { FrontModule } from '../front/front.module';
+import { OAuth2Module } from '../oauth2/oauth2.module';
 import { BandModule } from '../band/band.module';
 import { SongModule } from '../song/song.module';
 
@@ -39,6 +40,7 @@ export function HttpLoaderFactory(http: Http) {
     }),
     Angulartics2Module.forRoot([ Angulartics2GoogleAnalytics ]),
     FrontModule,
+    OAuth2Module,
     BandModule,
     SongModule,
     AppRoutingModule

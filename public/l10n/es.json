@@ -32,6 +32,12 @@
       "title": "Subiendo:"
     }
   },
+  "oauth2": {
+    "message": {
+      "authCodeGrant": "Obteniendo código de autorización...",
+      "redirect": "Redirigiendo..."
+    }
+  },
   "band": {
     "create": {
       "dialog": {
