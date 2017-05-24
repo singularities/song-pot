@@ -5,8 +5,12 @@
     "start": "meteor run",
     "dist": "meteor build --directory .dist/ --server-only",
     "build:android": "imports/scripts/build-android-app",
-    "pretest": "node_modules/protractor/bin/webdriver-manager update",
-    "test": "node_modules/protractor/bin/protractor tests/e2e.js"
+    "test": "npm run test:unit && npm run test:e2e",
+    "test:unit": "spacejam test --driver-package=practicalmeteor:mocha",
+    "pretest:e2e": "node_modules/protractor/bin/webdriver-manager update",
+    "test:e2e": "npm run test:e2e:protractor",
+    "test:e2e:protractor": "node_modules/protractor/bin/protractor tests/e2e.js"
+
   },
   "dependencies": {
     "@angular/animations": "^4.1.2",
