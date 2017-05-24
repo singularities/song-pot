@@ -4,7 +4,6 @@ import { MdDialog } from '@angular/material';
 import { MeteorObservable } from 'meteor-rxjs';
 import { Meteor } from 'meteor/meteor';
 
-import { SessionDialogFormComponent } from './dialog/form.component';
 import { SessionService } from './session.service';
 
 import template from './toolbar.html';
