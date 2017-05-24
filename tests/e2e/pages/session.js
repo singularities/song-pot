@@ -10,13 +10,6 @@ class SessionForm {
 
   constructor () {
 
-    this.default = {
-      band: "Quebrantahuesos",
-      userName: "Lerón",
-      userEmail: "leron@quebrantahuesos.rocks",
-      userPassword: 'NoTePagoParaQueMePagues'
-    };
-
     this.bandInput = element(by.css('input[name="bandName"]'));
     this.userNameInput = element(by.css('input[name="userName"]'));
     this.userPasswordInput = element(by.css('input[name="userPassword"]'));
@@ -25,19 +18,19 @@ class SessionForm {
     this.formButton = element(by.css('form button[type=submit]'));
   }
 
-  setBand (name = this.default.band) {
+  setBand (name = global.fixtures.band.name) {
     return this.bandInput.sendKeys(name);
   }
 
-  setUserName (name = this.default.userName) {
+  setUserName (name = global.fixtures.user.profile.name) {
     return this.userNameInput.sendKeys(name);
   }
 
-  setUserEmail (email = this.default.userEmail) {
+  setUserEmail (email = global.fixtures.user.email) {
     return this.userEmailInput.sendKeys(email);
   }
 
-  setPassword (password = this.default.password) {
+  setPassword (password = global.fixtures.user.password) {
     return this.userPasswordInput.sendKeys(password);
   }
 
