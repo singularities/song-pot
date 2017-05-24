@@ -7,4 +7,9 @@ session-form {
   .forgot-password-link {
     text-align: right;
   }
+
+  .mat-dialog-actions {
+    display: flex;
+    padding: 12px 0;
+  }
 }

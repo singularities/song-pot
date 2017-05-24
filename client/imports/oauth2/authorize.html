@@ -1,7 +1,22 @@
 <div *ngIf="step === 'login'; else message">
-  Login form
+  <md-toolbar color="primary">
+    <img src="/images/icon-32.png">
+    <span class="brand">Song Pot</span>
+  </md-toolbar>
+  <div class="padding-16"
+       fxLayout="column"
+       fxLayoutAlign="start center">
+    <md-card>
+      <md-card-title>title</md-card-title>
+      <md-card-content>
+        <session-form [action]="'login'"></session-form>
+      </md-card-content>
+    </md-card>
+  </div>
 </div>
 
 <ng-template #message>
-  <span translate>{{ 'oauth2.message.' + step }}</span>
+  <div class="padding-16">
+    <span translate>{{ 'oauth2.message.' + step }}</span>
+  </div>
 </ng-template>
