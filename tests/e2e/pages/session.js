@@ -44,7 +44,7 @@ class SessionForm {
   }
 
   waitForAfterLoginUrl () {
-    browser.wait(() => browser.getCurrentUrl().then((url) => url === AfterLoginUrl));
+    browser.wait(() => browser.getCurrentUrl().then((url) => url.indexOf(AfterLoginUrl) === 0));
   }
 
 }
