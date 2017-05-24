@@ -23,6 +23,7 @@ before_script:
   # Start meteor server using docker-compose database,
   # so e2e fixtures are loaded properly
   - MONGO_URL=mongodb://localhost/song-pot meteor -p 3100 &
+  - sleep 15
   # Run mocha test in terminal
   - npm install -g spacejam
 script:
