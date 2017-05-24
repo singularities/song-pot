@@ -30,9 +30,13 @@ describe('oauth2 authorization', () => {
 
     it('should authorize client', () => {
 
+      browser.waitForAngularEnabled(false);
+
       oauth2Page.get();
 
       oauth2Page.waitForRedirectUrl();
+
+      browser.waitForAngularEnabled(true);
 
     });
   });
