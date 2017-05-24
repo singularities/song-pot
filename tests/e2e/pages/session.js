@@ -1,7 +1,10 @@
 var config = require('../../e2e').config;
 
+const AfterLoginUrl = config.baseUrl + '/bands';
+
 class Session {
   constructor () {
+
     this.sessionMenuButton = element(by.css('.session-logged-in button'));
     this.logoutButton = element(by.css('button.logout'));
   }
@@ -32,7 +35,7 @@ class SessionForm {
     return this.userEmailInput.sendKeys(email);
   }
 
-  setPassword (password = global.fixtures.user.password) {
+  setUserPassword (password = global.fixtures.user.password) {
     return this.userPasswordInput.sendKeys(password);
   }
 
@@ -40,11 +43,21 @@ class SessionForm {
     this.formButton.click();
   }
 
+  waitForAfterLoginUrl () {
+    browser.wait(() => browser.getCurrentUrl().then((url) => url === AfterLoginUrl));
+  }
+
 }
 
 class Register extends SessionForm {
 
-  register (data = {}, options = { waitForFocus: true }) {
+  constructor() {
+    super();
+
+    this.loginLink = element(by.css('.other-action-link a'));
+  }
+
+  register (data = {}, options = { waitForFocus: true, waitForAfterLoginUrl: true }) {
 
     // Angular Material dialog focus the first element
     // we have to wait or the sendKeys methods are messed up
@@ -57,6 +70,37 @@ class Register extends SessionForm {
     this.setUserEmail(data.userEmail);
 
     this.submit();
+
+    if (options.waitForAfterLoginUrl) {
+      this.waitForAfterLoginUrl();
+    }
+
+  }
+
+  goToLogin() {
+
+    this.loginLink.click();
+  }
+}
+
+class Login extends SessionForm {
+
+  login(data = {}, options = { waitForFocus: true, waitForAfterLoginUrl: true }) {
+
+    // Angular Material dialog focus the first element
+    // we have to wait or the sendKeys methods are messed up
+    if (options.waitForFocus) {
+      browser.wait(() => this.userEmailInput.equals(browser.driver.switchTo().activeElement()));
+    }
+
+    this.setUserEmail(data.userEmail);
+    this.setUserPassword(data.password);
+
+    this.submit();
+
+    if (options.waitForAfterLoginUrl) {
+      this.waitForAfterLoginUrl();
+    }
   }
 }
 
@@ -81,6 +125,7 @@ class Logout extends Session {
 
 module.exports = {
   Register,
+  Login,
   ForgotPassword,
   Logout
 };

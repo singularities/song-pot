@@ -21,7 +21,8 @@ class Fixtures {
       clientId: '592450209ec9e9fb85289882',
       redirectUri: 'http://localhost:3200/redirectUri',
       secret: '12345',
-      name: 'OAuth2 testing client'
+      name: 'OAuth2 testing client',
+      active: true
     };
   }
 
