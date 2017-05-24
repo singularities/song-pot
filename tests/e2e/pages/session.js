@@ -1,3 +1,5 @@
+var config = require('../../e2e').config;
+
 class Session {
   constructor () {
     this.sessionMenuButton = element(by.css('.session-logged-in button'));
@@ -72,6 +74,8 @@ class Logout extends Session {
 
     this.sessionMenuButton.click();
     this.logoutButton.click();
+
+    browser.wait(() => browser.getCurrentUrl().then((url) => url === config.baseUrl + '/'));
   }
 }
 
