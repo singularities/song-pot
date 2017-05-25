@@ -40,4 +40,25 @@ describe('oauth2 authorization', () => {
 
     });
   });
+
+  describe('when not logged in', () => {
+
+    beforeEach(() => {
+      oauth2Page.get();
+    });
+
+    afterEach(() => {
+      frontPage.get();
+
+      logoutPage.logout();
+    });
+    
+    xit('should register user and authorize client', () => {
+
+    });
+
+    xit('should login user and authorize client', () => {
+
+    });
+  });
 });
