@@ -5,4 +5,5 @@
 <session-form [action]="data.action"
          [token]="data.token"
          (onActionChanged)="onActionChanged($event)"
+         (onSuccess)="onSuccess($event)"
          (onCancel)="dialogRef.close()"></session-form>

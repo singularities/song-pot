@@ -13,8 +13,13 @@ import { Band } from '../../../imports/models';
 @Injectable()
 export class BandService {
 
+
   // Observable band sources
   bandsChanged$: BehaviorSubject<Band[]> = new BehaviorSubject(undefined);
   bandChanged$: BehaviorSubject<Band> = new BehaviorSubject(undefined);
   create$ = new Subject();
+
+  currentBand () {
+    return this.bandChanged$.getValue();
+  }
 }

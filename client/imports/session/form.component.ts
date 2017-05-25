@@ -39,6 +39,7 @@ export class SessionFormComponent {
   @Input() token;
 
   @Output() onActionChanged = new EventEmitter();
+  @Output() onSuccess = new EventEmitter();
   @Output() onCancel = new EventEmitter();
 
   ngOnInit() {
@@ -97,9 +98,8 @@ export class SessionFormComponent {
           })
           .subscribe({
             next: (id) => {
-              this.close();
 
-              this.router.navigate(['bands', id]);
+              this.onSuccess.emit({ bandId: id});
             },
             error: (e) => {
 
@@ -110,7 +110,7 @@ export class SessionFormComponent {
             }
           });
         } else {
-          this.afterLogin();
+          this.onSuccess.emit();
         }
       }
     })
@@ -124,7 +124,7 @@ export class SessionFormComponent {
           this.snackBar.open(error.reason, null, { duration: 5000 });
         });
       } else {
-        this.afterLogin();
+        this.onSuccess.emit();
       }
     })
   }
@@ -146,7 +146,7 @@ export class SessionFormComponent {
   }
 
   onSentPasswordEmail () {
-    this.close();
+    this.onCancel.emit();
   }
 
   onResetPassword () {
@@ -156,9 +156,7 @@ export class SessionFormComponent {
           this.snackBar.open(error.reason, null, { duration: 5000 });
         });
       } else {
-        this.close();
-
-        this.router.navigate(['bands']);
+        this.onSuccess.emit();
       }
     })
 
@@ -173,23 +171,7 @@ export class SessionFormComponent {
     }
   }
 
-  // Syntactic sugar
-  close () {
-    this.cancel();
-  }
-
-  cancel () {
+  cancel() {
     this.onCancel.emit();
-  }
-
-  private afterLogin() {
-
-    this.close();
-
-    if (! this.currentBand) {
-      this.router.navigate(['bands']);
-    } else {
-      MeteorObservable.call('band.join').zone();
-    }
   }
 }
