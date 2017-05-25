@@ -32,8 +32,8 @@ export class OAuth2AuthorizeComponent {
       currentRoute.queryParams['client_id'],
       currentRoute.queryParams['redirect_uri'],
       currentRoute.queryParams['response_type'],
-      undefined,
-      undefined,
+      currentRoute.queryParams['scope'],
+      currentRoute.queryParams['state'],
       (error, result) => {
 
         if (error) {
