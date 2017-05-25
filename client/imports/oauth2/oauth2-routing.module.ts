@@ -5,7 +5,7 @@ import { OAuth2AuthorizeComponent } from './authorize.component';
 
 const oauth2Routes: Routes = [
   {
-    path: 'oauth2/authorize',
+    path: 'oauth/authorize',
     component: OAuth2AuthorizeComponent
   }
 ];

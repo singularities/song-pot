@@ -1,7 +1,7 @@
 class OAuth2Page {
 
   get() {
-    browser.get(`/oauth2/authorize?client_id=${ global.fixtures.oauth2Client.clientId }&response_type=code&redirect_uri=${ global.fixtures.oauth2Client.redirectUri }`);
+    browser.get(`/oauth/authorize?client_id=${ global.fixtures.oauth2Client.clientId }&response_type=code&redirect_uri=${ global.fixtures.oauth2Client.redirectUri }`);
   }
 
   waitForRedirectUrl() {
