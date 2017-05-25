@@ -1,0 +1,64 @@
+#!/usr/bin/env node
+
+/*
+ * Starts a meteor server that will brige meteor tools, i.e. `meteor shell`
+ * with the mongo db instance started by docker-compose
+ *
+ *   MONGO_URL=mongodb://localhost/song-pot meteor -p 3100 &
+ *
+ * The reason: loading fixtures for passing the e2e tests using the final docker image
+ */
+
+if (! process.env.CI) {
+  process.exit();
+}
+
+const settings = {
+  bridgeFile: '/tmp/meteor-mongo-bridge.log',
+  meteor: {
+    port: '3100'
+  },
+  mongo: {
+    address: 'mongodb://localhost/song-pot'
+  }
+};
+
+const spawn = require('child_process').spawn;
+const fs = require('fs');
+
+var tailProcess;
+
+const touchProcess = spawn('touch', [settings.bridgeFile]);
+touchProcess.on('close', (code) => {
+
+  tailProcess = spawn('tail', ['-f', settings.bridgeFile]);
+
+  tailProcess.stdout.on('data', (data) => {
+    console.log(`${ data }`);
+
+    if (data.indexOf(`App running at: http://localhost:${ settings.meteor.port }`) > -1 ||
+        data.indexOf(`Can't listen on port ${ settings.meteor.port }`) > -1) {
+      process.exit();
+    }
+  });
+
+  tailProcess.stderr.on('data', (data) => {
+    console.log(`stderr: ${data}`);
+  });
+
+});
+
+var outputFd = fs.openSync(settings.bridgeFile, 'w'),
+    childEnv = process.env;
+
+childEnv.MONGO_URL = settings.mongo.address;
+
+const child = spawn('meteor', ['-p', settings.meteor.port], {
+  env: childEnv,
+  // Dettach process so it runs in background
+  // https://nodejs.org/api/child_process.html#child_process_options_detached
+  detached: true,
+  stdio: ['ignore', outputFd, outputFd]
+});
+
+child.unref();

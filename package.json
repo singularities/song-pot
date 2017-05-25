@@ -7,7 +7,7 @@
     "build:android": "imports/scripts/build-android-app",
     "test": "npm run test:unit && npm run test:e2e",
     "test:unit": "spacejam test --driver-package=practicalmeteor:mocha",
-    "pretest:e2e": "node_modules/protractor/bin/webdriver-manager update",
+    "pretest:e2e": "node_modules/protractor/bin/webdriver-manager update && .travis/meteor-mongo-bridge",
     "test:e2e": "npm run test:e2e:protractor",
     "test:e2e:protractor": "node_modules/protractor/bin/protractor tests/e2e.js"
 
