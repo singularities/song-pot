@@ -34,7 +34,7 @@ describe('oauth2 authorization', () => {
 
       oauth2Page.get();
 
-      oauth2Page.waitForRedirectUrl();
+      browser.wait(() => browser.getCurrentUrl().then((url) => url.indexOf(global.fixtures.oauth2Client.redirectUri) === 0));
 
       browser.waitForAngularEnabled(true);
 
@@ -52,7 +52,7 @@ describe('oauth2 authorization', () => {
 
       logoutPage.logout();
     });
-    
+
     xit('should register user and authorize client', () => {
 
     });
