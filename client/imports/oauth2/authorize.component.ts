@@ -52,4 +52,10 @@ export class OAuth2AuthorizeComponent {
       }
     );
   }
+
+  onCancel() {
+    let currentRoute = this.route.snapshot;
+
+    window.location.href = currentRoute.queryParams['redirect_uri'] + '?error=cancelled';
+  }
 }

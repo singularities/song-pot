@@ -9,7 +9,9 @@
     <md-card>
       <md-card-title>title</md-card-title>
       <md-card-content>
-        <session-form [action]="'login'"></session-form>
+        <session-form [action]="'login'"
+                      (onSuccess)="allow()"
+                      (onCancel)="onCancel()"></session-form>
       </md-card-content>
     </md-card>
   </div>
