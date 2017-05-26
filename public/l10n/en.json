@@ -32,9 +32,9 @@
       "title": "Uploading:"
     }
   },
-  "oauth2": {
+  "discourse": {
     "message": {
-      "authCodeGrant": "Getting authorization code...",
+      "authorize": "Getting authorization code...",
       "redirect": "Redirecting..."
     }
   },

@@ -6,9 +6,9 @@ import { TranslateModule } from '@ngx-translate/core';
 
 import { SessionModule } from '../session/session.module';
 
-import { OAuth2AuthorizeComponent } from './authorize.component';
+import { DiscourseSSOComponent } from './sso.component';
 
-import { OAuth2RoutingModule } from './oauth2-routing.module';
+import { DiscourseRoutingModule } from './discourse-routing.module';
 
 @NgModule({
   imports: [
@@ -18,12 +18,12 @@ import { OAuth2RoutingModule } from './oauth2-routing.module';
     FlexLayoutModule,
     TranslateModule,
     SessionModule,
-    OAuth2RoutingModule
+    DiscourseRoutingModule
   ],
   declarations: [
-    OAuth2AuthorizeComponent
+    DiscourseSSOComponent
   ]
 
 })
 
-export class OAuth2Module {}
+export class DiscourseModule {}

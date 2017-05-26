@@ -50,7 +50,6 @@ logging@1.1.17
 matb33:collection-hooks@0.8.4
 meteor@1.6.1
 meteor-base@1.0.4
-meteorhacks:async@1.0.0
 minifier-css@1.2.16
 minifier-js@2.0.0
 minimongo@1.0.23
@@ -69,7 +68,6 @@ practicalmeteor:loglevel@1.2.0_2
 practicalmeteor:mocha@2.4.5_6
 practicalmeteor:mocha-core@1.0.1
 practicalmeteor:sinon@1.14.1_2
-prime8consulting:meteor-oauth2-server@0.0.3
 promise@0.8.8
 random@1.0.10
 rate-limit@1.0.8
@@ -80,7 +78,6 @@ routepolicy@1.0.12
 service-configuration@1.0.11
 sha@1.0.9
 shell-server@0.2.3
-simple:json-routes@2.1.0
 spacebars@1.0.15
 spacebars-compiler@1.1.2
 srp@1.0.10

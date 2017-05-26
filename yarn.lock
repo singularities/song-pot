@@ -504,6 +504,10 @@ diffie-hellman@^5.0.0:
     miller-rabin "^4.0.0"
     randombytes "^2.0.0"
 
+discourse-sso@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/discourse-sso/-/discourse-sso-1.0.3.tgz#b5390353e949b2271a0761834303f89b3f7f24cc"
+
 domain-browser@^1.1.7:
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/domain-browser/-/domain-browser-1.1.7.tgz#867aa4b093faa05f1de08c06f4d7b21fdf8698bc"

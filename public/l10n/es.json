@@ -32,9 +32,9 @@
       "title": "Subiendo:"
     }
   },
-  "oauth2": {
+  "discourse": {
     "message": {
-      "authCodeGrant": "Obteniendo código de autorización...",
+      "authorize": "Obteniendo código de autorización...",
       "redirect": "Redirigiendo..."
     }
   },
