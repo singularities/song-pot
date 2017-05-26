@@ -19,7 +19,7 @@ App.launchScreens({
 //  'android_xxhdpi_portrait': 'splash/android-xxhdpi.png' // (1080x1440)
 });
 
-App.accessRule('https://forum.songpot.rocks/', { type: 'intent' });
+App.accessRule('https://forum.songpot.rocks/*', { type: 'intent' });
 App.accessRule('http://singularities.org/atd', { type: 'intent' });
 App.accessRule('https://atd.singularities.org/', { type: 'intent' });
 App.accessRule('http://ruidodebarrio.lapiluka.org/', { type: 'intent' });
