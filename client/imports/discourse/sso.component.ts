@@ -38,7 +38,11 @@ export class DiscourseSSOComponent {
         this.step = 'redirect';
       });
 
-			window.location.href = result['redirectToUri'];
+      if (Meteor.isCordova) {
+        window.open(result['redirectToUri'], "_blank");
+      } else {
+        window.location.href = result['redirectToUri'];
+      }
 
     }, (error) => {
 
