@@ -1,7 +1,7 @@
 App.info({
   id: 'org.singularities.songspot',
   name: 'Song Pot',
-  version: "0.1.1"
+  version: "0.1.2"
 });
 
 App.icons({
