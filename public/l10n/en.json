@@ -65,6 +65,7 @@
       "success": "Link to materials shared!"
     },
     "toolbar": {
+      "forum": "Forum",
       "selector": {
         "create": "Create new band",
         "placeholder": "Bands"
@@ -82,7 +83,7 @@
       "title": "Who is behind Song Pot?"
     },
     "community": {
-      "text": "<p>Questions, constructive opinions, improvement suggestions...?</p><p>Join the conversation at <a href=\"https://discourse.songpot.rocks/\" target=\"_blank\">Song Pot Discourse</a>!</p>",
+      "text": "<p>Questions, constructive opinions, improvement suggestions...?</p><p>Join the conversation at <a href=\"https://forum.songpot.rocks/\" target=\"_blank\">Song Pot Forum</a>!</p>",
       "title": "Community"
     },
     "feature": {

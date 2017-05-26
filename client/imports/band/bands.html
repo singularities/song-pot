@@ -1,6 +1,14 @@
 <md-sidenav-container>
   <md-sidenav #sidenav>
     <session-sidebar></session-sidebar>
+
+    <md-nav-list>
+      <a md-list-item
+         href="https://forum.songpot.rocks"
+         target="_blank">
+        <span translate>band.toolbar.forum</span>
+      </a>
+    </md-nav-list>
   </md-sidenav>
 
   <div fxLayout="column"
@@ -36,6 +44,14 @@
       </md-menu>
 
       <div fxFlex></div>
+
+      <a md-button
+         fxHide
+         fxShow.gt-sm
+         href="https://forum.songpot.rocks"
+         target="_blank">
+        <span translate>band.toolbar.forum</span>
+      </a>
 
       <session-toolbar fxHide fxShow.gt-sm></session-toolbar>
 
