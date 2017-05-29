@@ -1,6 +1,10 @@
 songs {
   @include fx-column-flex();
 
+  .songs-mobile {
+    overflow-y: auto;
+  }
+
   .songs-desktop {
     padding: 16px;
 
