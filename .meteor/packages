@@ -21,4 +21,4 @@ angular2-compilers
 standard-minifier-css@1.3.4
 accounts-password@1.3.6
 practicalmeteor:mocha
-ecmascript
+ecmascript@0.7.3
