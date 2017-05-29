@@ -15,6 +15,7 @@ export class DiscourseSSOComponent {
   step: string;
 
   constructor(private ngZone: NgZone,
+              private router: Router,
               private route: ActivatedRoute,
               private snackBar: MdSnackBar) { }
 
@@ -40,6 +41,8 @@ export class DiscourseSSOComponent {
 
       if (Meteor.isCordova) {
         window.open(result['redirectToUri'], "_blank");
+
+        this.router.navigate(['/']);
       } else {
         window.location.href = result['redirectToUri'];
       }
