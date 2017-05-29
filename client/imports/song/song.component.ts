@@ -115,9 +115,9 @@ export class SongComponent implements OnInit {
 
   swipe(direction) {
     if (direction === this.SWIPE_ACTION.RIGHT) {
-      this.goToSong('next');
-    } else {
       this.goToSong('previous');
+    } else {
+      this.goToSong('next');
     }
   }
 
@@ -152,7 +152,7 @@ export class SongComponent implements OnInit {
   updateSlideState(direction) {
     let current = this.slideState;
 
-    if (direction === 'previous') {
+    if (direction === 'next') {
       current++;
     }
 
