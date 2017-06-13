@@ -122,6 +122,15 @@
     "stop": "Stop",
     "title": "Metronome"
   },
+  "notFound": {
+    "message": {
+      "forum": "leave a message in the forum",
+      "ops": "Ooops! You hit a broken link!",
+      "or": "or",
+      "startAgain": "Start again"
+    },
+    "title": "Page Not Found"
+  },
   "session": {
     "band": {
       "placeholder": "Your band name"

@@ -121,6 +121,15 @@
     "stop": "Apagar",
     "title": "Metrónomo"
   },
+  "notFound": {
+    "message": {
+      "forum": "deja un mensaje en el foro",
+      "ops": "Ups... ¡has seguido un enlace roto!",
+      "or": "o",
+      "startAgain": "Vuelve al inicio"
+    },
+    "title": "No se encuentra la página"
+  },
   "session": {
     "band": {
       "placeholder": "El nombre de tu grupo"

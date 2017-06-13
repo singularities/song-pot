@@ -1,0 +1,27 @@
+<div class="container"
+     fxLayout="column">
+
+  <app-toolbar></app-toolbar>
+
+  <div class="content"
+       fxLayout="column"
+       fxFlex>
+
+    <h1 translate>notFound.title</h1>
+
+
+    <div class="image-container" fxFlex>
+      <img src="/images/404.jpg"
+           routerLink="/"/>
+    </div>
+
+
+    <div class="message padding-16">
+      <span translate>notFound.message.ops</span>
+      <a translate routerLink="/">notFound.message.startAgain</a>
+      <span translate>notFound.message.or</span>
+      <a translate href="https://forum.songpot.rocks" target="_blank">notFound.message.forum</a>
+    </div>
+    <span></span>
+  </div>
+</div>

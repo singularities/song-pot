@@ -1,0 +1,40 @@
+not-found {
+  display: block;
+  height: 100%;
+
+  .container {
+    height: 100%;
+  }
+
+  .content {
+    h1 {
+      text-align: center;
+    }
+
+    .image-container {
+      position: relative;
+    }
+
+    img {
+      margin: auto;
+      max-height: 100%;
+      max-width: 100%;
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      bottom:0;
+    }
+
+    .message {
+      font-size: 24px;
+      text-align: center;
+
+      a {
+        color: mat-color($accent);
+        text-decoration: none;
+      }
+    }
+  }
+
+}

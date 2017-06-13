@@ -1,0 +1,10 @@
+app-toolbar {
+  a {
+    color: mat-contrast($primary, 500);
+    text-decoration: none;
+
+    img {
+      margin-right: 10px;
+    }
+  }
+}
