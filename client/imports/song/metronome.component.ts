@@ -32,7 +32,7 @@ export class MetronomeComponent {
     this.barAudio.preload = 'auto';
   }
 
-  onDestroy() {
+  ngOnDestroy() {
     this.stop();
   }
 
