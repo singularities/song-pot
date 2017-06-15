@@ -27,9 +27,7 @@ export class AudioPlayService {
 
     this.loaded.next(true);
 
-    this.object.onended = () => {
-      this.cancelWatch();
-    };
+    this.object.addEventListener('ended', () => this.cancelWatch());
 
     return this;
   }
