@@ -33,17 +33,15 @@ export class AudioUploadService {
         file: audio,
         onProgress: (file, progress) => {
 
-          for (let upload of this.uploads) {
+          let upload = this.uploads.find((upload) => upload.file._id === file._id);
 
-            // FIXME there is a collision when uploading files with the same name
-            if (upload.file.name === file.name) {
+          if (upload) {
 
-              this.ngZone.run(() => {
+            this.ngZone.run(() => {
 
-                upload.progressPercentage = progress * 100;
-                upload.roundedProgressPercentage = Math.round(upload.progressPercentage);
-              });
-            }
+              upload.progressPercentage = progress * 100;
+              upload.roundedProgressPercentage = Math.round(upload.progressPercentage);
+            });
           }
 
         },
@@ -71,7 +69,7 @@ export class AudioUploadService {
               this.ngZone.run(() => {
 
                 // Remove file from upload list
-                this.uploads.splice(this.uploads.findIndex(upload => upload.file.name === file.name), 1);
+                this.uploads.splice(this.uploads.findIndex(upload => upload.file._id === file._id), 1);
 
                 this.translate.get('audio.upload.success')
                   .subscribe((message: string) => {
@@ -93,7 +91,7 @@ export class AudioUploadService {
       this.ngZone.run(() => {
 
         this.uploads.push({
-          file: file,
+          file: uploader.getFile(),
           progressPercentage: 0
         });
       })
