@@ -93,7 +93,8 @@ export class AudioUploadService {
         this.uploads.push({
           uploader: uploader,
           name: file.name,
-          progressPercentage: 0
+          progressPercentage: 0,
+          roundedProgressPercentage: 0
         });
       })
 
