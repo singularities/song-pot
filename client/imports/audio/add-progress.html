@@ -14,6 +14,7 @@
 
     <md-progress-spinner mode="determinate"
                          color="accent"
+                         [attr.data-progress-percentage]="upload.roundedProgressPercentage"
                          [value]="upload.progressPercentage">
     </md-progress-spinner>
   </div>

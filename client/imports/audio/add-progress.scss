@@ -11,6 +11,16 @@ audio-add-progress {
   md-progress-spinner {
     height: 40px !important;
     width: 40px !important;
+    position: relative;
+
+    &::before {
+      content: attr(data-progress-percentage) '%';
+      font-size: 11px;
+      font-weight: bold;
+      left: 11px;
+      position: absolute;
+      top: 15px;
+    }
   }
 
   .upload {

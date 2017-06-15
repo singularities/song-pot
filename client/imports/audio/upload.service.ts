@@ -41,6 +41,7 @@ export class AudioUploadService {
               this.ngZone.run(() => {
 
                 upload.progressPercentage = progress * 100;
+                upload.roundedProgressPercentage = Math.round(upload.progressPercentage);
               });
             }
           }
