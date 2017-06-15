@@ -27,6 +27,7 @@
       }
     },
     "upload": {
+      "cancelled": "Subida cancelada",
       "error": "Error subiendo el audio: {{error}}",
       "success": "Audio guardado",
       "title": "Subiendo:"

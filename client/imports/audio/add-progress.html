@@ -9,7 +9,7 @@
        class="upload"
        *ngFor="let upload of audioUploadService.uploads">
     <div fxFlex class="name">
-      {{ upload.file.name }}
+      {{ upload.name }}
     </div>
 
     <md-progress-spinner mode="determinate"
@@ -17,5 +17,9 @@
                          [attr.data-progress-percentage]="upload.roundedProgressPercentage"
                          [value]="upload.progressPercentage">
     </md-progress-spinner>
+
+    <button md-icon-button>
+      <md-icon (click)="audioUploadService.cancel(upload)">cancel</md-icon>
+    </button>
   </div>
 </div>

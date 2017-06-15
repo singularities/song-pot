@@ -33,7 +33,7 @@ export class AudioUploadService {
         file: audio,
         onProgress: (file, progress) => {
 
-          let upload = this.uploads.find((upload) => upload.file._id === file._id);
+          let upload = this.findUpload(file);
 
           if (upload) {
 
@@ -69,7 +69,7 @@ export class AudioUploadService {
               this.ngZone.run(() => {
 
                 // Remove file from upload list
-                this.uploads.splice(this.uploads.findIndex(upload => upload.file._id === file._id), 1);
+                this.removeUpload(file);
 
                 this.translate.get('audio.upload.success')
                   .subscribe((message: string) => {
@@ -91,12 +91,40 @@ export class AudioUploadService {
       this.ngZone.run(() => {
 
         this.uploads.push({
-          file: uploader.getFile(),
+          uploader: uploader,
+          name: file.name,
           progressPercentage: 0
         });
       })
 
       uploader.start();
     });
+  }
+
+  cancel(upload) {
+
+    this.ngZone.run(() => {
+
+      this.removeUpload(upload.uploader.getFile());
+
+      upload.uploader.abort();
+
+      this.translate.get('audio.upload.cancelled')
+      .subscribe((message: string) => {
+        this.snackBar.open(message, null, { duration: 2000 });
+      });
+    });
+  }
+
+  private findUpload (file) {
+
+    return this.uploads.find((upload) => upload.uploader.getFile()._id === file._id);
+  }
+
+  private removeUpload (file) {
+
+    let index = this.uploads.findIndex((upload) => upload.uploader.getFile()._id === file._id);
+
+    this.uploads.splice(index);
   }
 }

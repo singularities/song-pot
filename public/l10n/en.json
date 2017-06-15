@@ -27,6 +27,7 @@
       }
     },
     "upload": {
+      "cancelled": "Upload aborted",
       "error": "Error uploading audio: {{error}}",
       "success": "Audio uploaded",
       "title": "Uploading:"
