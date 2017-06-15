@@ -3,8 +3,10 @@
   "private": true,
   "scripts": {
     "start": "meteor run",
-    "dist": "meteor build --directory .dist/ --server-only",
+    "dist": "npm run activate:analytics && npm run build:meteor",
+    "activate:analytics": "sed -i 's/angulartics2\\.developerMode(true);//' client/imports/app/app.component.ts",
     "build:android": "imports/scripts/build-android-app",
+    "build:meteor": "meteor build --directory .dist/ --server-only",
     "test": "npm run test:unit && npm run test:e2e",
     "test:unit": "spacejam test --driver-package=practicalmeteor:mocha",
     "pretest:e2e": "node_modules/protractor/bin/webdriver-manager update && .travis/meteor-mongo-bridge",

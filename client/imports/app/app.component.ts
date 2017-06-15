@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { Angulartics2GoogleAnalytics } from 'angulartics2';
+import { Angulartics2, Angulartics2GoogleAnalytics } from 'angulartics2';
 import { Meteor } from 'meteor/meteor';
 
 import { AudioPlayService } from '../audio/play.service';
@@ -21,7 +21,12 @@ import template from "./app.html";
 export class SongPot {
   constructor(private router: Router,
               translate: TranslateService,
+              angulartics2: Angulartics2,
               angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics) {
+
+    // Don't send analytics events
+    angulartics2.developerMode(true);
+
     // this language will be used as a fallback when a translation isn't found in the current language
     translate.setDefaultLang('en');
 
