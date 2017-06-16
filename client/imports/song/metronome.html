@@ -41,11 +41,11 @@
     <md-progress-spinner
         mode="determinate"
         color="accent"
-        [class]="playing ? '' : 'stopped'"
+        [ngClass]="{ 'stopped': ! playing }"
         [value]="progressValue()"
         [attr.data-progress-count]="beatCountFull()">
     </md-progress-spinner>
-    
+
     <button md-fab class="metronome-play-stop"
             (click)="toggle()">
       <md-icon>{{ playing ? 'stop' : 'play_arrow' }}</md-icon>
