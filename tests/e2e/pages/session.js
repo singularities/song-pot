@@ -2,15 +2,35 @@ var config = require('../../e2e').config;
 
 const AfterLoginUrl = config.baseUrl + '/bands';
 
-class Session {
+/*
+ * Models the session part in the toolbar in desktop devices
+ */
+class SessionToolbar {
   constructor () {
 
+    this.sessionFormButton = element(by.css('.session-logged-out button'));
     this.sessionMenuButton = element(by.css('.session-logged-in button'));
     this.logoutButton = element(by.css('button.logout'));
   }
 
+  showForm() {
+    this.sessionFormButton.click();
+  }
+
+  logout() {
+
+    browser.wait(this.sessionMenuButton.isPresent());
+
+    this.sessionMenuButton.click();
+    this.logoutButton.click();
+
+    browser.wait(() => browser.getCurrentUrl().then((url) => url === config.baseUrl + '/'));
+  }
 }
 
+/*
+ * Common class for session forms
+ */
 class SessionForm {
 
   constructor () {
@@ -21,9 +41,13 @@ class SessionForm {
     this.userEmailInput = element(by.css('input[name="userEmail"]'));
 
     this.formButton = element(by.css('form button[type=submit]'));
+
+    this.otherActionLink = element(by.css('.other-action-link a'));
   }
 
   setBand (name = global.fixtures.band.name) {
+    this.bandInput.clear();
+    
     return this.bandInput.sendKeys(name);
   }
 
@@ -47,17 +71,21 @@ class SessionForm {
     browser.wait(() => browser.getCurrentUrl().then((url) => url.indexOf(AfterLoginUrl) === 0));
   }
 
+  goToOtherAction() {
+    this.otherActionLink.click();
+  }
+
 }
 
 class Register extends SessionForm {
 
-  constructor() {
-    super();
+  register (data = {}, newOptions = {}) {
 
-    this.loginLink = element(by.css('.other-action-link a'));
-  }
-
-  register (data = {}, options = { waitForFocus: true, waitForAfterLoginUrl: true }) {
+    let options = Object.assign({
+      waitForFocus: true,
+      waitForAfterLoginUrl: true,
+      setBand: true
+    }, newOptions);
 
     // Angular Material dialog focus the first element
     // we have to wait or the sendKeys methods are messed up
@@ -65,7 +93,11 @@ class Register extends SessionForm {
       browser.wait(() => this.bandInput.equals(browser.driver.switchTo().activeElement()));
     }
 
-    this.setBand(data.band);
+    if (options.setBand) {
+
+      this.setBand(data.band);
+    }
+
     this.setUserName(data.userName);
     this.setUserEmail(data.userEmail);
 
@@ -79,7 +111,7 @@ class Register extends SessionForm {
 
   goToLogin() {
 
-    this.loginLink.click();
+    this.goToOtherAction();
   }
 }
 
@@ -111,15 +143,29 @@ class ForgotPassword extends SessionForm {
   }
 }
 
-class Logout extends Session {
+
+/*
+ * Glue class for session operations
+ */
+class Session {
+
+  constructor() {
+    // TODO Mobile support with SessionSidebar
+    this.sessionBar = new SessionToolbar();
+    this.sessionForm = new SessionForm();
+  }
+
+  showRegister() {
+    // TODO support for frontpage, which shows register directly
+
+    this.sessionBar.showForm();
+
+    this.sessionForm.goToOtherAction();
+
+  }
 
   logout () {
-    browser.wait(this.sessionMenuButton.isPresent());
-
-    this.sessionMenuButton.click();
-    this.logoutButton.click();
-
-    browser.wait(() => browser.getCurrentUrl().then((url) => url === config.baseUrl + '/'));
+    this.sessionBar.logout();
   }
 }
 
@@ -127,5 +173,5 @@ module.exports = {
   Register,
   Login,
   ForgotPassword,
-  Logout
+  Session
 };
