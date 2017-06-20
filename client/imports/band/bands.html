@@ -1,6 +1,6 @@
 <md-sidenav-container>
   <md-sidenav #sidenav>
-    
+
     <md-toolbar color="primary">
       <span class="brand">
         <img src="/images/icon-32.png">
@@ -36,7 +36,7 @@
         Song Pot
       </span>
       <span class="band-name" [mdMenuTriggerFor]="bandsMenu">{{ currentBand?.name }}</span>
-      <button md-icon-button *ngIf="bands" [mdMenuTriggerFor]="bandsMenu">
+      <button md-icon-button *ngIf="bands" [mdMenuTriggerFor]="bandsMenu" class="bands-menu-trigger">
         <md-icon>arrow_drop_down</md-icon>
       </button>
       <md-menu #bandsMenu="mdMenu">

@@ -4,6 +4,10 @@ class BandPage {
     this.bandNameElement = element(by.css('.band-name'));
   }
 
+  get(id = global.fixtures.band.id) {
+    browser.get('/bands/' + id);
+  }
+
   getBandName() {
     return this.bandNameElement.getText();
   }

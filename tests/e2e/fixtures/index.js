@@ -20,10 +20,20 @@ class Fixtures {
 
   prepare() {
 
+
     return meteorPage.exec(`
       Accounts.findUserByEmail("${ this.user.email}") ||
       Accounts.createUser(${ JSON.stringify(this.user)})
-    `);
+    `).then(() => {
+      return meteorPage.exec(`
+        Bands.collection.insert({
+          name: "${ this.band.name }",
+          createdAt: new Date(),
+          userIds: [],
+          songIds: []
+        })
+      `).then((bandId) => global.fixtures.band.id = /"(.*)"/.exec(bandId)[1]);
+    });
   }
 }
 

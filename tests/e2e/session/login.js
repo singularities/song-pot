@@ -1,16 +1,16 @@
 var FrontPage = require('../pages/front'),
     frontPage = new FrontPage(),
-    sessionPage = require('../pages/session'),
-    registerPage = new sessionPage.Register(),
-    loginPage = new sessionPage.Login(),
-    logoutPage = new sessionPage.Logout(),
+    sessionPages = require('../pages/session'),
+    sessionPage = new sessionPages.Session(),
+    registerPage = new sessionPages.Register(),
+    loginPage = new sessionPages.Login(),
     BandsPage = require('../pages/bands'),
     bandsPage = new BandsPage();
 
 describe('session', () => {
 
   afterEach(() => {
-    logoutPage.logout();
+    sessionPage.logout();
   });
 
   describe('in front page', () => {

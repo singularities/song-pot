@@ -2,9 +2,9 @@ var Chance = require('chance'),
     chance = new Chance(),
     FrontPage = require('../pages/front'),
     frontPage = new FrontPage(),
-    sessionPage = require('../pages/session'),
-    registerPage = new sessionPage.Register(),
-    logoutPage = new sessionPage.Logout(),
+    sessionPages = require('../pages/session'),
+    sessionPage = new sessionPages.Session(),
+    registerPage = new sessionPages.Register(),
     BandsPage = require('../pages/bands'),
     bandsPage = new BandsPage(),
     BandPage = require('../pages/band'),
@@ -12,14 +12,14 @@ var Chance = require('chance'),
 
 describe('session', () => {
 
+  afterEach(() => {
+    sessionPage.logout();
+  });
+
   describe('in front page', () => {
 
     beforeEach(() => {
       frontPage.get();
-    });
-
-    afterEach(() => {
-      logoutPage.logout();
     });
 
     it('should register a new user without a band', () => {
@@ -61,12 +61,47 @@ describe('session', () => {
 
   describe('in a band page', () => {
 
-    xit('should register a new user and add her to the band', () => {
+    it('should register a new user and add her to the band', () => {
+      bandPage.get();
+
+      sessionPage.showRegister();
+
+      registerPage.register({
+        userName: chance.name(),
+        userEmail: chance.email()
+      }, { setBand: false });
+
+      bandPage.waitForBand(global.fixtures.band.name);
+
+      bandsPage.openBandsMenu();
+
+      expect(bandsPage.getBands()).toContain(global.fixtures.band.name);
+
+      bandsPage.closeBandsMenu();
 
     });
 
-    xit('should register a new user and add create a new band', () => {
+    it('should register a new user and add create a new band', () => {
+      let bandName = chance.name();
 
+      bandPage.get();
+
+      sessionPage.showRegister();
+
+      registerPage.register({
+        band: bandName,
+        userName: chance.name(),
+        userEmail: chance.email()
+      });
+
+      bandPage.waitForBand(bandName);
+
+      bandsPage.openBandsMenu();
+
+      expect(bandsPage.getBands()).toContain(bandName);
+      expect(bandsPage.getBands()).not.toContain(global.fixtures.band.name);
+
+      bandsPage.closeBandsMenu();
     });
   });
 });
