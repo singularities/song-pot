@@ -8,7 +8,7 @@ export var bandPermission = Match.Where(bandId => {
   // User must be logged in
   if (! Meteor.userId()) {
     throw new Meteor.Error('loggin-required',
-    'You must be logged in to create a band');
+    'You must be logged in');
   }
 
   check(bandId, String);
@@ -30,7 +30,7 @@ export var songPermission = Match.Where(songId => {
   // User must be logged in
   if (! Meteor.userId()) {
     throw new Meteor.Error('loggin-required',
-    'You must be logged in to create a band');
+    'You must be logged in');
   }
 
   return userOwnsSong(Meteor.userId(), songId);
