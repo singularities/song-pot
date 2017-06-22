@@ -5,7 +5,9 @@ var FrontPage = require('../pages/front'),
     registerPage = new sessionPages.Register(),
     loginPage = new sessionPages.Login(),
     BandsPage = require('../pages/bands'),
-    bandsPage = new BandsPage();
+    bandsPage = new BandsPage(),
+    BandPage = require('../pages/band'),
+    bandPage = new BandPage();
 
 describe('session', () => {
 
@@ -34,8 +36,24 @@ describe('session', () => {
 
   describe('in a band page', () => {
 
-    xit('should login registered user and add it to a band', () => {
+    beforeEach(() => {
 
+      bandPage.get();
+    });
+
+    it('should login registered user and add it to a band', () => {
+
+      sessionPage.showLogin();
+
+      loginPage.login();
+
+      bandPage.waitForBand(global.fixtures.band.name);
+
+      bandsPage.openBandsMenu();
+
+      expect(bandsPage.getBands()).toContain(global.fixtures.band.name);
+
+      bandsPage.closeBandsMenu();
     });
   });
 });
