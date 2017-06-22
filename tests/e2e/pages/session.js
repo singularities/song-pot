@@ -47,7 +47,7 @@ class SessionForm {
 
   setBand (name = global.fixtures.band.name) {
     this.bandInput.clear();
-    
+
     return this.bandInput.sendKeys(name);
   }
 
@@ -162,6 +162,12 @@ class Session {
 
     this.sessionForm.goToOtherAction();
 
+  }
+
+  showLogin() {
+    // TODO support for frontpage, which shows register directly
+
+    this.sessionBar.showForm();
   }
 
   logout () {
