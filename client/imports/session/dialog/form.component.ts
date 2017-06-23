@@ -28,7 +28,7 @@ export class SessionDialogFormComponent {
     if (event['bandId']) {
       this.router.navigate(['bands', event['bandId']]);
     } else if (this.bandService.currentBand()) {
-      MeteorObservable.call('band.join', this.bandService.currentBand()._id).zone();
+      MeteorObservable.call('band.join', this.bandService.currentBand()._id).subscribe();
     }
   }
 
