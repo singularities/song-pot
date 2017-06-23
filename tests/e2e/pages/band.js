@@ -2,6 +2,7 @@ class BandPage {
 
   constructor() {
     this.bandNameElement = element(by.css('.band-name'));
+    this.addSongElement = element(by.css('button.song-add'));
   }
 
   get(id = global.fixtures.band.id) {
@@ -14,6 +15,10 @@ class BandPage {
 
   waitForBand(name) {
     browser.wait(protractor.ExpectedConditions.textToBePresentInElement(this.bandNameElement, name));
+  }
+
+  addSong() {
+    this.addSongElement.click();
   }
 }
 

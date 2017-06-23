@@ -43,6 +43,8 @@ class SessionForm {
     this.formButton = element(by.css('form button[type=submit]'));
 
     this.otherActionLink = element(by.css('.other-action-link a'));
+
+    this.overlayBackdropElement = element(by.css('.cdk-overlay-backdrop.cdk-overlay-backdrop-showing'));
   }
 
   setBand (name = global.fixtures.band.name) {
@@ -69,6 +71,12 @@ class SessionForm {
 
   waitForAfterLoginUrl () {
     browser.wait(() => browser.getCurrentUrl().then((url) => url.indexOf(AfterLoginUrl) === 0));
+  }
+
+  // Wait until the form backdrop disappears
+  waitForOverlayBackdrop () {
+
+    browser.wait(protractor.ExpectedConditions.not(protractor.ExpectedConditions.presenceOf(this.overlayBackdropElement)));
   }
 
   goToOtherAction() {
@@ -130,6 +138,8 @@ class Login extends SessionForm {
 
     this.submit();
 
+    this.waitForOverlayBackdrop();
+
     if (options.waitForAfterLoginUrl) {
       this.waitForAfterLoginUrl();
     }
@@ -168,6 +178,15 @@ class Session {
     // TODO support for frontpage, which shows register directly
 
     this.sessionBar.showForm();
+  }
+
+  login () {
+
+    this.sessionBar.showForm();
+
+    let login = new Login();
+
+    login.login();
   }
 
   logout () {
