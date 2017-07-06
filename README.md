@@ -35,3 +35,11 @@ meteor test --driver-package=practicalmeteor:mocha --port 3002
 ```
 
 and point your browser to `localhost:3002`
+
+End to end tests are run using
+
+```bash
+npm run test:e2e
+```
+
+Note that you must have your `meteor` server running for e2e tests
