@@ -28,9 +28,7 @@ class Fixtures {
     // that wraps commands in parenthesis
     // https://github.com/meteor/meteor/issues/8823
     .then(() => meteorPage.exec(`
-      "");
       import { Bands } from "./imports/collections";
-      (
       Bands.collection.insert({
         name: "${ this.band.name }",
         createdAt: new Date(),
