@@ -111,6 +111,8 @@ class Register extends SessionForm {
 
     this.submit();
 
+    this.waitForOverlayBackdrop();
+    
     if (options.waitForAfterLoginUrl) {
       this.waitForAfterLoginUrl();
     }
