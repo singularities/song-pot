@@ -9,8 +9,10 @@ bands {
 
   md-toolbar {
     .brand {
+      color: white;
       font-family: 'Kaushan Script';
       line-height: 30px;
+      text-decoration: none;
 
       img {
         vertical-align: middle;
