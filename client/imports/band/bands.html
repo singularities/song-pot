@@ -32,9 +32,13 @@
         <md-icon>menu</md-icon>
       </button>
 
-      <span *ngIf="! currentBand" class="brand desktop-brand">
-        Song Pot
-      </span>
+      <a routerLink="/" class="brand desktop-brand">
+        <img src="/images/icon-32.png" fxHide fxShow.gt-sm>
+        <span class="brand-name" *ngIf="! currentBand">
+          Song Pot
+        </span>
+      </a>
+
       <span class="band-name" [mdMenuTriggerFor]="bandsMenu">{{ currentBand?.name }}</span>
       <button md-icon-button *ngIf="bands" [mdMenuTriggerFor]="bandsMenu" class="bands-menu-trigger">
         <md-icon>arrow_drop_down</md-icon>
