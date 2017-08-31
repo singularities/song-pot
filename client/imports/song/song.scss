@@ -11,6 +11,11 @@ song {
 
   .song-mobile {
 
+    .title {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
     .text,
     .song-editing {
       padding: 16px;
