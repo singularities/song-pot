@@ -22,6 +22,8 @@ class SessionToolbar {
     browser.wait(this.sessionMenuButton.isPresent());
 
     this.sessionMenuButton.click();
+
+    browser.wait(protractor.ExpectedConditions.elementToBeClickable(this.logoutButton));
     this.logoutButton.click();
 
     browser.wait(() => browser.getCurrentUrl().then((url) => url === config.baseUrl + '/'));
@@ -112,7 +114,7 @@ class Register extends SessionForm {
     this.submit();
 
     this.waitForOverlayBackdrop();
-    
+
     if (options.waitForAfterLoginUrl) {
       this.waitForAfterLoginUrl();
     }
