@@ -5,13 +5,13 @@
   <div fxLayout="column" fxLayoutAlign="space-around center" fxFlex="nogrow">
 
     <section class="bpm" fxLayout="row" fxLayoutAlign="start center">
-      <md-input-container fxFlex>
+      <md-form-field fxFlex>
         <input mdInput
                type="number"
                [placeholder]="'metronome.bpm.label' | translate"
                [(ngModel)]="bpm"
                step="1">
-      </md-input-container>
+      </md-form-field>
 
       <div class="bpm-buttons">
         <md-icon (click)="bpm = bpm - 1">remove</md-icon>
@@ -20,13 +20,13 @@
     </section>
 
     <section class="bpb" fxLayout="row" fxLayoutAlign="start center">
-      <md-input-container fxFlex>
+      <md-form-field fxFlex>
         <input mdInput
                type="number"
                [placeholder]="'metronome.bpb.label' | translate"
                [(ngModel)]="bpb"
                step="1">
-      </md-input-container>
+      </md-form-field>
 
       <div class="bpm-buttons">
         <md-icon (click)="bpb = bpb - 1">remove</md-icon>

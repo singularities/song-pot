@@ -2,22 +2,22 @@
 
   <div md-dialog-content
        fxLayout="column">
-    <md-input-container *ngIf="action === 'register'">
+    <md-form-field *ngIf="action === 'register'">
       <input mdInput
              name="bandName"
              [placeholder]="'session.band.placeholder' | translate"
              [(ngModel)]="bandName">
-    </md-input-container>
+    </md-form-field>
 
-    <md-input-container *ngIf="action === 'register'">
+    <md-form-field *ngIf="action === 'register'">
       <input mdInput
              name="userName"
              required
              [placeholder]="'session.user.name.placeholder' | translate"
              [(ngModel)]="user.name">
-    </md-input-container>
+    </md-form-field>
 
-    <md-input-container *ngIf="action === 'register' ||
+    <md-form-field *ngIf="action === 'register' ||
                                action === 'login' ||
                                action === 'forgotPassword'">
       <input mdInput
@@ -30,9 +30,9 @@
       <md-hint *ngIf="action === 'forgotPassword'">
         <span translate>session.forgotPassword.email.hint</span>
       </md-hint>
-    </md-input-container>
+    </md-form-field>
 
-    <md-input-container *ngIf="action === 'login' ||
+    <md-form-field *ngIf="action === 'login' ||
                                action === 'resetPassword'">
       <input mdInput
              name="userPassword"
@@ -41,7 +41,7 @@
              [placeholder]="'session.user.password.placeholder' | translate"
              [(ngModel)]="user.password">
 
-    </md-input-container>
+    </md-form-field>
 
 
     <div *ngIf="action === 'login'" class="forgot-password-link">

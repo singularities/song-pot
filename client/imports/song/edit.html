@@ -1,17 +1,17 @@
 <form fxLayout="column">
-  <md-input-container>
+  <md-form-field>
     <input mdInput
            [placeholder]="'song.title.placeholder' | translate"
            [(ngModel)]="song.title"
            name="title">
-  </md-input-container>
+  </md-form-field>
 
-  <md-input-container>
+  <md-form-field>
     <textarea mdInput
               mdTextareaAutosize
               [placeholder]="'song.text.placeholder' | translate"
               [(ngModel)]="song.text"
               name="text"></textarea>
-  </md-input-container>
+  </md-form-field>
 
 </form>
