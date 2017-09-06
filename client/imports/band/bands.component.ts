@@ -43,6 +43,7 @@ export class BandsComponent {
               private toolbarService: BandToolbarService) { }
 
   ngOnInit() {
+
     Bands.find({})
     .subscribe(bands => {
       this.ngZone.run(() => {
@@ -50,8 +51,8 @@ export class BandsComponent {
 
         this.bandService.bandsChanged$.next(bands);
       });
+    });
 
-    })
     this.bandsSub = MeteorObservable.subscribe('bands').subscribe();
 
     this.bandChangedSub = this.bandService.bandChanged$
@@ -68,6 +69,7 @@ export class BandsComponent {
   }
 
   ngOnDestroy() {
+
     this.bandsSub.unsubscribe();
 
     this.bandChangedSub.unsubscribe();
@@ -78,6 +80,7 @@ export class BandsComponent {
   }
 
   newBand() {
+
     let dialogRef = this.dialog.open(BandDialogCreate);
 
     dialogRef.afterClosed().subscribe(name => {
@@ -100,5 +103,4 @@ export class BandsComponent {
       }
     });
   }
-
 }
