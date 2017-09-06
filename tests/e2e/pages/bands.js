@@ -6,6 +6,7 @@ class BandsPage {
     this.bandsMenuElements = element.all(by.css('.mat-menu-panel button'));
     this.bandsMenuCreateElement = element(by.css('.mat-menu-panel button:last-child'));
     this.bandsMenuBackdrop = element(by.css('.cdk-overlay-backdrop.cdk-overlay-backdrop-showing'));
+    this.emptyBandsElement = element(by.css('band-empty'));
 
     this.brandElementText = 'Song Pot';
     this.bandsMenuCreateElementText = 'Create new band';

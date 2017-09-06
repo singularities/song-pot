@@ -10,4 +10,4 @@
   </md-grid-tile>
 </md-grid-list>
 
-<band-empty *ngIf="bands && ! bands.length"></band-empty>
+<band-empty *ngIf="! bands || ! bands.length"></band-empty>

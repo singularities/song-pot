@@ -37,6 +37,7 @@ describe('session', () => {
       bandsPage.waitForBrand();
 
       expect(bandsPage.getBrand()).toEqual('Song Pot');
+      expect(bandsPage.emptyBandsElement.isPresent()).toBe(true);
     });
 
     it('should register a new user with a band', () => {
