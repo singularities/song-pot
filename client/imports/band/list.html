@@ -10,4 +10,10 @@
   </md-grid-tile>
 </md-grid-list>
 
-<band-empty *ngIf="! bands || ! bands.length"></band-empty>
+<band-empty *ngIf="bands && ! bands.length"></band-empty>
+
+<div *ngIf="! bands"
+     fxLayout="row"
+     fxLayoutAlign="center center">
+  <md-spinner></md-spinner>
+</div>
