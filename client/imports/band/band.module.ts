@@ -1,7 +1,17 @@
 import { NgModule }       from '@angular/core';
 import { CommonModule }   from '@angular/common';
 import { FormsModule }    from '@angular/forms';
-import { MaterialModule } from '@angular/material';
+import { MdButtonModule,
+         MdCardModule,
+         MdDialogModule,
+         MdGridListModule,
+         MdIconModule,
+         MdInputModule,
+         MdListModule,
+         MdMenuModule,
+         MdSidenavModule,
+         MdSnackBarModule,
+         MdToolbarModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -23,7 +33,17 @@ import { BandRoutingModule } from './band-routing.module';
   imports: [
     CommonModule,
     FormsModule,
-    MaterialModule,
+    MdButtonModule,
+    MdCardModule,
+    MdDialogModule,
+    MdGridListModule,
+    MdIconModule,
+    MdInputModule,
+    MdListModule,
+    MdMenuModule,
+    MdSidenavModule,
+    MdSnackBarModule,
+    MdToolbarModule,
     FlexLayoutModule,
     TranslateModule,
     SessionModule,

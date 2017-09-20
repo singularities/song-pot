@@ -1,6 +1,8 @@
 import { NgModule }       from '@angular/core';
 import { CommonModule }   from '@angular/common';
-import { MdToolbarModule, MdCardModule } from '@angular/material';
+import { MdCardModule,
+         MdSnackBarModule,
+         MdToolbarModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -13,8 +15,9 @@ import { DiscourseRoutingModule } from './discourse-routing.module';
 @NgModule({
   imports: [
     CommonModule,
-    MdToolbarModule,
     MdCardModule,
+    MdSnackBarModule,
+    MdToolbarModule,
     FlexLayoutModule,
     TranslateModule,
     SessionModule,

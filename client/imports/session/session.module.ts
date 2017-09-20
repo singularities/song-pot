@@ -1,7 +1,12 @@
 import { NgModule }       from '@angular/core';
 import { CommonModule }   from '@angular/common';
 import { FormsModule }    from '@angular/forms';
-import { MaterialModule } from '@angular/material';
+import { MdButtonModule,
+         MdDialogModule,
+         MdIconModule,
+         MdInputModule,
+         MdMenuModule,
+         MdSnackBarModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -18,7 +23,12 @@ import { NoSessionGuard } from './no-session-guard.service';
   imports: [
     CommonModule,
     FormsModule,
-    MaterialModule,
+    MdButtonModule,
+    MdDialogModule,
+    MdIconModule,
+    MdInputModule,
+    MdMenuModule,
+    MdSnackBarModule,
     FlexLayoutModule,
     TranslateModule,
   ],

@@ -1,7 +1,16 @@
 import { NgModule }       from '@angular/core';
 import { CommonModule }   from '@angular/common';
 import { FormsModule }    from '@angular/forms';
-import { MaterialModule } from '@angular/material';
+import { MdButtonModule,
+         MdCardModule,
+         MdDialogModule,
+         MdIconModule,
+         MdInputModule,
+         MdListModule,
+         MdMenuModule,
+         MdProgressSpinnerModule,
+         MdSnackBarModule,
+         MdToolbarModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -25,7 +34,16 @@ import { SongRoutingModule } from './song-routing.module';
   imports: [
     CommonModule,
     FormsModule,
-    MaterialModule,
+    MdButtonModule,
+    MdCardModule,
+    MdDialogModule,
+    MdIconModule,
+    MdInputModule,
+    MdListModule,
+    MdMenuModule,
+    MdProgressSpinnerModule,
+    MdSnackBarModule,
+    MdToolbarModule,
     FlexLayoutModule,
     TranslateModule,
     AudioModule,

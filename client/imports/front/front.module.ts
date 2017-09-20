@@ -1,7 +1,9 @@
 import { NgModule }       from '@angular/core';
 import { CommonModule }   from '@angular/common';
 import { FormsModule }    from '@angular/forms';
-import { MaterialModule } from '@angular/material';
+import { MdDialogModule,
+         MdIconModule,
+         MdToolbarModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -16,7 +18,9 @@ import { FrontRoutingModule } from './front-routing.module';
   imports: [
     CommonModule,
     FormsModule,
-    MaterialModule,
+    MdDialogModule,
+    MdIconModule,
+    MdToolbarModule,
     FlexLayoutModule,
     TranslateModule,
     SessionModule,
