@@ -26,6 +26,14 @@ meteor
 
 Access the app at `localhost:3000`
 
+### Run the Android app
+
+Meteor provides with Cordova integration out of the box. Instructions on how to
+set up the environment can be found at the [Meteor Mobile guide](https://guide.meteor.com/mobile.html)
+
+It basically involves installing the Android SDK, setting env variables and connecting the device (or create an emulator)
+Then, you can add the platform `meteor add-platform android` and `meteor run android` (emulator) or `meteor run android-device` (real device)
+
 ## Testing
 
 For running unit test, execute
