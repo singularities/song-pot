@@ -101,6 +101,10 @@ export class SongComponent implements OnInit {
       .subscribe((params: Params) => { this.editing = params['child'] === 'edit' } );
 
     this.bandToolbarService.changeToolbar(false);
+
+    if (Meteor.isCordova) {
+      window['plugins'].insomnia.keepAwake();
+    }
   }
 
   ngOnDestroy() {
@@ -111,6 +115,10 @@ export class SongComponent implements OnInit {
     this.songService.changeSong(null);
 
     this.bandToolbarService.changeToolbar(true);
+
+    if (Meteor.isCordova) {
+      window['plugins'].insomnia.allowSleepAgain();
+    }
   }
 
   swipe(direction) {
