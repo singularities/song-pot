@@ -15,6 +15,8 @@ before_install:
   - curl https://install.meteor.com | /bin/sh
 before_script:
   - npm run dist
+  # https://github.com/angular/webdriver-manager/issues/307#issuecomment-377684918
+  - node ./node_modules/protractor/bin/webdriver-manager update --gecko=false
   - docker build -t singularitiesorg/song-pot .
   - docker-compose up -d
   - export PATH=$PATH:/usr/lib/chromium-browser/
