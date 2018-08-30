@@ -34,6 +34,8 @@ set up the environment can be found at the [Meteor Mobile guide](https://guide.m
 It basically involves installing the Android SDK, setting env variables and connecting the device (or create an emulator)
 Then, you can add the platform `meteor add-platform android` and `meteor run android` (emulator) or `meteor run android-device` (real device)
 
+If you want to test files (i.e. song audios), you must use special options. See [jalik ufs mobile testing info](https://github.com/jalik/jalik-ufs#mobile-testing)
+
 ## Testing
 
 For running unit test, execute
